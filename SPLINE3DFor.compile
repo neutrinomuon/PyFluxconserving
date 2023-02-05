@@ -1,0 +1,1 @@
+f2py -c --opt=-O3 ../Modules/DataTypes.f90 SPLINE3DFor.f90 -m SPLINE3DFor
