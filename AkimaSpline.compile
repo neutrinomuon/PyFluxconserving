@@ -1,1 +1,0 @@
-f2py -c --opt=-O3 ../Modules/DataTypes.f90 AkimaSpline.f90 -m AkimaSpline

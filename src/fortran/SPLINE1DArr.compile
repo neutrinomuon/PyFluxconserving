@@ -1,0 +1,5 @@
+f2py     -c --opt=-O3 ../Modules/DataTypes.f90 SPLINE1DArr.f90 -m SPLINE1DArr
+f2py3.8  -c --opt=-O3 ../Modules/DataTypes.f90 SPLINE1DArr.f90 -m SPLINE1DArr
+f2py3.9  -c --opt=-O3 ../Modules/DataTypes.f90 SPLINE1DArr.f90 -m SPLINE1DArr
+f2py3.10 -c --opt=-O3 ../Modules/DataTypes.f90 SPLINE1DArr.f90 -m SPLINE1DArr
+f2py3.11 -c --opt=-O3 ../Modules/DataTypes.f90 SPLINE1DArr.f90 -m SPLINE1DArr

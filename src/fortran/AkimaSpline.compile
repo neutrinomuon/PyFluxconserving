@@ -1,0 +1,5 @@
+f2py     -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 -m AkimaSpline
+f2py3.8  -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 -m AkimaSpline
+f2py3.9  -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 -m AkimaSpline
+f2py3.10 -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 -m AkimaSpline
+f2py3.11 -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 -m AkimaSpline

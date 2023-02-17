@@ -1,1 +1,0 @@
-f2py -c --opt=-O3 ../Modules/DataTypes.f90 SPLINE1DArr.f90 -m SPLINE1DArr

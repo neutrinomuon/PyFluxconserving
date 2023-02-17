@@ -1,1 +1,0 @@
-f2py -c --opt=-O3 ../Modules/DataTypes.f90 SPLINECubic.f90 -m SPLINECubic

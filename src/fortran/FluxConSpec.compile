@@ -1,0 +1,5 @@
+f2py     -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 LINinterpol.f90 SPLINE1DArr.f90 SPLINE3DFor.f90 Interpolado.f90 LINdexerpol.f90 FluxConSpec.f90 -m FluxConSpec
+f2py3.8  -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 LINinterpol.f90 SPLINE1DArr.f90 SPLINE3DFor.f90 Interpolado.f90 LINdexerpol.f90 FluxConSpec.f90 -m FluxConSpec
+f2py3.9  -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 LINinterpol.f90 SPLINE1DArr.f90 SPLINE3DFor.f90 Interpolado.f90 LINdexerpol.f90 FluxConSpec.f90 -m FluxConSpec
+f2py3.10 -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 LINinterpol.f90 SPLINE1DArr.f90 SPLINE3DFor.f90 Interpolado.f90 LINdexerpol.f90 FluxConSpec.f90 -m FluxConSpec
+f2py3.11 -c --opt=-O3 DataTypes.f90 AkimaSpline.f90 LINinterpol.f90 SPLINE1DArr.f90 SPLINE3DFor.f90 Interpolado.f90 LINdexerpol.f90 FluxConSpec.f90 -m FluxConSpec

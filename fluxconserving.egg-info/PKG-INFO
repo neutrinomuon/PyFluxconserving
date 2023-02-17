@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: fluxconserving
+Version: 0.0.1
+Summary: Flux-conserving legacy routines in Fortran and Python
+Home-page: https://github.com/neutrinomuon/FluxConserving
+Author: Jean Gomes
+Author-email: antineutrinomuon@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Fortran
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# Flux-conserving
+
+
