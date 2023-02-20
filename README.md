@@ -60,7 +60,7 @@ flux-conserved, some options can be chosen for the interpolation:
 <tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
 spline is a C1 differentiable function (that is, has a continuous first
 derivative) but, in general, will have a discontinuous second derivative at
-the knot points.<br>
+the knot points.<p>
                                                                            
 [1]: Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting
 Based on Local Procedures. Journal of the ACM, 17(4), 589-602. Association for
