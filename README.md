@@ -134,26 +134,25 @@ a table of pair values.<p>
 
 <ol>
 
-<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
-B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
-ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
-href="http://numerical.recipes/">http://numerical.recipes/</a></li>
-
-<li>Burden, R. L., & Faires, J. D. (2010). <i>Numerical analysis</i> (9th
-ed.). Brooks/Cole. DOI: 10.1007/978-0-387-77854-3. Link: <a
-href="https://link.springer.com/book/10.1007%2F978-0-387-77854-3">https://link.springer.com/book/10.1007%2F978-0-387-77854-3</a></li>
-
-<li>Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
-engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065. Link: <a
-href="https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064">https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064</a></li>
-
+<li>Burden, R. L., & Faires, J. D. (1985). <i>Numerical analysis</i> (3rd
+ed.). PWS-Kent. ISBN: 978-1305253667. Link: <a
+href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663</a></li>
 
 <li>Atkinson, K. E. (1989). <i>An introduction to numerical analysis</i> (2nd
 ed.). John Wiley & Sons. DOI: 10.1002/9780470753763, Link: <a
 href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a></li>
 
-<li>Burden, R. L., & Faires, J. D. (1985). <i>Numerical analysis</i> (3rd
-ed.). PWS-Kent. ISBN: 978-1305253667. Link: <a
+<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
+B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
+ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
+href="http://numerical.recipes/">http://numerical.recipes/</a></li>
+
+<li>Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
+engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065. Link: <a
+href="https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064">https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064</a></li>
+
+<li>Burden, R. L., & Faires, J. D. (2015). <i>Numerical analysis (10th
+ed.)</i> (9th ed.). Cengage Learning. ISBN: 978-1305253667. Link: <a
 href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663</a></li>
 
 </ol>
