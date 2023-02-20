@@ -186,10 +186,6 @@ to Splines for Use in Computer Graphics and Geometric Modeling</em>. Morgan
 Kaufmann Publishers. ISBN: 978-1558604000. Link: <a
 href="https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006">https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006</a></li>
 
-<li>Burden, R. L., &amp; Faires, J. D. (2010). <em>Numerical Analysis</em>
-(9th ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a
-href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a></li>
-
 <li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
 B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
 ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
