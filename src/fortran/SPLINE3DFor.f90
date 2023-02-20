@@ -32,12 +32,39 @@
 !     PYTHON : Python compatibility using f2py revised. Better usage        !
 !              with numpy.                                                  !
 !                                                                           !
-!     References :                                                          !
-!     1) Forsythe, G.E. (1977) Computer Methods For Mathematical            !
-!     Computations. Ed. Prentice-Hall, Inc.                                 !
-!                                                                           !
-!     2) Bartels et al. (1998)                                              !
-!                                                                           !
+!     References :
+!
+!     1) Forsythe, G.E. (1977) Computer Methods For Mathematical
+!     Computations. Ed. Prentice-Hall, Inc. Link:
+!     https://www.abebooks.com/9780131653323/Computer-Methods-Mathematical-Computations-Prentice-Hall-0131653328/plp
+!
+!     2) De Boor, C. (1978). A Practical Guide to
+!     Splines. Springer-Verlag. DOI: 10.1007/978-1-4757-0457-4. Link:
+!     https://www.springer.com/gp/book/9780387953663
+!
+!     3) Smith, L. (1995). A cubic spline algorithm based on a modified
+!     divided difference. Mathematics and Computers in Simulation, 39(3),
+!     347-350. DOI: 10.1016/0378-4754(94)00122-8. Link:
+!     https://www.sciencedirect.com/science/article/abs/pii/0378475494001228
+!
+!     4) Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). An Introduction
+!     to Splines for Use in Computer Graphics and Geometric Modeling. Morgan
+!     Kaufmann Publishers. ISBN: 978-1558604000. Link:
+!     https://www.elsevier.com/books/an-introduction-to-splines-for-use-in-computer-graphics-and-geometric-modeling/bartels/978-1-55860-400-0
+!
+!     5) Burden, R. L., & Faires, J. D. (2010). Numerical Analysis (9th
+!     ed.). Brooks/Cole. ISBN: 978-0538733519. Link:
+!     https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519
+!
+!     6) Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery,
+!     B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd
+!     ed.). Cambridge University Press. ISBN: 978-0521880688. Link:
+!     http://numerical.recipes/
+!
+!     7) Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and
+!     Computing (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link:
+!     https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758
+!
 !     Written: Jean Michel Gomes                                            !
 !     Checked: Tue May  1 16:09:13 WEST 2012                                !
 !              Fri Dec 28 14:55:10 WET  2012                                !
