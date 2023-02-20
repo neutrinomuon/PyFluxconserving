@@ -215,7 +215,7 @@ href="http://numerical.recipes/">Link</a></li>
 
 <li>Cheney, W. and Kincaid, D. (2008). <em>Numerical Mathematics and
 Computing</em> (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
-href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">Link</a></li>
+href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a></li>
 
 </ol>
 </td></tr>
