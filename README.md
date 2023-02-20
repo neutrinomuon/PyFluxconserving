@@ -194,11 +194,6 @@ href="https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235">https://
 Splines</em>. Springer-Verlag. ISBN: 978-0-387-95366-3. Link: <a
 href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></li>
 
-<li>Smith, L. (1995). A cubic spline algorithm based on a modified divided
-difference. <em>Mathematics and Computers in Simulation</em>, 39(3),
-347-350. DOI: 10.1016/0378-4754(94)00122-8. Link: <a
-href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">https://www.sciencedirect.com/science/article/abs/pii/0378475494001228</a></li>
-
 <li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). <em>An Introduction
 to Splines for Use in Computer Graphics and Geometric Modeling</em>. Morgan
 Kaufmann Publishers. ISBN: 978-1558604000. Link: <a
