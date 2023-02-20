@@ -47,7 +47,10 @@ resolution and avoid introducing significant errors in the data.
 In summary, the principle of flux density conservation is important to
 consider when binning astronomical spectra, and astronomers need to scale the
 intensity of each binned pixel to ensure that the total energy emitted by the
-object is conserved.
+object is conserved. SpectRes from A. Carnall is included as a comparison: <a
+href='https://github.com/ACCarnall/SpectRes'>https://github.com/ACCarnall/SpectRes</a>.
+
+Accompanying there are several routines for interpolations.
 
 You can easily install <a
 href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
