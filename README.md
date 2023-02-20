@@ -68,7 +68,7 @@ Computing Machinery. DOI:10.1145/321607.321609. Link: <a
 href='https://dl.acm.org/doi/10.1145/321607.321609'>https://dl.acm.org/doi/10.1145/321607.321609</a></td></tr>
 
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
-a table of pair values.
+a table of pair values.<p>
 
 
 <ol>
