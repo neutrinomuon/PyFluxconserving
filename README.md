@@ -49,6 +49,32 @@ consider when binning astronomical spectra, and astronomers need to scale the
 intensity of each binned pixel to ensure that the total energy emitted by the
 object is conserved.
 
+You can easily install <a
+href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
+<a href='https://pypi.org/'>PyPI - The Python Package Index</a>: <pre> <code>
+pip install pyfluxconserving </code> </pre> or by using a generated conda
+repository <a
+href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
+
+[![badgetanaconda](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)
+[![badgetreleasedate](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)
+[![badgetplatforms](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg
+)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg)
+<pre>
+<code>
+conda install -c neutrinomuon pyfluxconserving
+</code>
+</pre>
+OBS.: Linux, OS-X and Windows pre-compilations available in conda.
+
+You can also clone the repository and install by yourself in your machine:
+<pre>
+<code>
+git clone https://github.com/neutrinomuon/FluxConserving
+python setup.py install
+</code>
+</pre>
+
 Here, the method used is with the Cumulative function to produce a new
 flux-conserved, some options can be chosen for the interpolation:
 
@@ -199,32 +225,6 @@ spline interpolation. The same references as in 4)</td></tr>
 
 </table>
 </center>
-
-You can easily install <a
-href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
-<a href='https://pypi.org/'>PyPI - The Python Package Index</a>: <pre> <code>
-pip install pyfluxconserving </code> </pre> or by using a generated conda
-repository <a
-href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
-
-[![badgetanaconda](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)
-[![badgetreleasedate](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)
-[![badgetplatforms](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg
-)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg)
-<pre>
-<code>
-conda install -c neutrinomuon pyfluxconserving
-</code>
-</pre>
-OBS.: Linux, OS-X and Windows pre-compilations available in conda.
-
-You can also clone the repository and install by yourself in your machine:
-<pre>
-<code>
-git clone https://github.com/neutrinomuon/FluxConserving
-python setup.py install
-</code>
-</pre>
 
 The main structure of the directories and files are:
 
