@@ -147,7 +147,7 @@ href="http://numerical.recipes/">http://numerical.recipes/</a></li>
 engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065. Link: <a
 href="https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064">https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064</a></li>
 
-<li>Burden, R. L., & Faires, J. D. (2015). <i>Numerical analysis (10th
+<li>Burden, R. L., Faires, J. D. & A.M. Burden (2015). <i>Numerical analysis (10th
 ed.)</i> (9th ed.). Cengage Learning. ISBN: 978-1305253667. Link: <a
 href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663</a></li>
 
