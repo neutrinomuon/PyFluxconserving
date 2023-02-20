@@ -16,7 +16,7 @@ ext1 = Extension(  name='pyfluxconserving.flib',
                  )
     
 setup( name='pyfluxconserving',
-       version='0.0.1',
+       version='0.0.2',
        ext_modules=[ ext1 ],
        extra_compile_args=['-O3'],
        description='Flux-conserving legacy routines in Fortran and Python',
