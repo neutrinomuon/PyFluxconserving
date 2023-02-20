@@ -4,7 +4,7 @@ from numpy.distutils.core import setup
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-ext1 = Extension(  name='fluxconserving.flib',
+ext1 = Extension(  name='pyfluxconserving.flib',
                    sources=[ 'src/fortran/DataTypes.f90',
                              'src/fortran/LINinterpol.f90',
                              'src/fortran/AkimaSpline.f90',
@@ -15,7 +15,7 @@ ext1 = Extension(  name='fluxconserving.flib',
                              'src/fortran/FluxConSpec.f90' ]
                  )
     
-setup( name='fluxconserving',
+setup( name='pyfluxconserving',
        version='0.0.1',
        ext_modules=[ ext1 ],
        extra_compile_args=['-O3'],
@@ -24,15 +24,15 @@ setup( name='fluxconserving',
        long_description_content_type="text/markdown",
        author='Jean Gomes',
        author_email='antineutrinomuon@gmail.com',
-       url='https://github.com/neutrinomuon/FluxConserving',
+       url='https://github.com/neutrinomuon/Pyfluxconserving',
        install_requires=[ 'numpy','matplotlib' ],
        classifiers=[
            "Programming Language :: Python :: 3",
            "Programming Language :: Fortran",
            "Operating System :: OS Independent",
                    ],
-       package_dir={"fluxconserving": "src/python"},
-       packages=['fluxconserving'],
+       package_dir={"pyfluxconserving": "src/python"},
+       packages=['pyfluxconserving'],
        data_files=[('', ['version.txt'])],
       )
     

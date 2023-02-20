@@ -9,8 +9,8 @@ J.G. - Jean Gomes
 <hr>
 
 [![My Skills](https://skillicons.dev/icons?i=python,fortran,c,numpy&theme=light)](https://skillicons.dev)<br>
-[![python3](https://img.shields.io/pypi/pyversions/pyintegralall)](https://img.shields.io/pypi/pyversions/pyintegralall)
-[![badgetlicense](https://anaconda.org/neutrinomuon/pyintegralall/badges/license.svg)](https://anaconda.org/neutrinomuon/pyintegralall/badges/license.svg)
+[![python3](https://img.shields.io/pypi/pyversions/pyfluxconserving)](https://img.shields.io/pypi/pyversions/pyfluxconserving)
+[![badgetlicense](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/license.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/license.svg)
 
 <hr>
 
@@ -67,19 +67,19 @@ flux-conserved, some options can be chosen for the interpolation:
 </center>
 
 You can easily install <a
-href=https://pypi.org/project/pyintegralall/>pyintegralall</a> by using pip -
+href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
 <a href='https://pypi.org/'>PyPI - The Python Package Index</a>: <pre> <code>
-pip install pyintegralall </code> </pre> or by using a generated conda
+pip install pyfluxconserving </code> </pre> or by using a generated conda
 repository <a
-href='https://anaconda.org/neutrinomuon/pyintegralall'>https://anaconda.org/neutrinomuon/pyintegralall</a>:
+href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
 
-[![badgetanaconda](https://anaconda.org/neutrinomuon/pyintegralall/badges/version.svg)](https://anaconda.org/neutrinomuon/pyintegralall/badges/version.svg)
-[![badgetreleasedate](https://anaconda.org/neutrinomuon/pyintegralall/badges/latest_release_date.svg)](https://anaconda.org/neutrinomuon/pyintegralall/badges/latest_release_date.svg)
-[![badgetplatforms](https://anaconda.org/neutrinomuon/pyintegralall/badges/platforms.svg
-)](https://anaconda.org/neutrinomuon/pyintegralall/badges/platforms.svg)
+[![badgetanaconda](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)
+[![badgetreleasedate](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)
+[![badgetplatforms](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg
+)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg)
 <pre>
 <code>
-conda install -c neutrinomuon pyintegralall
+conda install -c neutrinomuon pyfluxconserving
 </code>
 </pre>
 OBS.: Linux, OS-X and Windows pre-compilations available in conda.
