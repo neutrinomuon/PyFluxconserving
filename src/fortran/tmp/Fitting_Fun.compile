@@ -1,1 +1,0 @@
-f2py -c --opt=-O3 --opt=-lapack ../Modules/DataTypes.f90 Fitting_Fun.f90 -m Fitting_Fun

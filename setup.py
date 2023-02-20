@@ -6,12 +6,12 @@ with open("README.md", "r") as fh:
 
 ext1 = Extension(  name='pyfluxconserving.flib',
                    sources=[ 'src/fortran/DataTypes.f90',
-                             'src/fortran/LINinterpol.f90',
                              'src/fortran/AkimaSpline.f90',
-                             'src/fortran/SPLINE1DArr.f90',
-                             'src/fortran/SPLINE3DFor.f90',
                              'src/fortran/Interpolado.f90',
                              'src/fortran/LINdexerpol.f90',
+                             'src/fortran/LINinterpol.f90',
+                             'src/fortran/SPLINE1DArr.f90',
+                             'src/fortran/SPLINE3DFor.f90',
                              'src/fortran/FluxConSpec.f90' ]
                  )
     

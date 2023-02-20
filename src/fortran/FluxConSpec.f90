@@ -13,12 +13,15 @@
 !              interpolated:                                                !
 !                                                                           !
 !              Interpolation Schemes:                                       !
-!              00) slow_int -> LINinterpol                                  !
-!              01) slow_int -> SPLINE3DFor                                  !
-!              02) slow_int -> SPLINE1DArr                                  !
-!              03) slow_int -> AkimaSpline                                  !
-!              04) slow_int -> Interpolado                                  !
-!              05) slow_int -> LINdexerpol                                  !
+!              00) slow_int -> AkimaSpline                                  !
+!              01) slow_int -> Interpolado                                  !
+!              02) slow_int -> LINdexerpol                                  !
+!              03) slow_int -> LINinterpol                                  !
+!              04) slow_int -> SPLINE1DArr                                  !
+!              05) slow_int -> SPLINE3DArr                                  !
+!              06) slow_int -> SPLINECubic                                  !
+!                                                                           !
+!              The default is LINinterpol                                   !
 !                                                                           !
 !     Input           arguments = 7                                         !
 !     Output          arguments = 2                                         !
@@ -289,31 +292,28 @@ SUBROUTINE FluxConSpec( Orlambda,Orfluxes,Nrlambda,O_lambda,O_fluxes,       &
        call LINinterpol( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
                          N_lambda+1,ilastval,IsKeepOn,IsShowOn )
     case (0)
-       ilastval = -999
-       call LINinterpol( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
-                         N_lambda+1,ilastval,IsKeepOn,IsShowOn )
-    case (1)
-       call SPLINE3DArr( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
-                         N_lambda+1,IsKeepOn,IsShowOn )
-    case (2)
-       e = 1.0e-8_RP
-       Is_Index = 0_IB
-       call SPLINE1DArr( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
-                         N_lambda+1,e,IsKeepOn,IsShowOn )
-    case (3)
        delta_x = 0.1
        call AkimaSpline( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
                          N_lambda+1,delta_x,IsKeepOn,IsShowOn )
-
-    case (4)
+    case (1)
        Is_Index = 0_IB
        call Interpolado( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
                          N_lambda+1,IsKeepOn,Is_Index,IsShowOn )
-
-    case (5)
+    case (2)
        call LINdexerpol( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
                          N_lambda+1,IsKeepOn,IsShowOn )
-
+    case (3)
+       ilastval = -999
+       call LINinterpol( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
+                         N_lambda+1,ilastval,IsKeepOn,IsShowOn )
+    case (4)
+       e = 1.0e-8_RP
+       Is_Index = 0_IB
+       call SPLINE1DArr( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
+                         N_lambda+1,e,IsKeepOn,Is_Index,IsShowOn )
+    case (5)
+       call SPLINE3DArr( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
+                         N_lambda+1,IsKeepOn,IsShowOn )
     end select
 ! *** Interpolate cumulative function ***************************************
 

@@ -15,7 +15,7 @@ J.G. - Jean Gomes
 <hr>
 
 <div align="center">
-<img src='tutorials/Definite_Integral.png' width="50%">
+<img src='tutorials/fluxconserving.png' width="50%">
 </div>
 
 RESUME : Original Fortran 2003+ routines date back to 2003-2004. Read the <a

@@ -26,8 +26,9 @@ import numpy as np
 import random
 import time
 
-from fluxconserving import flib as interp
-from fluxconserving import califa_cmap_alternative as califa_cmap
+from pyfluxconserving import flib as interp
+from pyfluxconserving import califa_cmap_alternative as califa_cmap
+from pyfluxconserving import fluxconserve
 
 from spectres  import spectral_resampling as sr
 from spectres import spectral_resampling_numba as srn
@@ -37,8 +38,7 @@ from scipy.interpolate import CubicSpline
 from scipy.interpolate import BSpline
 
 class PyFluxConSpec(object):
-    '''Created on 
-Last version on Wed Sep 23 14:33:51 2020
+    '''Created on Last version on Wed Sep 23 14:33:51 2020
 
     @author: Jean Gomes Copyright (c)
 
@@ -66,14 +66,14 @@ RESUME : Rebinning of input vector on a new grid and returns the
                   interpolated:                                                
                                                                            
                   Interpolation Schemes:                                       
-                  00) slow_int -> LINinterpol                                  
-                  01) slow_int -> SPLINE3DFor                                  
-                  02) slow_int -> SPLINE1DArr                                  
-                  03) slow_int -> pchipmodule                                  
-                  04) slow_int -> AkimaSpline                                  
-                  05) slow_int -> Interpolado                                  
-                  06) slow_int -> LINdexerpol                                  
-                  07) slow_int -> poly_interp
+                  00) slow_int -> AkimaSpline
+                  01) slow_int -> Interpolado
+                  02) slow_int -> LINdexerpol
+                  03) slow_int -> LINinterpol
+                  04) slow_int -> SPLINE1DArr
+                  05) slow_int -> SPLINE3DArr
+                  06) slow_int -> SPLINECubic
+
     
 Input                    arguments = 7 
 Output                 arguments = 2
@@ -173,7 +173,7 @@ author_fluxconspec in python
         plt.title('Original versus New Interpolated Values')
         plt.show()
     
-    def TestRoutine():
+    def TestRoutine( z=5.52 ):
         print("... Create a sine wave function")
         x1 = np.arange(-0.5,np.pi/2.0,0.23)
         x2 = np.arange(np.pi/2.0,np.pi,0.010)
@@ -184,7 +184,6 @@ author_fluxconspec in python
         x1 = np.sort(x1)
 
         #print("x1",x1)
-        z = 5.52
         x = np.concatenate([x1,x2,x3])
         x = x / (1. + z)
         #x = np.concatenate([x1,x2])
@@ -248,7 +247,14 @@ author_fluxconspec in python
         print("")
         
         # Types of interpolation used in the cumulative curve
-        interpolation_names = ['Linear  Table Indexing    ' , 'Cubic Spline                   ', 'One Dimensional Spline ',  'Akima Interpolation        ', 'Simple Interpolation       ','Indexer Interpolation      ']
+        #interpolation_names = [']
+                               
+        interpolation_names = [ 'Akima Interpolation       ', 
+                                                    'Linear    Interpolation    ', 
+                                                    'Linear  Table Indexing    ', 
+                                                    'Simple Interpolation      ', 
+                                                    'One Dimensional Spline ', 
+                                                    'SPLINE 3D Array             ', ]
         N_slows = len(interpolation_names)
         
         # Compute Areas
@@ -286,6 +292,12 @@ author_fluxconspec in python
             string_f = "y_new_{0:} = {1:} {2:<12.6f}".format(i,string_,A)
             d[string_f] = y_new,A
 
+        # Compute Area from simple python script
+        model_resampled_fluxconserve = fluxconserve.fluxconserve( x, y, x_new, kind='linear', fill_val=fill_val )
+        A = np.trapz(model_resampled_fluxconserve[i_to_integrate],x=x_new[i_to_integrate])
+        string_f = "fluxconserve.py in  Python script      | A = {0:<12.6f}".format(A)
+        d[string_f] = model_resampled_fluxconserve,A
+        
         # Compute Area from Spectral Resampling
         A = np.trapz(model_resampled[i_to_integrate],x=x_new[i_to_integrate])
         #print(A,int3,A/int3)
@@ -296,7 +308,7 @@ author_fluxconspec in python
         #print("... Interpolation of array:")
         #print(x_new)
         print()
-        #print(d)
+        print(d)
         
         Figure = plt.figure( figsize=(12,10),dpi=120,facecolor='w',edgecolor='w' )
         plt.subplots_adjust(bottom=.02, left=.06, right=.95, top=.98, wspace=0.0, hspace=0.0) 
@@ -311,10 +323,7 @@ author_fluxconspec in python
         xmin  = -1.8
         xmax = +10.7
         
-        # xmin=-1.8
-        # xmax=2.5
-        
-        ylimmin = -1.2
+        ylimmin = -0.2
         ylimmax = +5.2
         ax1_top.set_xlim( xmin,xmax )
         ax1_top.set_ylim( ylimmin,ylimmax )
@@ -372,7 +381,7 @@ author_fluxconspec in python
 
         #specify order of items in legend
         order1 = np.array( [0,1], dtype=int )
-        order2 = np.arange(2,N_slows+4,1)
+        order2 = np.arange(2,N_slows+5,1)
         order = np.concatenate( [order1,order2], dtype=int )
         
         #add legend to plot
