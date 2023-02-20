@@ -70,17 +70,17 @@ Based on Local Procedures. <i>Journal of the ACM</i>, 17(4),
 10.1145/321607.321609. Link: <a
 href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a></li>
 
-<li>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. DOI:
-10.1007/978-1-4757-0457-4. Link: <a
+<li>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. ISBN:
+978-0-387-95366-3. Link: <a
 href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></li>
 
 <li>Forsythe, G.E. (1979) <i>Computer Methods for Mathematical
-Computations</i>. Prentice-Hall, Inc. Link: <a
+Computations</i>. Prentice-Hall, Inc. DOI: 10.1002/zamm.19790590235. Link: <a
 href="https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235</a></li>
 
 <li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1987). An Introduction to
 Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann
-Publishers. ISBN: 978-1558604000. Link: <a
+Publishers. Link: <a
 href="https://www.osti.gov/biblio/5545263">https://www.osti.gov/biblio/5545263</a></li>
 
 <li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
