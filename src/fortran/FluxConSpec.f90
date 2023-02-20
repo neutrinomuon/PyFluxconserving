@@ -19,7 +19,6 @@
 !              03) slow_int -> LINinterpol                                  !
 !              04) slow_int -> SPLINE1DArr                                  !
 !              05) slow_int -> SPLINE3DArr                                  !
-!              06) slow_int -> SPLINECubic                                  !
 !                                                                           !
 !              The default is LINinterpol                                   !
 !                                                                           !

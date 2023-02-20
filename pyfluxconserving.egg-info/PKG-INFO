@@ -1,3 +1,18 @@
+Metadata-Version: 2.1
+Name: pyfluxconserving
+Version: 0.0.1
+Summary: Flux-conserving legacy routines in Fortran and Python
+Home-page: https://github.com/neutrinomuon/Pyfluxconserving
+Author: Jean Gomes
+Author-email: antineutrinomuon@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Fortran
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
 # FluxConserving
 ##  A fortran legacy package to easy compute the flux-density conservation
 email: antineutrinomuon@gmail.com, jean@astro.up.pt
@@ -118,86 +133,61 @@ The main structure of the directories and files are:
 
 <pre>
 <code>
-FluxConserving
+IntegralALL
 ├── dist
-│   └── pyfluxconserving-0.0.1.tar.gz
+│   └── pyintegralall-0.0.1.tar.gz
 ├── README.md
-├── LICENSE.txt
-├── setup.py
-├── tutorials
-│   ├── fluxconserving.png
-│   └── Flux-Conserving Example.ipynb
-├── pyfluxconserving.egg-info
+├── pyintegralall.egg-info
 │   ├── PKG-INFO
 │   ├── dependency_links.txt
 │   ├── SOURCES.txt
 │   ├── top_level.txt
 │   └── requires.txt
+├── LICENSE.txt
+├── setup.py
+├── build.bat
+├── tutorials
+│   ├── Example1 - IntegralALL.ipynb
+│   └── .ipynb_checkpoints
+│       └── Example1 - IntegralALL-checkpoint.ipynb
+├── build.sh
 ├── src
 │   ├── python
-│   │   ├── PyFluxConSpec.py
-│   │   ├── califa_cmap_alternative.py
-│   │   ├── PyLinear__int.py
-│   │   ├── PyLINinterpol.py
-│   │   ├── PySPLINECubic.py
-│   │   ├── fluxconserve.py
 │   │   ├── __init__.py
-│   │   ├── PySPLINE1DArr.py
-│   │   ├── PySPLINE3DFor.py
-│   │   ├── fluxconserving.png
-│   │   ├── PyAkimaSpline.py
-│   │   ├── PySPLINE3DAlt.py
-│   │   ├── PyInterpolado.py
-│   │   └── PyLINdexerpol.py
+│   │   └── PyIntegralALL.py
 │   └── fortran
-│       ├── LINdexerpol.f90
-│       ├── SPLINE3DFor.cpython-39-x86_64-linux-gnu.so
-│       ├── SPLINE1DFlt.cpython-39-x86_64-linux-gnu.so
-│       ├── SPLINE3DFor.compile
-│       ├── FluxConSpec.compile
-│       ├── SPLINE1DArr.compile
-│       ├── Interpolado.cpython-39-x86_64-linux-gnu.so
-│       ├── Interpolado.cpython-38-x86_64-linux-gnu.so
-│       ├── SPLINE1DFlt.f90
-│       ├── AkimaSpline.f90
-│       ├── SPLINE1DArr.f90
-│       ├── SPLINE1DFlt.cpython-38-x86_64-linux-gnu.so
-│       ├── SPLINE3DFor.cpython-38-x86_64-linux-gnu.so
-│       ├── AkimaSpline.compile
+│       ├── IntegralALL.compile
+│       ├── IntegralALL.f90
+│       ├── IntegralALL.cpython-39-x86_64-linux-gnu.so
 │       ├── DataTypes.f90
-│       ├── LINdexerpol.compile
-│       ├── SPLINE3DFor.f90
-│       ├── SPLINE1DFlt.compile
-│       ├── Interpolado.f90
-│       ├── SPLINE1DFlt.cpython-310-x86_64-linux-gnu.so
-│       ├── FluxConSpec.f90
-│       ├── Interpolado.cpython-310-x86_64-linux-gnu.so
-│       ├── LINdexerpol.cpython-310-x86_64-linux-gnu.so
-│       ├── README.txt
-│       ├── Interpolado.compile
-│       ├── SPLINE3DFor.cpython-310-x86_64-linux-gnu.so
+│       ├── GaussLegendreQuadrature.cpython-39-x86_64-linux-gnu.so
+│       ├── LINinterpol.compile
+│       ├── GaussLegendreQuadrature.f90
+│       ├── LINinterpol.cpython-39-x86_64-linux-gnu.so
 │       ├── LINinterpol.f90
-│       ├── LINdexerpol.cpython-39-x86_64-linux-gnu.so
-│       └── LINdexerpol.cpython-38-x86_64-linux-gnu.so
+│       └── GaussLegendreQuadrature.compile
 ├── version.txt
+├── meta.yaml
 └── build
     ├── lib.linux-x86_64-3.9
-    │   └── pyfluxconserving
+    │   └── pyintegralall
     ├── src.linux-x86_64-3.9
-    │   ├── pyfluxconserving
+    │   ├── pyintegralall
     │   ├── build
     │   └── numpy
     └── temp.linux-x86_64-3.9
-        ├── pyfluxconserving
+        ├── pyintegralall
+        ├── __pycache__
         ├── ccompiler_opt_cache_ext.py
         ├── src
-        ├── .libs
         └── build
 
-18 directories, 56 files
+19 directories, 28 files
 </code>
 </pre>
 
 PyFluxConSPec.py is a python wrapper to the library in fortran called
 pyfluxconserving.flib. The fortran directory can be compiled separately for
 each individual subroutine.
+
+
