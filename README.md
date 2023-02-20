@@ -144,7 +144,7 @@ ed.). Brooks/Cole. DOI: 10.1007/978-0-387-77854-3, Link: <a
 href="https://link.springer.com/book/10.1007%2F978-0-387-77854-3">https://link.springer.com/book/10.1007%2F978-0-387-77854-3</a></li>
 
 <li>Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
-engineers</i> (6th ed.). McGraw-Hill. DOI: 10.1080/03081079808818664, Link: <a
+engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065, Link: <a
 href="https://www.mheducation.com/highered/product/numerical-methods-engineers-chapra-canale/9780073401065.html">https://www.mheducation.com/highered/product/numerical-methods-engineers-chapra-canale/9780073401065.html</a></li>
 
 <li>Atkinson, K. E. (1989). <i>An introduction to numerical analysis</i> (2nd
