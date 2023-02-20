@@ -170,7 +170,7 @@ SUBROUTINE FluxConSpec( Orlambda,Orfluxes,Nrlambda,O_lambda,O_fluxes,       &
     countdel = count( (O_lambda(2:N_lambda)-O_lambda(1:N_lambda-1))<=0.0_RP )
     if ( countdel > 0_IB ) then
         write (*,'(4x,a)')  '[PROBLEM_FIT] @@@@@@@@@@@@@@@@@@@@@@@@'
-        write (*,'(4x,a)')  '[FluxConSpec] λ-> Is not monotonically'
+        write (*,'(4x,a)')  '[FluxConSpec] l-> Is not monotonically'
 
         IsKeepOn = 0_IB
         return
@@ -194,7 +194,7 @@ SUBROUTINE FluxConSpec( Orlambda,Orfluxes,Nrlambda,O_lambda,O_fluxes,       &
         write (W1aux,'(f17.5)') llow_new
         write (W2aux,'(f17.5)') lupp_new
         write (*,'(4x,5(a))') '[Re-sampling] ==> ',trim(adjustl(W1aux)),    &
-                              ' <---> ',trim(adjustl(W2aux)),' Å'
+                              ' <---> ',trim(adjustl(W2aux)),' A'
         write (*,'(4x,a,i10,a,i10,a)')                                      &
                      '------------------------------------------------------'
         write (*,'(4x,a,i12,a,i12,a)')                                      &
@@ -238,7 +238,7 @@ SUBROUTINE FluxConSpec( Orlambda,Orfluxes,Nrlambda,O_lambda,O_fluxes,       &
 
     if ( count(auxvecxx(2:N_lambda)-auxvecxx(1:N_lambda-1)<=0.0_RP )>0_IB ) then
         write (*,'(4x,a)')  '[PROBLEM_FIT] @@@@@@@@@@@@@@@@@@@@@@@@'
-        write (*,'(4x,a)')  '[FluxConSpec] λ is not monotonical @@@'
+        write (*,'(4x,a)')  '[FluxConSpec] l is not monotonical @@@'
 
         IsKeepOn = 0_IB
         return
@@ -628,4 +628,3 @@ END SUBROUTINE author_FluxConSpec
 !
 ! 1) FluxConSpec
 ! 2) author_FluxConSpec
-

@@ -5,8 +5,6 @@ Summary: Flux-conserving legacy routines in Fortran and Python
 Home-page: https://github.com/neutrinomuon/Pyfluxconserving
 Author: Jean Gomes
 Author-email: antineutrinomuon@gmail.com
-License: UNKNOWN
-Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Fortran
 Classifier: Operating System :: OS Independent
@@ -307,5 +305,3 @@ FluxConserving
 PyFluxConSPec.py is a python wrapper to the library in fortran called
 pyfluxconserving.flib. The fortran directory can be compiled separately for
 each individual subroutine.
-
-
