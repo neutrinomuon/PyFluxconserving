@@ -5,7 +5,7 @@ Revised interface on Sat Jan 30 12:07:21 2021
 
 @author: Jean Gomes
 
-RESUME : Spline3DFor subroutine is written in fortran 2003 standard.
+RESUME : Spline3DFor subroutine is written in Fortran 2003+ standard.
 
 Version: v01 beta
 
@@ -22,8 +22,8 @@ from pylab import *
 import matplotlib.pyplot as plt
 
 import numpy as np
-import SPLINE3DFor as interp
-import  AkimaSpline as interp1
+
+from pyfluxconserving import flib as interp
 
 import scipy.interpolate as interpolate
 from scipy.interpolate import CubicSpline
@@ -295,8 +295,8 @@ author_spline3dfor in python
 
         # Calling Akima Spline interpolation
         delta_x = 0.1
-        y_interp_Akima,IsKeepOn = interp1.akimaspline( x_interp, x, y, delta__x=delta_x, verbosity=verbosity )
-        y_new_interp_Akima,IsKeepOn = interp1.akimaspline( x_new_interp, x_new, y_new, delta__x=delta_x, verbosity=verbosity )
+        y_interp_Akima,IsKeepOn = interp.akimaspline( x_interp, x, y, delta__x=delta_x, verbosity=verbosity )
+        y_new_interp_Akima,IsKeepOn = interp.akimaspline( x_new_interp, x_new, y_new, delta__x=delta_x, verbosity=verbosity )
 
         # Cubic Spline using scipy
         cs          = CubicSpline( x,y,bc_type='natural' )
@@ -443,7 +443,7 @@ author_spline3dfor in python
                
                 # Calling Akima Spline interpolation
                 auxil2time = time.time()
-                #y_interp_Akima,IsKeepOn = interp1.akimaspline( x_interp, x, y, delta__x=delta_x, verbosity=verbosity )
+                #y_interp_Akima,IsKeepOn = interp.akimaspline( x_interp, x, y, delta__x=delta_x, verbosity=verbosity )
                 scipy_akima_object = interpolate.Akima1DInterpolator( x,y )
                 y_interp_scipy = scipy_akima_object( x_interp )
                 

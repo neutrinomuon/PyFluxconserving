@@ -3,7 +3,7 @@
 """
 Created on Sat Jan 30 12:07:21 2021
 
-RESUME : Interpolation script calling Akima Spline in Fortran and Scipy!
+RESUME : Interpolation script calling Akima Spline in Fortran!
     
 Version: v01 beta
 
@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 
-from fluxconserving import flib as interp
+from pyfluxconserving import flib as interp
 import scipy.interpolate as interp1
 
 import scipy.interpolate as interpolate

@@ -188,18 +188,15 @@ optional arguments. The interpolation is linear.<p>
 
 <li>Forsythe, G.E. (1977) <em>Computer Methods For Mathematical
 Computations</em>. Ed. Prentice-Hall, Inc. <a
-href="https://www.abebooks.com/9780131653323/Computer-Methods-Mathematical-Computations-Prentice-Hall-0131653328/plp">Link</a></li>
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235</a></li>
 
 <li>De Boor, C. (1978). <em>A Practical Guide to
-Splines</em>. Springer-Verlag. DOI: <a
-href="https://doi.org/10.1007/978-1-4757-0457-4">10.1007/978-1-4757-0457-4</a>. Link:
-<a href="https://www.springer.com/gp/book/9780387953663">Link</a></li>
+Splines</em>. Springer-Verlag. ISBN: 978-0-387-95366-3. Link: <a
+href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></li>
 
 <li>Smith, L. (1995). A cubic spline algorithm based on a modified divided
 difference. <em>Mathematics and Computers in Simulation</em>, 39(3),
-347-350. DOI: <a
-href="https://doi.org/10.1016/0378-4754(94)00122-8">10.1016/0378-4754(94)00122-8</a>. Link:
-<a
+347-350. DOI: 10.1016/0378-4754(94)00122-8. Link: <a
 href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">Link</a></li>
 
 <li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). <em>An Introduction

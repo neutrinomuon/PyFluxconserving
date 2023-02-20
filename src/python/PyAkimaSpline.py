@@ -3,7 +3,7 @@
 """
 Created on Sat Jan 30 12:07:21 2021
 
-RESUME : Interpolation script calling Akima Spline in Fortran and Scipy!
+RESUME : Interpolation script calling Akima Spline in Fortran!
     
 Version: v01 beta
 

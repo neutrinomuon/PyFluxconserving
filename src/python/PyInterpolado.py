@@ -3,7 +3,7 @@ Revised interface on Sat Jan 30 12:07:21 2021
 
 @author: Jean Gomes
 
-RESUME :  Interpolation script calling Interpolado in Fortran and Scipy!
+RESUME :  Interpolation script calling Interpolado in Fortran!
 
 Version: v01 beta
 
@@ -18,9 +18,8 @@ from pylab import *
 import matplotlib.pyplot as plt
 
 import numpy as np
-import Interpolado as interp
 
-import AkimaSpline as interp1
+from pyfluxconserving import flib as interp 
 
 import scipy.interpolate as interpolate
 from scipy.interpolate import CubicSpline
@@ -163,8 +162,8 @@ author_interpolado in python
         
         # Calling Akima Spline interpolation
         delta_x = 0.1
-        y_interp_Akima,IsKeepOn = interp1.akimaspline( x_interp, x, y, delta__x=delta_x, verbosity=verbosity )
-        y_new_interp_Akima,IsKeepOn = interp1.akimaspline( x_new_interp, x_new, y_new, delta__x=delta_x, verbosity=verbosity )
+        y_interp_Akima,IsKeepOn = interp.akimaspline( x_interp, x, y, delta__x=delta_x, verbosity=verbosity )
+        y_new_interp_Akima,IsKeepOn = interp.akimaspline( x_new_interp, x_new, y_new, delta__x=delta_x, verbosity=verbosity )
 
         # Cubic Spline using scipy
         cs          = CubicSpline( x,y,bc_type='natural' )
@@ -310,7 +309,7 @@ author_interpolado in python
                
                 # Calling Akima Spline interpolation
                 auxil2time = time.time()
-                #y_interp_Akima,IsKeepOn = interp1.akimaspline( x_interp, x, y, delta__x=delta_x, verbosity=verbosity )
+                #y_interp_Akima,IsKeepOn = interp.akimaspline( x_interp, x, y, delta__x=delta_x, verbosity=verbosity )
                 scipy_akima_object = interpolate.Akima1DInterpolator( x,y )
                 y_interp_scipy = scipy_akima_object( x_interp )
                 
@@ -372,9 +371,9 @@ author_interpolado in python
         
 def main():
     i_object = Interpolado
-    #i_object.TestRoutine()
+    i_object.TestRoutine()
     
-    i_object.time()
+    #i_object.time()
     
     #x = np.arange(0,2.0*np.pi,0.2)
     #y = np.sin(x**2)

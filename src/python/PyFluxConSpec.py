@@ -5,7 +5,7 @@ Revised interface on Sat Jan 30 12:07:21 2021
 
 @author: Jean Gomes
 
-RESUME : FluxConSpec subroutine is written in fortran 2003 standard. Flux -conserving 
+RESUME : FluxConSpec subroutine is written in fortran 2003+ standard. Flux -conserving 
                   interpolation script.
 
 Version: v01 beta

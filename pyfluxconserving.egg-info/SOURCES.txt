@@ -22,9 +22,7 @@ src/python/PyLINdexerpol.py
 src/python/PyLINinterpol.py
 src/python/PyLinear__int.py
 src/python/PySPLINE1DArr.py
-src/python/PySPLINE3DAlt.py
 src/python/PySPLINE3DFor.py
-src/python/PySPLINECubic.py
 src/python/__init__.py
 src/python/califa_cmap_alternative.py
 src/python/fluxconserve.py
