@@ -48,6 +48,24 @@ consider when binning astronomical spectra, and astronomers need to scale the
 intensity of each binned pixel to ensure that the total energy emitted by the
 object is conserved.
 
+Here, the method used is with the Cumulative function to produce a new
+flux-conserved, some options can be chosen for the interpolation:
+
+<center>
+<table>
+
+<tr><td>Integer Number</td><td>Option: Interpolation Schemes</td>Brief Description</tr>
+
+<tr><td>0)</td><td>LINinterpol</td><td>BBBBBBBBB</td></tr>
+<tr><td>1)</td><td>SPLINE3DFor</td><td>BBBBBBBBB</td></tr>
+<tr><td>2)</td><td>SPLINE1DArr</td><td>BBBBBBBBB</td></tr>
+<tr><td>3)</td><td>AkimaSpline</td><td>BBBBBBBBB</td></tr>
+<tr><td>4)</td><td>Interpolado</td><td>BBBBBBBBB</td></tr>
+<tr><td>5)</td><td>LINdexerpol</td><td>BBBBBBBBB</td></tr>
+
+</table>
+</center>
+
 You can easily install <a
 href=https://pypi.org/project/pyintegralall/>pyintegralall</a> by using pip -
 <a href='https://pypi.org/'>PyPI - The Python Package Index</a>: <pre> <code>
@@ -64,12 +82,12 @@ href='https://anaconda.org/neutrinomuon/pyintegralall'>https://anaconda.org/neut
 conda install -c neutrinomuon pyintegralall
 </code>
 </pre>
-OBS.: Linux and OS-X pre-compilation in conda.
+OBS.: Linux, OS-X and Windows pre-compilations available in conda.
 
 You can also clone the repository and install by yourself in your machine:
 <pre>
 <code>
-git clone https://github.com/neutrinomuon/IntegralALL
+git clone https://github.com/neutrinomuon/FluxConserving
 python setup.py install
 </code>
 </pre>
