@@ -26,7 +26,7 @@ import scipy.interpolate as interpolate
 from scipy.interpolate import CubicSpline
 from scipy.interpolate import BSpline
 
-class PyLINdexerpol(object):
+class LINdexerpol(object):
     """Created on 
 Last version on Wed Sep 23 14:33:51 2020
 
@@ -370,10 +370,10 @@ author_lindexerpol in python
         plt.show()
         
 def main():
-    i_object = PyLINdexerpol
-    i_object.TestRoutine()
+    i_object = LINdexerpol
+    #i_object.TestRoutine()
     
-    #i_object.time()
+    i_object.time()
     
     #x = np.arange(0,2.0*np.pi,0.2)
     #y = np.sin(x**2)

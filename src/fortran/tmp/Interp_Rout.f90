@@ -63,7 +63,7 @@
 !                                                                           !
 !    [4] https://en.wikipedia.org/wiki/Clenshaw%E2%80%93Curtis_quadrature   !
 !                                                                           !
-!     Written: Jean Michel Gomes © Copyright ®                              !
+!     Written: Jean Michel Gomes                                            !
 !     Checked: Wed May  2 10:00:52 WEST 2012                                !
 !              Fri Dec 28 13:53:36 WET  2012                                !
 !              Sun Mar 10 10:05:03 WET  2013                                !
@@ -255,7 +255,7 @@ END SUBROUTINE CC_absc__ab
 !
 !    Output, real ( kind = 8 ) X(N), the abscissas.
 !
-SUBROUTINE f1_abscissas ( n, x )
+SUBROUTINE f1_abscissas( x,n )
 
   implicit none
 
@@ -332,7 +332,7 @@ END SUBROUTINE f1_abscissas
 !
 !    Output, real ( kind = 8 ) X(N), the abscissas.
 !
-subroutine f1_abscissas_ab ( a, b, n, x )
+subroutine f1_abscissas_ab( x,n,a,b )
   implicit none
 
   integer ( kind = 4 ) n
@@ -417,7 +417,7 @@ END subroutine f1_abscissas_ab
 !    Output, real ( kind = 8 ) X(N), the abscissas.
 !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-SUBROUTINE f2_abscissas ( n, x )
+SUBROUTINE f2_abscissas( x,n )
 
   implicit none
 
@@ -479,7 +479,7 @@ END SUBROUTINE f2_abscissas
 !    Output, real ( kind = 8 ) X(N), the abscissas.
 !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-subroutine f2_abscissas_ab ( a, b, n, x )
+subroutine f2_abscissas_ab ( x,n,a,b )
   implicit none
 
   integer ( kind = 4 ) n
@@ -515,7 +515,7 @@ END subroutine f2_abscissas_ab
 !              interpolation. For a given array of values 'xx_value'        !
 !              for the abscissa, then return the ordinate array values      !
 !              of 'yy_value' based on a linear interpolation within a       !
-!              table of pair values [xold_vec, yold_vec]. This              !
+!              table of pair values [ xold_vec,yold_vec ]. This             !
 !              subroutine assumes that the values in the array              !
 !              xold_vec increases monotonically with yold_vec. Note         !
 !              that the user may request extrapolation.                     !
@@ -530,14 +530,17 @@ END subroutine f2_abscissas_ab
 !              nold_vec are <= ten (10).                                    !
 !                                                                           !
 !     INPUT  : 01) xx_value  -> New interpolated x array with points        !
-!              02) nxyvalue  -> # of elements in xx_value and yy_value      !
-!              02) xold_vec  -> Old x vector (abcissas)                     !
-!              03) yold_vec  -> Old y vector (ordenadas)                    !
-!              04) nold_vec  -> # of elements in xold_vec and yold_vec      !
-!              05) verbosity -> Print & Check screen                        !
+!              02) nxyvalue  -> # of elements in xx_value                   !
+!              03) mxyvalue  -> # of dimensions                             !
+!              04) xold_vec  -> Old x vector (abcissas)                     !
+!              05) yold_vec  -> Old y vector (ordenadas)                    !
+!              06) nold_vec  -> # of elements in xold_vec and yold_vec      !
+!              07) verbosity -> Print & Check screen                        !
 !                                                                           !
-!     OUTPUT : 01) yy_value -> New interpolated y array with points and     !
-!                              mxyvalue dimensions.                         !
+
+!     OUTPUT : 01) yy_value -> New interpolated y array with nxyvalue       !
+!                              points and mxyvalue dimensions.              !
+
 !                                                                           !
 !     PYTHON : Python compatibility using f2py revised. Better usage        !
 !              with numpy.                                                  !
@@ -592,14 +595,15 @@ SUBROUTINE intlagrange ( xx_value,yy_value,nxyvalue,xold_vec,yold_vec,      &
 !      xold_vec(1:nold_vec) for the interpolation points                   !
 !      xx_value(1:nxyvalue).                                               !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    call lagrangeval (xx_value, l_interp, nxyvalue, xold_vec, nold_vec )
+    call lagrangeval( xx_value,l_interp,nxyvalue,xold_vec,nold_vec )
 
 !  *** Multiply                                                            !
 !      yold_vec(1:mxyvalue,1:nold_vec) * l_interp(1:nold_vec,1:nxyvalue)   !
 !      to get the interpolated yy_value(1:mxyvalue,1:nxyvalue) values.     !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    yy_value(1:mxyvalue,1:nxyvalue) =                                      &
-  matmul ( yold_vec(1:mxyvalue,1:nold_vec),l_interp(1:nold_vec,1:nxyvalue) )
+    yy_value(1:mxyvalue,1:nxyvalue) = matmul(                              &
+                                           yold_vec(1:mxyvalue,1:nold_vec),&
+                                           l_interp(1:nold_vec,1:nxyvalue) )
 
     do j=1,mxyvalue
        where( xx_value(1:nxyvalue) < xold_vec(1) )
@@ -639,11 +643,12 @@ END SUBROUTINE intlagrange
 !              that the user may request extrapolation.                     !
 !                                                                           !
 !     INPUT  : 01) xx_value  -> New interpolated x array with points        !
-!              02) nxyvalue  -> # of elements in xx_value and yy_value      !
-!              02) xold_vec  -> Old x vector (abcissas)                     !
-!              03) yold_vec  -> Old y vector (ordenadas)                    !
-!              04) nold_vec  -> # of elements in xold_vec and yold_vec      !
-!              05) verbosity -> Print & Check screen                        !
+!              02) nxyvalue  -> # of elements in xx_value                   !
+!              03) mxyvalue  -> # of dimensions                             !
+!              04) xold_vec  -> Old x vector (abcissas)                     !
+!              05) yold_vec  -> Old y vector (ordenadas)                    !
+!              06) nold_vec  -> # of elements in xold_vec                   !
+!              07) verbosity -> Print & Check screen                        !
 !                                                                           !
 !     OUTPUT : 01) yy_value -> New interpolated y array with points and     !
 !                              mxyvalue dimensions.                         !
@@ -759,10 +764,10 @@ END SUBROUTINE interp__lin
 !                                                                           !
 !     INPUT  : 01) xx_value  -> New interpolated x array with points        !
 !              02) nxyvalue  -> # of elements in xx_value and yy_value      !
-!              02) xold_vec  -> Old x vector (abcissas)                     !
-!              03) yold_vec  -> Old y vector (ordenadas)                    !
-!              04) nold_vec  -> # of elements in xold_vec and yold_vec      !
-!              05) verbosity -> Print & Check screen                        !
+!              03) xold_vec  -> Old x vector (abcissas)                     !
+!              04) yold_vec  -> Old y vector (ordenadas)                    !
+!              05) nold_vec  -> # of elements in xold_vec and yold_vec      !
+!              06) verbosity -> Print & Check screen                        !
 !                                                                           !
 !     OUTPUT : 01) yy_value -> New interpolated y array with points and     !
 !                              mxyvalue dimensions.                         !
@@ -838,7 +843,7 @@ SUBROUTINE interp_1lin( xx_value,yy_value,nxyvalue,xold_vec,yold_vec,       &
 ! *** Find the interval [ xold_vec(left),xold_vec(right) ] encompassing, or !
 !     near to, x.                                                           !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-       call r8vec_bracket ( nold_vec, xold_vec, x, left, right )
+       call r8vec_bracket( nold_vec,xold_vec,x,left,right )
 
        yy_value(interp) = ( ( xold_vec(right) - x              )            &
                         * yold_vec(left)                                    &

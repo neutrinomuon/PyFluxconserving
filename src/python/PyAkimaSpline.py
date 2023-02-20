@@ -20,7 +20,8 @@ from pylab import *
 import matplotlib.pyplot as plt
 
 import numpy as np
-import AkimaSpline as interp
+
+from fluxconserving import flib as interp
 import scipy.interpolate as interp1
 
 import scipy.interpolate as interpolate

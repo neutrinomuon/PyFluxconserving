@@ -38,7 +38,7 @@
 !                                                                           !
 !     2) Bartels et al. (1998)                                              !
 !                                                                           !
-!     Written: Jean Michel Gomes © Copyright ®                              !
+!     Written: Jean Michel Gomes                                            !
 !     Checked: Tue May  1 16:09:13 WEST 2012                                !
 !              Fri Dec 28 14:55:10 WET  2012                                !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -163,7 +163,7 @@ END SUBROUTINE SPLINECoeff
 !     PYTHON : Python compatibility using f2py revised. Better usage        !
 !              with numpy.                                                  !
 !                                                                           !
-!     Written: Jean Michel Gomes © Copyright ®                              !
+!     Written: Jean Michel Gomes                                            !
 !     Checked: Tue May  1 16:09:13 WEST 2012                                !
 !              Fri Dec 28 14:55:10 WET  2012                                !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -311,7 +311,7 @@ END FUNCTION IfSPLINE3D
 !     PYTHON : Python compatibility using f2py revised. Better usage        !
 !              with numpy.                                                  !
 !                                                                           !
-!     Written: Jean Michel Gomes © Copyright ®                              !
+!     Written: Jean Michel Gomes                                            !
 !     Checked: Tue May  1 16:09:13 WEST 2012                                !
 !              Fri Dec 28 14:55:10 WET  2012                                !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -406,7 +406,7 @@ END FUNCTION SPLINE_Func
 !     PYTHON : Python compatibility using f2py revised. Better usage        !
 !              with numpy.                                                  !
 !                                                                           !
-!     Written: Jean Michel Gomes © Copyright ®                              !
+!     Written: Jean Michel Gomes                                            !
 !     Checked: Tue May  1 16:09:13 WEST 2012                                !
 !              Fri Dec 28 14:55:10 WET  2012                                !
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

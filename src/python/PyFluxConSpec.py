@@ -26,16 +26,11 @@ import numpy as np
 import random
 import time
 
-import sys
-sys.path.insert(1, '/home/jean/Codes/Pynoptic/FluxConserving/src/fortran')
-sys.path.insert(1, '/home/jean/Codes/Pynoptic/FluxConserving/src/python')
-sys.path.insert(1, '/home/jean/Codes/Pynoptic/ColorMaps/')
+from fluxconserving import flib as interp
+from fluxconserving import califa_cmap_alternative as califa_cmap
 
-import FluxConSpec as interp
-#import spectral_resampling_adam as sr
 from spectres  import spectral_resampling as sr
 from spectres import spectral_resampling_numba as srn
-import califa_cmap_alternative as califa_cmap
 
 import scipy.interpolate as interpolate
 from scipy.interpolate import CubicSpline
@@ -210,7 +205,7 @@ author_fluxconspec in python
         per_bins = 1
         
         fill_val = 1.256
-        fill_val = 0.0
+        #fill_val = 0.0
         
         #x_new = [x[0]-0.1,x[0],0.5,1.0,2.3,3.22222,4.66,5.2,6.0,x[-1],x[-1]+0.1]
         #y_new = interp.fluxconspec(x_new,x,y,per_bins,slow_int,IsKeepOn,verbosity)
@@ -253,7 +248,7 @@ author_fluxconspec in python
         print("")
         
         # Types of interpolation used in the cumulative curve
-        interpolation_names = ['Linear  Table Indexing    ' , 'Cubic Spline                   ', 'One Dimensional Spline ', 'Hermite Interpolation     ', 'Akima Interpolation        ', 'Simple Interpolation       ','Indexer Interpolation      ', 'Polynomial Interpolation ']
+        interpolation_names = ['Linear  Table Indexing    ' , 'Cubic Spline                   ', 'One Dimensional Spline ',  'Akima Interpolation        ', 'Simple Interpolation       ','Indexer Interpolation      ']
         N_slows = len(interpolation_names)
         
         # Compute Areas
@@ -316,8 +311,8 @@ author_fluxconspec in python
         xmin  = -1.8
         xmax = +10.7
         
-        xmin=-1.8
-        xmax=2.5
+        # xmin=-1.8
+        # xmax=2.5
         
         ylimmin = -1.2
         ylimmax = +5.2
@@ -340,8 +335,8 @@ author_fluxconspec in python
             if i[0] < len(d)-1:
                 ax1_top.plot(x_new,d[i[1]][0]+0.3*i[0],color=colors[i[0]],linewidth=3,label='{}'.format(i[1]),zorder=i[0]+2)
             else:
-                ax1_top.scatter(x_new,d[i[1]][0]+0.0*i[0],color='purple',linewidth=3,linestyle='--',label='{}'.format(i[1]),zorder=i[0]+2)
                 ax1_top.plot(x_new,d[i[1]][0]+0.0*i[0],color='purple',linewidth=3,linestyle='--',label='{}'.format(i[1]),zorder=i[0]+2)
+                ax1_top.scatter(x_new,d[i[1]][0]+0.0*i[0],color='purple',s=100.0,label='{}'.format(i[1]),zorder=i[0]+3)
 
         ax1_top.fill_between(x_new, y_new_, 0.0, facecolor='orange', alpha=0.6, edgecolor='white', hatch='/',zorder=0)
 
@@ -377,7 +372,7 @@ author_fluxconspec in python
 
         #specify order of items in legend
         order1 = np.array( [0,1], dtype=int )
-        order2 = np.arange(2,N_slows+3,1)
+        order2 = np.arange(2,N_slows+4,1)
         order = np.concatenate( [order1,order2], dtype=int )
         
         #add legend to plot
@@ -439,7 +434,7 @@ author_fluxconspec in python
         i_ = val_array.size
         sizepoints = np.zeros(i_)
         
-        interpolation_names = ['Linear  Table Indexing    ' , 'Cubic Spline                   ', 'One Dimensional Spline ', 'Hermite Interpolation     ', 'Akima Interpolation        ', 'Simple Interpolation       ', 'Indexer Interpolation      ','Polynomial Interpolation','Akima  Spline Scipy', 'Cubic Spline Scipy','Spectral Resampling','Spectral Resampling Numba','Numpy Interpolation'] 
+        interpolation_names = ['Linear  Table Indexing    ' , 'Cubic Spline                   ', 'One Dimensional Spline ', 'Akima Interpolation        ', 'Simple Interpolation       ', 'Indexer Interpolation      ','Akima  Spline Scipy', 'Cubic Spline Scipy','Spectral Resampling','Spectral Resampling Numba','Numpy Interpolation'] 
         N_slows = len(interpolation_names)
         
         colors          = pl.cm.jet(np.linspace(0,1,N_slows))

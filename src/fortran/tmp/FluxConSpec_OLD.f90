@@ -31,7 +31,7 @@
 !              04) O_fluxes -> Old 'Y' vector (Ordinate)                    !
 !              05) N_lambda -> Number of elements in old 'X' vector         !
 !              06) per_bins -> [0: Not conserve flux , 1: Conserve flux  ]  !
-!              07) slow_int -> [0 -- 5]                                     !
+!              07) slow_int -> [0 -- 6]                                     !
 !              08) fill_val  -> Value to fill values outside boundary       !
 !              09) verbosity -> Optional variable to print & check          !
 !                                                                           !
@@ -91,9 +91,11 @@ SUBROUTINE FluxConSpec( Orlambda,Orfluxes,Nrlambda,O_lambda,O_fluxes,       &
     !f2py real     (kind=RP), intent(in) :: Orlambda
     !f2py real     (kind=RP), intent(out) :: Orfluxes
     !f2py                     intent(hide), depend(Orlambda) :: Nrlambda=shape(Orlambda,0)
+    !f2py                     intent(hide), depend(Orfluxes) :: Nrlambda=shape(Orfluxes,0)
 
     !f2py real     (kind=RP), intent(in) :: O_lambda, O_fluxes
     !f2py                     intent(hide), depend(O_lambda) :: N_lambda=shape(O_lambda,0)
+    !f2py                     intent(hide), depend(O_fluxes) :: N_lambda=shape(O_fluxes,0)
 
     !f2py real     (kind=RP), optional :: fill_val=0.0
     
@@ -300,19 +302,102 @@ SUBROUTINE FluxConSpec( Orlambda,Orfluxes,Nrlambda,O_lambda,O_fluxes,       &
        Is_Index = 0_IB
        call SPLINE1DArr( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
                          N_lambda+1,e,IsKeepOn,IsShowOn )
-    case (3)
+       
+!    case (3)
+! --- TEST       ! Compute 1st order derivative
+! --- TEST       allocate( Derivada(N_lambda+1) )
+! --- TEST
+! --- TEST       incfd = 1
+! --- TEST       ierr  = 0
+! --- TEST       call dpchim( N_lambda+1, auxvecxx, O_cumul1, Derivada, incfd, ierr )
+! --- TEST
+! --- TEST       next  = 0
+! --- TEST       O_cumul2 = 0.0_RP
+! --- TEST
+! --- TEST       do indexing=1,Nrlambda+1
+! --- TEST          !findloc_min = minloc( ARRAY=auxvecxx-auxvecyy(indexing), DIM=1,   &
+! --- TEST          !                       MASK=auxvecxx>=auxvecyy(indexing) )
+! --- TEST          !findloc_max = maxloc( ARRAY=auxvecxx-auxvecyy(indexing), DIM=1,   &
+! --- TEST          !                       MASK=auxvecxx<=auxvecyy(indexing) )
+! --- TEST          !
+! --- TEST          !write (*,*)
+! --- TEST          !write (*,*) 'UPPER ==>',findloc_min,findloc_max
+! --- TEST          findloc_min = 1
+! --- TEST          findloc_max = 0
+! --- TEST          
+! --- TEST! *** Binary search for i, such that x(i) <= u <= x(i+1) ********************
+! --- TEST          ii = 1
+! --- TEST          if ( auxvecyy(indexing) >= auxvecxx(1) .AND. auxvecyy(indexing) <= auxvecxx(N_lambda+1) ) then
+! --- TEST             ii = 1
+! --- TEST             jj = N_lambda+1
+! --- TEST             do while (jj > ii+1)
+! --- TEST                k = (ii+jj)/2
+! --- TEST                if (auxvecyy(indexing) < auxvecxx(k)) then
+! --- TEST                   jj=k
+! --- TEST                else
+! --- TEST                   ii=k
+! --- TEST                end if
+! --- TEST             end do
+! --- TEST             findloc_min = ii+1
+! --- TEST             findloc_max = ii
+! --- TEST          else if ( auxvecyy(indexing) < auxvecxx(0) ) then
+! --- TEST             findloc_min = 1
+! --- TEST             findloc_max = 0
+! --- TEST          else if ( auxvecyy(indexing) > auxvecxx(N_lambda) ) then
+! --- TEST             findloc_max = N_lambda+1
+! --- TEST             findloc_min = 0 
+! --- TEST          end if
+! --- TEST
+! --- TEST          !if ( findloc_min < findloc_max .AND. auxvecyy(indexing) < 7.3 ) then
+! --- TEST          !   write (*,*) 'LOWER ==>',findloc_min,findloc_max,indexing,auxvecyy(indexing),auxvecxx(N_lambda+1)
+! --- TEST          !end if
+! --- TEST          !return
+! --- TEST! *** Binary search for i, such that x(i) <= u <= x(i+1) ********************
+! --- TEST
+! --- TEST
+! --- TEST          !write (*,*) findloc_min, findloc_max, indexing!, !, Orlambda(indexing) 
+! --- TEST   
+! --- TEST          !Small problem with the indexes and setting the cumulative function to max or zero
+! --- TEST          if ( (findloc_min > 0) .AND. (findloc_max > 0) .AND.            &
+! --- TEST               (findloc_min /= findloc_max) ) then
+! --- TEST             call dchfev( auxvecxx(findloc_min), auxvecxx(findloc_max),     &
+! --- TEST                          O_cumul1(findloc_min), O_cumul1(findloc_max),     &
+! --- TEST                          Derivada(findloc_min), Derivada(findloc_max),1_IB,&
+! --- TEST                          auxvecyy(indexing), O_cumul2(indexing), next, ierr)
+! --- TEST          else if ( (findloc_min > 0) .AND. (findloc_max > 0) .AND.         &
+! --- TEST                    (findloc_min == findloc_max) ) then
+! --- TEST             O_cumul2(indexing) = O_cumul1(findloc_min)
+! --- TEST          else
+! --- TEST             if ( findloc_min < findloc_max ) then
+! --- TEST                O_cumul2(indexing) = O_cumul2(indexing-1)
+! --- TEST                !O_cumul2(indexing) = maxval(O_cumul1) !0.0_RP
+! --- TEST             end if
+! --- TEST          end if
+! --- TEST          !if (indexing <= Nrlambda ) then
+! --- TEST          !   write (*,*) Orlambda(indexing),auxvecyy(indexing),O_cumul2(indexing),Drlambda(indexing)
+! --- TEST          !end if
+! --- TEST       end do
+! --- TEST
+! --- TEST       deallocate( Derivada )
+
+    case (4)
        delta_x = 0.1
        call AkimaSpline( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
                          N_lambda+1,delta_x,IsKeepOn,IsShowOn )
 
-    case (4)
+    case (5)
        Is_Index = 0_IB
        call Interpolado( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
                          N_lambda+1,IsKeepOn,Is_Index,IsShowOn )
 
-    case (5)
+    case (6)
        call LINdexerpol( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
                          N_lambda+1,IsKeepOn,IsShowOn )
+
+!    case (7)
+       !yydegree = 11
+       !call poly_interp( auxvecyy,O_cumul2,Nrlambda+1,auxvecxx,O_cumul1,    &
+       !                  N_lambda+1,yydegree,IsKeepOn,IsShowOn )
 
     end select
 ! *** Interpolate cumulative function ***************************************
@@ -345,8 +430,8 @@ SUBROUTINE FluxConSpec( Orlambda,Orfluxes,Nrlambda,O_lambda,O_fluxes,       &
 
        ! ratioeps = abs(sumcumul-O_cumul2(indexing))/sumcumul
 
-       !if ( Orlambda(indexing)  < min_base .OR. Orlambda(indexing)  >     &
-       !                           max_base .OR. Orlambda(indexing)  >=    &
+       !if ( Orlambda(indexing)  < min_base .OR. Orlambda(indexing)  >      &
+       !                           max_base .OR. Orlambda(indexing)  >=     &
        !                          maxcumul .OR. ratioeps < tolrance  .OR.  &
        !    Orlambda(indexing) >=                                          &
        !            int(maxval(ARRAY=O_lambda,MASK=O_fluxes/=0.0_RP)) ) then
