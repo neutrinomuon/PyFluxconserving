@@ -197,16 +197,16 @@ href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/g
 <li>Smith, L. (1995). A cubic spline algorithm based on a modified divided
 difference. <em>Mathematics and Computers in Simulation</em>, 39(3),
 347-350. DOI: 10.1016/0378-4754(94)00122-8. Link: <a
-href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">Link</a></li>
+href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">https://www.sciencedirect.com/science/article/abs/pii/0378475494001228</a></li>
 
 <li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). <em>An Introduction
 to Splines for Use in Computer Graphics and Geometric Modeling</em>. Morgan
 Kaufmann Publishers. ISBN: 978-1558604000. Link: <a
-href="https://www.elsevier.com/books/an-introduction-to-splines-for-use-in-computer-graphics-and-geometric-modeling/bartels/978-1-55860-400-0">Link</a></li>
+href="https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006">https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006</a></li>
 
 <li>Burden, R. L., &amp; Faires, J. D. (2010). <em>Numerical Analysis</em>
 (9th ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a
-href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">Link</a></li>
+href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a></li>
 
 <li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
 B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
