@@ -90,6 +90,18 @@ href="https://www.sciencedirect.com/science/article/pii/S0377042713001503">https
 
 </ol>
 
+<ol>
+<li>Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures. Journal of the ACM, 17(4), 589-602. Association for Computing Machinery. <a href="https://dl.acm.org/doi/10.1145/321607.321609">DOI:10.1145/321607.321609</a></li>
+<li>Forsythe, G.E. (1977). Computer Methods For Mathematical Computations. Ed. Prentice-Hall, Inc. <a href="https://www.abebooks.com/9780131653323/Computer-Methods-Mathematical-Computations-Prentice-Hall-0131653328/plp">Link</a></li>
+<li>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. <a href="https://www.springer.com/gp/book/9780387953663">DOI: 10.1007/978-1-4757-0457-4</a></li>
+<li>Smith, L. (1995). A cubic spline algorithm based on a modified divided difference. Mathematics and Computers in Simulation, 39(3), 347-350. <a href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">DOI: 10.1016/0378-4754(94)00122-8</a></li>
+<li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). An Introduction to Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann Publishers. <a href="https://www.elsevier.com/books/an-introduction-to-splines-for-use-in-computer-graphics-and-geometric-modeling/bartels/978-1-55860-400-0">Link</a></li>
+<li>Burden, R. L., & Faires, J. D. (2010). Numerical Analysis (9th ed.). Brooks/Cole. <a href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">Link</a></li>
+<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery, B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd ed.). Cambridge University Press. <a href="http://numerical.recipes/">Link</a></li>
+<li>Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing (6th ed.). Brooks/Cole. <a href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">Link</a></li>
+</ol>
+
+
 
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
 a table of pair values.<p>
