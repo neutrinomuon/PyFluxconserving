@@ -140,11 +140,11 @@ ed.). Cambridge University Press. DOI: 10.1017/CBO9780511807447, Link: <a
 href="https://www.cambridge.org/core/books/numerical-recipes/26C239623E967D1331B31DE7F3A1D74F">https://www.cambridge.org/core/books/numerical-recipes/26C239623E967D1331B31DE7F3A1D74F</a></li>
 
 <li>Burden, R. L., & Faires, J. D. (2010). <i>Numerical analysis</i> (9th
-ed.). Brooks/Cole. DOI: 10.1007/978-0-387-77854-3, Link: <a
+ed.). Brooks/Cole. DOI: 10.1007/978-0-387-77854-3. Link: <a
 href="https://link.springer.com/book/10.1007%2F978-0-387-77854-3">https://link.springer.com/book/10.1007%2F978-0-387-77854-3</a></li>
 
 <li>Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
-engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065, Link: <a
+engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065. Link: <a
 href="https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064">https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064</a></li>
 
 
