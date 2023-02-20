@@ -152,8 +152,8 @@ ed.). John Wiley & Sons. DOI: 10.1002/9780470753763, Link: <a
 href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a></li>
 
 <li>Burden, R. L., & Faires, J. D. (1985). <i>Numerical analysis</i> (3rd
-ed.). PWS-Kent. DOI: 10.2307/2321069, Link: <a
-href="https://www.worldcat.org/title/numerical-analysis/oclc/10843913">https://www.worldcat.org/title/numerical-analysis/oclc/10843913</a></li>
+ed.). PWS-Kent. ISBN: 978-1305253667. Link: <a
+href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663</a></li>
 
 </ol>
 
