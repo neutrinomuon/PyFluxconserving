@@ -15,9 +15,10 @@ J.G. - Jean Gomes
 <hr>
 
 <div align="center">
-<img src='tutorials/fluxconserving.png' width="50%">
+<img src='tutorials/fluxconserving.png' width="60%">
 </div>
 
+<br>
 RESUME : Original Fortran 2003+ routines date back to 2003-2004. Read the <a
 href='https://github.com/neutrinomuon/FluxConserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
 file. When analyzing astronomical spectra, astronomers often bin the data to
