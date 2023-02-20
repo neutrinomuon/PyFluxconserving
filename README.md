@@ -68,7 +68,34 @@ Computing Machinery. DOI:10.1145/321607.321609. Link: <a
 href='https://dl.acm.org/doi/10.1145/321607.321609'>https://dl.acm.org/doi/10.1145/321607.321609</a></td></tr>
 
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
-a table of pair values.</td></tr>
+a table of pair values.
+
+
+<ol>
+
+<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery,
+B. P. (2007). <i>Numerical recipes: The art of scientific computing</i> (3rd
+ed.). Cambridge University Press. DOI: <a
+href="https://doi.org/10.1017/CBO9780511807447">10.1017/CBO9780511807447</a></li>
+
+<li>Burden, R. L., & Faires, J. D. (2010). <i>Numerical analysis</i> (9th
+ed.). Brooks/Cole. DOI: <a
+href="https://doi.org/10.1007/978-0-387-77854-3">10.1007/978-0-387-77854-3</a></li>
+
+<li>Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
+engineers</i> (6th ed.). McGraw-Hill. DOI: <a
+href="https://doi.org/10.1080/03081079808818664">10.1080/03081079808818664</a></li>
+
+<li>Atkinson, K. E. (1989). <i>An introduction to numerical analysis</i> (2nd
+ed.). John Wiley & Sons. DOI: <a
+href="https://doi.org/10.1002/9780470753763">10.1002/9780470753763</a></li>
+
+<li>Burden, R. L., & Faires, J. D. (1985). <i>Numerical analysis</i> (3rd
+ed.). PWS-Kent. DOI: <a
+href="https://doi.org/10.2307/2321069">10.2307/2321069</a></li>
+</ol>
+
+</td></tr>
 
 <tr><td>2)</td><td>LINdexerpol</td><td>Based on a linear interpolation within
 a table of pair values using indexing.</td></tr>
@@ -118,7 +145,7 @@ href='https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495
 </td></tr>
 
 <tr><td>5)</td><td>SPLINE3DFor</td><td>This function evaluates the cubic
-spline interpolation.</td></tr>
+spline interpolation. The same references as in 4)</td></tr>
 
 </table>
 </center>
