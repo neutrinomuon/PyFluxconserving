@@ -70,7 +70,6 @@ href='https://dl.acm.org/doi/10.1145/321607.321609'>https://dl.acm.org/doi/10.11
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
 a table of pair values.<p>
 
-
 <ol>
 
 <li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery,
@@ -98,50 +97,57 @@ href="https://doi.org/10.2307/2321069">10.2307/2321069</a></li>
 </td></tr>
 
 <tr><td>2)</td><td>LINdexerpol</td><td>Based on a linear interpolation within
-a table of pair values using indexing.</td></tr>
+a table of pair values using indexing. The references are the same as in
+1).</td></tr>
 
 <tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
-a table of pair values.</td></tr>
+a table of pair values. The references are the same as in 1).</td></tr>
 
 <tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
-a table of pair values.</td></tr>
+a table of pair values. The references are the same as in 1).</td></tr>
 
 <tr><td>4)</td><td>SPLINE1DArr</td><td>This is a Fortran 2003 subroutine
 called SPLINE1DArr that takes an array of values x to interpolate from the
 arrays t and y. It has ten input arguments, six output arguments, and two
 optional arguments. The interpolation is linear.<p>
 
-[1]: Forsythe, G.E. (1977) Computer Methods For Mathematical
-Computations. Ed. Prentice-Hall, Inc. Link:
-<a href=''>https://www.abebooks.com/9780131653323/Computer-Methods-Mathematical-Computations-Prentice-Hall-0131653328/plp</a>
+<ol>
 
-[2]: De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. DOI:
-10.1007/978-1-4757-0457-4. Link: <a href='https://www.springer.com/gp/book/9780387953663'>
-https://www.springer.com/gp/book/9780387953663</a>
+<li>Forsythe, G.E. (1977) <em>Computer Methods For Mathematical
+Computations</em>. Ed. Prentice-Hall, Inc. <a
+href="https://www.abebooks.com/9780131653323/Computer-Methods-Mathematical-Computations-Prentice-Hall-0131653328/plp">Link</a></li>
 
-[3]: Smith, L. (1995). A cubic spline algorithm based on a modified divided
-difference. Mathematics and Computers in Simulation, 39(3), 347-350. DOI:
-10.1016/0378-4754(94)00122-8. Link: <a
-href='https://www.sciencedirect.com/science/article/abs/pii/0378475494001228'>https://www.sciencedirect.com/science/article/abs/pii/0378475494001228</a>
+<li>De Boor, C. (1978). <em>A Practical Guide to
+Splines</em>. Springer-Verlag. DOI: <a
+href="https://doi.org/10.1007/978-1-4757-0457-4">10.1007/978-1-4757-0457-4</a>. Link:
+<a href="https://www.springer.com/gp/book/9780387953663">Link</a></li>
 
-[4]: Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). An Introduction to
-Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann
-Publishers. ISBN: 978-1558604000. Link: <a
-href='https://www.elsevier.com/books/an-introduction-to-splines-for-use-in-computer-graphics-and-geometric-modeling/bartels/978-1-55860-400-0'>https://www.elsevier.com/books/an-introduction-to-splines-for-use-in-computer-graphics-and-geometric-modeling/bartels/978-1-55860-400-0</a>
+<li>Smith, L. (1995). A cubic spline algorithm based on a modified divided
+difference. <em>Mathematics and Computers in Simulation</em>, 39(3),
+347-350. DOI: <a
+href="https://doi.org/10.1016/0378-4754(94)00122-8">10.1016/0378-4754(94)00122-8</a>. Link:
+<a
+href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">Link</a></li>
 
-[5]: Burden, R. L., & Faires, J. D. (2010). Numerical Analysis (9th
-ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a
-href='https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519'>https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a>
+<li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). <em>An Introduction
+to Splines for Use in Computer Graphics and Geometric Modeling</em>. Morgan
+Kaufmann Publishers. ISBN: 978-1558604000. Link: <a
+href="https://www.elsevier.com/books/an-introduction-to-splines-for-use-in-computer-graphics-and-geometric-modeling/bartels/978-1-55860-400-0">Link</a></li>
 
-[6]: Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery,
-B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd
+<li>Burden, R. L., &amp; Faires, J. D. (2010). <em>Numerical Analysis</em>
+(9th ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a
+href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">Link</a></li>
+
+<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
+B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
 ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
-href='http://numerical.recipes/'>http://numerical.recipes/</a>
+href="http://numerical.recipes/">Link</a></li>
 
-[7]: Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing
-(6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
-href='https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758'>https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a>
+<li>Cheney, W. and Kincaid, D. (2008). <em>Numerical Mathematics and
+Computing</em> (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
+href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">Link</a></li>
 
+</ol>
 </td></tr>
 
 <tr><td>5)</td><td>SPLINE3DFor</td><td>This function evaluates the cubic
