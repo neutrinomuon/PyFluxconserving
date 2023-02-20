@@ -324,7 +324,7 @@ author_fluxconspec in python
         xmax = +10.7
         
         ylimmin = -0.2
-        ylimmax = +5.42
+        ylimmax = +5.95
         ax1_top.set_xlim( xmin,xmax )
         ax1_top.set_ylim( ylimmin,ylimmax )
 
@@ -342,10 +342,10 @@ author_fluxconspec in python
             #print(i[1])
             
             if i[0] < len(d)-1:
-                ax1_top.plot(x_new,d[i[1]][0]+0.3*(i[0]+1),color=colors[i[0]],linewidth=3,label='{}'.format(i[1]),zorder=i[0]+2)
+                ax1_top.plot(x_new,d[i[1]][0]+0.3*(i[0]+2),color=colors[i[0]],linewidth=3,label='{}'.format(i[1]),zorder=i[0]+2)
             else:
-                ax1_top.plot(x_new,d[i[1]][0]+0.0*(i[0]+1),color='purple',linewidth=3,linestyle='--',label='{}'.format(i[1]),zorder=i[0]+2)
-                ax1_top.scatter(x_new,d[i[1]][0]+0.0*(i[0]+1),color='purple',s=100.0,label='{}'.format(i[1]),zorder=i[0]+3)
+                ax1_top.plot(x_new,d[i[1]][0]+0.3,color='purple',linewidth=3,linestyle='--',label='{}'.format(i[1]),zorder=i[0]+2)
+                ax1_top.scatter(x_new,d[i[1]][0]+0.3,color='purple',s=100.0,label='{}'.format(i[1]),zorder=i[0]+3)
 
         ax1_top.fill_between(x_new, y_new_, 0.0, facecolor='orange', alpha=0.6, edgecolor='white', hatch='/',zorder=0)
 
@@ -388,12 +388,16 @@ author_fluxconspec in python
         ax1_top.legend( [handles[idx] for idx in order],[labels[idx] for idx in order],title = "Flux Conserving Interpolations",fancybox=True, shadow=True,loc='upper right' ).set_zorder(1200)
 
         #ax1_top.legend()
-        ax1_top.set_xlabel("Radians", fontsize=18)
-        ax1_top.set_ylabel("f(x) = sin(x)", fontsize=18)
+        #ax1_top.set_xlabel("Radians", fontsize=18)
+        #ax1_top.set_ylabel("f(x) = sin(x)", fontsize=18)
+        
+        plt.xlabel("Radians", fontsize=18)
+        plt.ylabel("f(x) = sin(x)", fontsize=18)
         # Top plot ###########################################################
         
         # #
-        plt.savefig('fluxconserving.png')
+        # For some reason if not using bbox_inches='tight' it cuts off labels
+        plt.savefig('fluxconserving.png', bbox_inches="tight")
         plt.show()
         
         return
