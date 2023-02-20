@@ -104,37 +104,39 @@ href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">
 a table of pair values.<p>
 
 <ol>
-<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery, B. P. (2007). <i>Numerical recipes: The art of scientific computing</i> (3rd ed.). Cambridge University Press. DOI: <a href="https://doi.org/10.1017/CBO9780511807447">10.1017/CBO9780511807447</a>, Link: <a href="https://www.cambridge.org/core/books/numerical-recipes/26C239623E967D1331B31DE7F3A1D74F">https://www.cambridge.org/core/books/numerical-recipes/26C239623E967D1331B31DE7F3A1D74F</a></li>
-<li>Burden, R. L., & Faires, J. D. (2010). <i>Numerical analysis</i> (9th ed.). Brooks/Cole. DOI: <a href="https://doi.org/10.1007/978-0-387-77854-3">10.1007/978-0-387-77854-3</a>, Link: <a href="https://link.springer.com/book/10.1007%2F978-0-387-77854-3">https://link.springer.com/book/10.1007%2F978-0-387-77854-3</a></li>
-<li>Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for engineers</i> (6th ed.). McGraw-Hill. DOI: <a href="https://doi.org/10.1080/03081079808818664">10.1080/03081079808818664</a>, Link: <a href="https://www.mheducation.com/highered/product/numerical-methods-engineers-chapra-canale/9780073401065.html">https://www.mheducation.com/highered/product/numerical-methods-engineers-chapra-canale/9780073401065.html</a></li>
-<li>Atkinson, K. E. (1989). <i>An introduction to numerical analysis</i> (2nd ed.). John Wiley & Sons. DOI: <a href="https://doi.org/10.1002/9780470753763">10.1002/9780470753763</a>, Link: <a href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a></li>
-<li>Burden, R. L., & Faires, J. D. (1985). <i>Numerical analysis</i> (3rd ed.). PWS-Kent. DOI: <a href="https://doi.org/10.2307/2321069">10.2307/2321069</a>, Link: <a href="https://www.worldcat.org/title/numerical-analysis/oclc/10843913">https://www.worldcat.org/title/numerical-analysis/oclc/10843913</a></li>
-</ol>
-
-
-<ol>
 
 <li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery,
 B. P. (2007). <i>Numerical recipes: The art of scientific computing</i> (3rd
 ed.). Cambridge University Press. DOI: <a
-href="https://doi.org/10.1017/CBO9780511807447">10.1017/CBO9780511807447</a></li>
+href="https://doi.org/10.1017/CBO9780511807447">10.1017/CBO9780511807447</a>,
+Link: <a
+href="https://www.cambridge.org/core/books/numerical-recipes/26C239623E967D1331B31DE7F3A1D74F">https://www.cambridge.org/core/books/numerical-recipes/26C239623E967D1331B31DE7F3A1D74F</a></li>
 
 <li>Burden, R. L., & Faires, J. D. (2010). <i>Numerical analysis</i> (9th
 ed.). Brooks/Cole. DOI: <a
-href="https://doi.org/10.1007/978-0-387-77854-3">10.1007/978-0-387-77854-3</a></li>
+href="https://doi.org/10.1007/978-0-387-77854-3">10.1007/978-0-387-77854-3</a>,
+Link: <a
+href="https://link.springer.com/book/10.1007%2F978-0-387-77854-3">https://link.springer.com/book/10.1007%2F978-0-387-77854-3</a></li>
 
 <li>Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
 engineers</i> (6th ed.). McGraw-Hill. DOI: <a
-href="https://doi.org/10.1080/03081079808818664">10.1080/03081079808818664</a></li>
+href="https://doi.org/10.1080/03081079808818664">10.1080/03081079808818664</a>,
+Link: <a
+href="https://www.mheducation.com/highered/product/numerical-methods-engineers-chapra-canale/9780073401065.html">https://www.mheducation.com/highered/product/numerical-methods-engineers-chapra-canale/9780073401065.html</a></li>
 
 <li>Atkinson, K. E. (1989). <i>An introduction to numerical analysis</i> (2nd
 ed.). John Wiley & Sons. DOI: <a
-href="https://doi.org/10.1002/9780470753763">10.1002/9780470753763</a></li>
+href="https://doi.org/10.1002/9780470753763">10.1002/9780470753763</a>, Link:
+<a
+href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a></li>
 
 <li>Burden, R. L., & Faires, J. D. (1985). <i>Numerical analysis</i> (3rd
 ed.). PWS-Kent. DOI: <a
-href="https://doi.org/10.2307/2321069">10.2307/2321069</a></li>
+href="https://doi.org/10.2307/2321069">10.2307/2321069</a>, Link: <a
+href="https://www.worldcat.org/title/numerical-analysis/oclc/10843913">https://www.worldcat.org/title/numerical-analysis/oclc/10843913</a></li>
+
 </ol>
+
 
 </td></tr>
 

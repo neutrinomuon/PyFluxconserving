@@ -450,8 +450,19 @@ author_fluxconspec in python
         
         i_ = val_array.size
         sizepoints = np.zeros(i_)
+                
+        interpolation_names = [ 'Akima Interpolation       ', 
+                                                    'Linear    Interpolation    ', 
+                                                    'Linear  Table Indexing    ', 
+                                                    'Simple Interpolation      ', 
+                                                    'One Dimensional Spline ', 
+                                                    'SPLINE 3D Array             ',
+                                                    'Akima Spline interpolation',
+                                                    'Cubic Spline using scipy',
+                                                    'Spectres',
+                                                    'Spectres Numba',
+                                                    'Numpy Interpolation',]
         
-        interpolation_names = ['Linear  Table Indexing    ' , 'Cubic Spline                   ', 'One Dimensional Spline ', 'Akima Interpolation        ', 'Simple Interpolation       ', 'Indexer Interpolation      ','Akima  Spline Scipy', 'Cubic Spline Scipy','Spectral Resampling','Spectral Resampling Numba','Numpy Interpolation'] 
         N_slows = len(interpolation_names)
         
         colors          = pl.cm.jet(np.linspace(0,1,N_slows))
@@ -466,7 +477,7 @@ author_fluxconspec in python
             print(x_interp[:value].size)
             sizepoints[i[0]] = x_interp.size         
               
-            for j in range(0,N_slows-3):
+            for j in range(0,N_slows-4):
                 for pop in range(0,population): 
                     slow_int = j
                     auxil1time = time.time()
@@ -566,10 +577,10 @@ def main():
     i_object = PyFluxConSpec
     
     # TestRoutine
-    i_object.TestRoutine( z=0.27 )
+    #i_object.TestRoutine( z=0.27 )
     
     # time
-    #i_object.time()
+    i_object.time()
     
     #x = np.arange(0,2.0*np.pi,0.2)
     #y = np.sin(x**2)

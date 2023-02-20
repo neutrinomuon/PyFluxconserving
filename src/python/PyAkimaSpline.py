@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 
-from fluxconserving import flib as interp
+from pyfluxconserving import flib as interp
 import scipy.interpolate as interp1
 
 import scipy.interpolate as interpolate
