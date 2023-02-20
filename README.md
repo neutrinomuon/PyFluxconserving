@@ -134,8 +134,8 @@ a table of pair values.<p>
 
 <ol>
 
-<li>Atkinson, K. E. (1989). <i>An introduction to numerical analysis</i> (2nd
-ed.). John Wiley & Sons. DOI: 10.1002/9780470753763, Link: <a
+<li>Atkinson, K. E. (1991). <i>An introduction to numerical analysis</i> (2nd
+ed.). John Wiley & Sons. ISBN: 978-0-471-62489-9. Link: <a
 href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a></li>
 
 <li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
