@@ -1,5 +1,6 @@
 # FluxConserving
 ##  A fortran legacy package to easy compute the flux-density conservation
+##  A fortran legacy Interpolation routines also furnished 
 email: antineutrinomuon@gmail.com, jean@astro.up.pt
 
 © Copyright ®
