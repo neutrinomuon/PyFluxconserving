@@ -70,9 +70,11 @@ href='https://dl.acm.org/doi/10.1145/321607.321609'>doi:10.1145/321607.321609</a
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
 a table of pair values.</td></tr>
 
-<tr><td>2)</td><td>LINdexerpol</td><td
-<tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
+<tr><td>2)</td><td>LINdexerpol</td><td>Based on a linear interpolation within
 a table of pair values using indexing.</td></tr>
+
+<tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
+a table of pair values.</td></tr>
 
 <tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
 a table of pair values.</td></tr>
