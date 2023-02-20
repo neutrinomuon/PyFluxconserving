@@ -191,7 +191,7 @@ B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
 ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
 href="http://numerical.recipes/">http://numerical.recipes/</a></li>
 
-<li>Cheney, W. and Kincaid, D. (2008). <em>Numerical Mathematics and
+<li>Cheney, W. and Kincaid, D. (2007). <em>Numerical Mathematics and
 Computing</em> (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
 href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a></li>
 
