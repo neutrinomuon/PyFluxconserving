@@ -63,13 +63,39 @@ derivative) but, in general, will have a discontinuous second derivative at
 the knot points.<p>
                                                                            
 <ol>
-    <li>Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures. <i>Journal of the ACM</i>, 17(4), 589-602. Association for Computing Machinery. DOI: 10.1145/321607.321609. Link: <a href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a></li>
-    <li>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. DOI: 10.1007/978-1-4757-0457-4. Link: <a href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></li>
-    <li>Forsythe, G.E. (1979) <i>Computer Methods for Mathematical Computations</i>. Prentice-Hall, Inc. Link: <a href="https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235</a></li>
-    <li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). An Introduction to Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann Publishers. ISBN: 978-1558604000. Link: <a href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">https://www.sciencedirect.com/science/article/abs/pii/0378475494001228</a></li>
-    <li>Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a></li>
-    <li>Burden, R. L., &amp; Faires, J. D. (2010). Numerical Analysis (9th ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a></li>
-    <li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery, B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a href="http://numerical.recipes/">http://numerical.recipes/</a></li>
+
+<li>Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting
+Based on Local Procedures. <i>Journal of the ACM</i>, 17(4),
+589-602. Association for Computing Machinery. DOI:
+10.1145/321607.321609. Link: <a
+href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a></li>
+
+<li>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. DOI:
+10.1007/978-1-4757-0457-4. Link: <a
+href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></li>
+
+<li>Forsythe, G.E. (1979) <i>Computer Methods for Mathematical
+Computations</i>. Prentice-Hall, Inc. Link: <a
+href="https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235</a></li>
+
+<li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1987). An Introduction to
+Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann
+Publishers. ISBN: 978-1558604000. Link: <a
+href="https://www.osti.gov/biblio/5545263">https://www.osti.gov/biblio/5545263</a></li>
+
+<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
+B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd
+ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
+href="http://numerical.recipes/">http://numerical.recipes/</a></li>
+
+<li>Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing
+(6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
+href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a></li>
+
+<li>Burden, R. L., &amp; Faires, J. D. (2010). Numerical Analysis (9th
+ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a
+href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a></li>
+
 </ol>
 
 </td></tr>
