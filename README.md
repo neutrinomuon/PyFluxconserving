@@ -54,7 +54,7 @@ flux-conserved, some options can be chosen for the interpolation:
 <center>
 <table>
 
-<tr><td>Integer Number</td><td>Option: Interpolation Schemes</td>Brief Description</tr>
+<tr><td>Integer Number</td><td>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
 
 <tr><td>0)</td><td>LINinterpol</td><td>BBBBBBBBB</td></tr>
 <tr><td>1)</td><td>SPLINE3DFor</td><td>BBBBBBBBB</td></tr>
