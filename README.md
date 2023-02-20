@@ -63,46 +63,16 @@ derivative) but, in general, will have a discontinuous second derivative at
 the knot points.<p>
                                                                            
 <ol>
-
-<li> Akima, H. (1970). <i>A New Method of Interpolation and Smooth Curve
-Fitting Based on Local Procedures</i>. Journal of the ACM, 17(4),
-589-602. Association for Computing Machinery. DOI:
-10.1145/321607.321609. Link: <a
-href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a>.
-</li>
-
-<li> Dierckx, P. (1993). <i>Curve and surface fitting with splines</i>. Oxford
-University Press. ISBN: 978-0198534404. Link: <a
-href="https://global.oup.com/academic/product/curve-and-surface-fitting-with-splines-9780198534404?cc=us&lang=en&">https://global.oup.com/academic/product/curve-and-surface-fitting-with-splines-9780198534404?cc=us&lang=en&</a>.
-</li>
-
-<li> Hill, G.W. (2001). <i>Numerical Methods for Engineers and Scientists:
-Practical Applications and Methods using the IBM PC</i>. Elsevier
-Science. ISBN: 978-0750672940. Link: <a
-href="https://www.elsevier.com/books/numerical-methods-for-engineers-and-scientists/hill/978-0-7506-7294-0">https://www.elsevier.com/books/numerical-methods-for-engineers-and-scientists/hill/978-0-7506-7294-0</a>.
-</li>
-
-<li> Zhang, X., and Zheng, H. (2013). A new approach for Akima spline
-interpolation. Journal of Computational and Applied Mathematics, 253,
-208-221. DOI: 10.1016/j.cam.2013.03.023. Link: <a
-href="https://www.sciencedirect.com/science/article/pii/S0377042713001503">https://www.sciencedirect.com/science/article/pii/S0377042713001503</a>.
-</li>
-
+    <li>Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures. <i>Journal of the ACM</i>, 17(4), 589-602. Association for Computing Machinery. DOI: 10.1145/321607.321609. Link: <a href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a></li>
+    <li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). An Introduction to Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann Publishers. ISBN: 978-1558604000. Link: <a href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">https://www.sciencedirect.com/science/article/abs/pii/0378475494001228</a></li>
+    <li>Burden, R. L., &amp; Faires, J. D. (2010). Numerical Analysis (9th ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a></li>
+    <li>Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a></li>
+    <li>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. DOI: 10.1007/978-1-4757-0457-4. Link: <a href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></li>
+    <li>Forsythe, G.E. (1977) <i>Computer Methods For Mathematical Computations</i>. Ed. Prentice-Hall, Inc. Link: <a href="https://www.abebooks.com/9780131653323/Computer-Methods-Mathematical-Computations-Prentice-Hall-0131653328/plp">https://www.abebooks.com/9780131653323/Computer-Methods-Mathematical-Computations-Prentice-Hall-0131653328/plp</a></li>
+    <li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery, B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a href="http://numerical.recipes/">http://numerical.recipes/</a></li>
 </ol>
 
-<ol>
-<li>Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures. Journal of the ACM, 17(4), 589-602. Association for Computing Machinery. <a href="https://dl.acm.org/doi/10.1145/321607.321609">DOI:10.1145/321607.321609</a></li>
-<li>Forsythe, G.E. (1977). Computer Methods For Mathematical Computations. Ed. Prentice-Hall, Inc. <a href="https://www.abebooks.com/9780131653323/Computer-Methods-Mathematical-Computations-Prentice-Hall-0131653328/plp">Link</a></li>
-<li>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. <a href="https://www.springer.com/gp/book/9780387953663">DOI: 10.1007/978-1-4757-0457-4</a></li>
-<li>Smith, L. (1995). A cubic spline algorithm based on a modified divided difference. Mathematics and Computers in Simulation, 39(3), 347-350. <a href="https://www.sciencedirect.com/science/article/abs/pii/0378475494001228">DOI: 10.1016/0378-4754(94)00122-8</a></li>
-<li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). An Introduction to Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann Publishers. <a href="https://www.elsevier.com/books/an-introduction-to-splines-for-use-in-computer-graphics-and-geometric-modeling/bartels/978-1-55860-400-0">Link</a></li>
-<li>Burden, R. L., & Faires, J. D. (2010). Numerical Analysis (9th ed.). Brooks/Cole. <a href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">Link</a></li>
-<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery, B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd ed.). Cambridge University Press. <a href="http://numerical.recipes/">Link</a></li>
-<li>Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing (6th ed.). Brooks/Cole. <a href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">Link</a></li>
-</ol>
-
-
-
+</td></tr>
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
 a table of pair values.<p>
 
