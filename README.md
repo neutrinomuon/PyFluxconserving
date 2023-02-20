@@ -62,10 +62,34 @@ spline is a C1 differentiable function (that is, has a continuous first
 derivative) but, in general, will have a discontinuous second derivative at
 the knot points.<p>
                                                                            
-[1]: Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting
-Based on Local Procedures. Journal of the ACM, 17(4), 589-602. Association for
-Computing Machinery. DOI:10.1145/321607.321609. Link: <a
-href='https://dl.acm.org/doi/10.1145/321607.321609'>https://dl.acm.org/doi/10.1145/321607.321609</a></td></tr>
+<ol>
+
+<li> Akima, H. (1970). <i>A New Method of Interpolation and Smooth Curve
+Fitting Based on Local Procedures</i>. Journal of the ACM, 17(4),
+589-602. Association for Computing Machinery. DOI:
+10.1145/321607.321609. Link: <a
+href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a>.
+</li>
+
+<li> Dierckx, P. (1993). <i>Curve and surface fitting with splines</i>. Oxford
+University Press. ISBN: 978-0198534404. Link: <a
+href="https://global.oup.com/academic/product/curve-and-surface-fitting-with-splines-9780198534404?cc=us&lang=en&">https://global.oup.com/academic/product/curve-and-surface-fitting-with-splines-9780198534404?cc=us&lang=en&</a>.
+</li>
+
+<li> Hill, G.W. (2001). <i>Numerical Methods for Engineers and Scientists:
+Practical Applications and Methods using the IBM PC</i>. Elsevier
+Science. ISBN: 978-0750672940. Link: <a
+href="https://www.elsevier.com/books/numerical-methods-for-engineers-and-scientists/hill/978-0-7506-7294-0">https://www.elsevier.com/books/numerical-methods-for-engineers-and-scientists/hill/978-0-7506-7294-0</a>.
+</li>
+
+<li> Zhang, X., and Zheng, H. (2013). A new approach for Akima spline
+interpolation. Journal of Computational and Applied Mathematics, 253,
+208-221. DOI: 10.1016/j.cam.2013.03.023. Link: <a
+href="https://www.sciencedirect.com/science/article/pii/S0377042713001503">https://www.sciencedirect.com/science/article/pii/S0377042713001503</a>.
+</li>
+
+</ol>
+
 
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
 a table of pair values.<p>
