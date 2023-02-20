@@ -134,10 +134,10 @@ a table of pair values.<p>
 
 <ol>
 
-<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery,
-B. P. (2007). <i>Numerical recipes: The art of scientific computing</i> (3rd
-ed.). Cambridge University Press. DOI: 10.1017/CBO9780511807447, Link: <a
-href="https://www.cambridge.org/core/books/numerical-recipes/26C239623E967D1331B31DE7F3A1D74F">https://www.cambridge.org/core/books/numerical-recipes/26C239623E967D1331B31DE7F3A1D74F</a></li>
+<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
+B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
+ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
+href="http://numerical.recipes/">http://numerical.recipes/</a></li>
 
 <li>Burden, R. L., & Faires, J. D. (2010). <i>Numerical analysis</i> (9th
 ed.). Brooks/Cole. DOI: 10.1007/978-0-387-77854-3. Link: <a
