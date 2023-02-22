@@ -94,15 +94,14 @@ python setup.py install
 Here, the method used is with the Cumulative function to produce a new
 flux-conserved, some options can be chosen for the interpolation:
 
-<center>
 <table>
 
-<tr><td>Integer Number</td><td>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
+<tr><td><ol>Integer Number</ol></td><td><ol>Option: Interpolation Schemes</ol></td><td><ol>Brief Description</ol></td></tr>
 
-<tr><td>0)</td><td><ol>AkimaSpline</ol></td><td>Akima Spline interpolation. The Akima
+<tr><td><ol>0)</ol></td><td><ol>AkimaSpline</ol></td><td><ol>Akima Spline interpolation. The Akima
 spline is a C1 differentiable function (that is, has a continuous first
 derivative) but, in general, will have a discontinuous second derivative at
-the knot points.<p>
+the knot points.</ol><p>
                                                                            
 <ol>
 
@@ -169,20 +168,17 @@ href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">
 
 </td></tr>
 
-<tr><td>2)</td><td>LINdexerpol</td><td>Based on a linear interpolation within
+<tr><td><ol>2)</ol></td><td><ol>LINdexerpol</ol></td><td><ol>Based on a linear interpolation within
 a table of pair values using indexing. The references are the same as in
-1).</td></tr>
+1).</ol></td></tr>
 
-<tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
-a table of pair values. The references are the same as in 1).</td></tr>
+<tr><td><ol>3)</ol></td><td><ol>LINinterpol</ol></td><td><ol>Based on a linear interpolation within
+a table of pair values. The references are the same as in 1).</ol></td></tr>
 
-<tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
-a table of pair values. The references are the same as in 1).</td></tr>
-
-<tr><td>4)</td><td>SPLINE1DArr</td><td>This is a Fortran 2003 subroutine
+<tr><td><ol>4)</ol></td><td><ol>SPLINE1DArr</ol></td><td><ol>This is a Fortran 2003 subroutine
 called SPLINE1DArr that takes an array of values x to interpolate from the
 arrays t and y. It has ten input arguments, six output arguments, and two
-optional arguments. The interpolation is linear.<p>
+optional arguments. The interpolation is linear.</ol><p>
 
 <ol>
 
@@ -211,11 +207,10 @@ href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495
 </ol>
 </td></tr>
 
-<tr><td>5)</td><td>SPLINE3DFor</td><td>This function evaluates the cubic
-spline interpolation. The same references as in 4)</td></tr>
+<tr><td><ol>5)</ol></td><td><ol>SPLINE3DFor</ol></td><td><ol>This function evaluates the cubic
+spline interpolation. The same references as in 4).</ol></td></tr>
 
 </table>
-</center>
 
 <hr>
 
