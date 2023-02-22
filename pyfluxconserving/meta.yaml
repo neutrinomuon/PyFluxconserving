@@ -1,0 +1,40 @@
+{% set name = "pyfluxconserving" %}
+{% set version = "0.0.2" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 9af23b401ac209cdc807ead496d560b0677c96d47e4b31b8aa0e9c9ac68f8abe
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - matplotlib
+    - numpy
+    - pip
+    - python
+  run:
+    - matplotlib
+    - numpy
+    - python
+
+test:
+  imports:
+    - pyfluxconserving
+
+about:
+  home: "https://github.com/neutrinomuon/Pyfluxconserving"
+  license_file: 'LICENSE.txt'
+  summary: "Flux-conserving legacy routines in Fortran and Python"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - neutrinomuon

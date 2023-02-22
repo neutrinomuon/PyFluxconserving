@@ -1,6 +1,6 @@
 # FluxConserving
-##  A fortran legacy package to easy compute the flux-density conservation
-ObS.: A fortran legacy Interpolation routines also furnished <br>
+##  A Fortran legacy package to easily compute the flux-density conservation
+ObS.: A Fortran legacy Interpolation routines also furnished <br>
 email: antineutrinomuon@gmail.com, jean@astro.up.pt
 
 © Copyright ®
@@ -19,8 +19,11 @@ J.G. - Jean Gomes
 <img src='tutorials/fluxconserving.png' width="60%">
 </div>
 
-<br>
-RESUME : Original Fortran 2003+ routines date back to 2003-2004. Read the <a
+<hr>
+
+#### <b>RESUME</b>
+
+Original Fortran 2003+ routines date back to 2003-2004. Read the <a
 href='https://github.com/neutrinomuon/FluxConserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
 file. When analyzing astronomical spectra, astronomers often bin the data to
 increase the signal-to-noise ratio and reduce the effects of noise in the
@@ -54,6 +57,10 @@ href='https://github.com/ACCarnall/SpectRes'>https://github.com/ACCarnall/SpectR
 
 Accompanying there are several routines for interpolations.
 
+<hr>
+
+#### <b>INSTALLATION</b>
+
 You can easily install <a
 href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
 <a href='https://pypi.org/'>PyPI - The Python Package Index</a>: <pre> <code>
@@ -80,6 +87,10 @@ python setup.py install
 </code>
 </pre>
 
+<hr>
+
+#### <b>METHOD & REFERENCES</b>
+
 Here, the method used is with the Cumulative function to produce a new
 flux-conserved, some options can be chosen for the interpolation:
 
@@ -88,7 +99,7 @@ flux-conserved, some options can be chosen for the interpolation:
 
 <tr><td>Integer Number</td><td>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
 
-<tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
+<tr><td>0)</td><td><ol>AkimaSpline</ol></td><td>Akima Spline interpolation. The Akima
 spline is a C1 differentiable function (that is, has a continuous first
 derivative) but, in general, will have a discontinuous second derivative at
 the knot points.<p>
@@ -206,6 +217,10 @@ spline interpolation. The same references as in 4)</td></tr>
 </table>
 </center>
 
+<hr>
+
+#### <b>STRUCTURE</b>
+
 The main structure of the directories and files are:
 
 <pre>
@@ -293,3 +308,22 @@ FluxConserving
 PyFluxConSPec.py is a python wrapper to the library in fortran called
 pyfluxconserving.flib. The fortran directory can be compiled separately for
 each individual subroutine.
+
+<hr>
+
+#### <b>LICENSE</b>
+
+This software is provided "AS IS" (see DISCLAIMER below). Permission to
+use, for non-commercial purposes is granted. Permission to modify for personal
+or internal use is granted, provided this copyright and disclaimer are
+included in ALL copies of the software. All other rights are reserved. In
+particular, redistribution of the code is not allowed without explicit
+permission by the author.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
