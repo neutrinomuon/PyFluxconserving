@@ -70,7 +70,7 @@ href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pi
 pip install pyfluxconserving
 </pre>
 
-or by using a generated conda repository <a
+<br>or by using a generated conda repository <a
 href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
 
 [![badgetanaconda](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)
@@ -82,7 +82,7 @@ href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/n
 conda install -c neutrinomuon pyfluxconserving
 </pre>
 
-OBS.: Linux, OS-X and Windows pre-compilations available in conda.
+<br>OBS.: Linux, OS-X and Windows pre-compilations available in conda.
 
 You can also clone the repository and install by yourself in your machine:
 
