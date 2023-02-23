@@ -66,8 +66,11 @@ You can easily install <a
 href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
 <a href='https://pypi.org/'>PyPI - The Python Package Index</a>:
 
-<pre><code> pip install pyfluxconserving </code> </pre> or by using a
-generated conda repository <a
+<pre><code>
+pip install pyfluxconserving
+</code> </pre>
+
+or by using a generated conda repository <a
 href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
 
 [![badgetanaconda](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)
