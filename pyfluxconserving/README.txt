@@ -7,8 +7,6 @@ linux-armv7l
 linux-ppc64
 linux-ppc64le
 linux-s390x
-List_Dirs.txt
-meta.yaml
 osx-64
 osx-arm64
 win-32
