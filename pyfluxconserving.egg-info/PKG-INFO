@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyfluxconserving
-Version: 0.0.4
+Version: 0.0.5
 Summary: Flux-conserving legacy routines in Fortran and Python
 Home-page: https://github.com/neutrinomuon/Pyfluxconserving
 Author: Jean Gomes
@@ -32,7 +32,7 @@ J.G. - Jean Gomes
 <hr>
 
 <div align="center">
-<img src='tutorials/fluxconserving.png' width="60%">
+<img src='https://github.com/neutrinomuon/FluxConserving/blob/main/tutorials/fluxconserving.png?raw=true' width="60%">
 </div>
 
 <hr>
