@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: pyfluxconserving
-Version: 0.0.5
-Summary: Flux-conserving legacy routines in Fortran and Python
+Version: 0.0.7
+Summary: FluxConserving is a set of Fortran 2003+ legacy routines with Python. There are some options for the flux-conserving algorithm. It also includes interpolation scripts.
 Home-page: https://github.com/neutrinomuon/Pyfluxconserving
 Author: Jean Gomes
 Author-email: antineutrinomuon@gmail.com
@@ -13,8 +13,8 @@ Classifier: Operating System :: OS Independent
 Description-Content-Type: text/markdown
 License-File: LICENSE.txt
 
-# FluxConserving
-##  A Fortran legacy package to easily compute the flux-density conservation
+### FluxConserving
+####  A Fortran legacy package to easily compute the flux-density conservation
 Obs.: A Fortran legacy Interpolation routines also furnished <br>
 email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@astro.up.pt](mailto:jean@astro.up.pt)
 
@@ -81,30 +81,29 @@ You can easily install <a
 href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
 <a href='https://pypi.org/'>PyPI - The Python Package Index</a>:
 
-<pre><code>
+<pre>
 pip install pyfluxconserving
-</code> </pre>
+</pre>
 
-or by using a generated conda repository <a
+<br>or by using a generated conda repository <a
 href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
 
 [![badgetanaconda](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)
 [![badgetreleasedate](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)
 [![badgetplatforms](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg
 )](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg)
+
 <pre>
-<code>
 conda install -c neutrinomuon pyfluxconserving
-</code>
 </pre>
-OBS.: Linux, OS-X and Windows pre-compilations available in conda.
+
+<br>OBS.: Linux, OS-X and Windows pre-compilations available in conda.
 
 You can also clone the repository and install by yourself in your machine:
+
 <pre>
-<code>
 git clone https://github.com/neutrinomuon/FluxConserving
 python setup.py install
-</code>
 </pre>
 
 <hr>
@@ -239,7 +238,6 @@ spline interpolation. The same references as in 4).</ol></td></tr>
 The main structure of the directories and files are:
 
 <pre>
-<code>
 FluxConserving
 ├── dist
 │   └── pyfluxconserving-0.0.1.tar.gz
@@ -317,10 +315,9 @@ FluxConserving
         └── build
 
 18 directories, 56 files
-</code>
 </pre>
 
-PyFluxConSPec.py is a python wrapper to the library in fortran called
+<br>PyFluxConSPec.py is a python wrapper to the library in fortran called
 pyfluxconserving.flib. The fortran directory can be compiled separately for
 each individual subroutine.
 

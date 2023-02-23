@@ -16,10 +16,10 @@ ext1 = Extension(  name='pyfluxconserving.flib',
                  )
     
 setup( name='pyfluxconserving',
-       version='0.0.5',
+       version='0.0.7',
        ext_modules=[ ext1 ],
        extra_compile_args=['-O3'],
-       description='Flux-conserving legacy routines in Fortran and Python',
+       description='FluxConserving is a set of Fortran 2003+ legacy routines with Python. There are some options for the flux-conserving algorithm. It also includes interpolation scripts.',
        long_description=long_description,      # Long description read from the the readme file
        long_description_content_type="text/markdown",
        author='Jean Gomes',
