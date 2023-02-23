@@ -66,9 +66,9 @@ You can easily install <a
 href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
 <a href='https://pypi.org/'>PyPI - The Python Package Index</a>:
 
-<pre><code>
+<pre>
 pip install pyfluxconserving
-</code> </pre>
+</pre>
 
 or by using a generated conda repository <a
 href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
@@ -77,19 +77,18 @@ href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/n
 [![badgetreleasedate](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)
 [![badgetplatforms](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg
 )](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg)
+
 <pre>
-<code>
 conda install -c neutrinomuon pyfluxconserving
-</code>
 </pre>
+
 OBS.: Linux, OS-X and Windows pre-compilations available in conda.
 
 You can also clone the repository and install by yourself in your machine:
+
 <pre>
-<code>
 git clone https://github.com/neutrinomuon/FluxConserving
 python setup.py install
-</code>
 </pre>
 
 <hr>
@@ -224,7 +223,6 @@ spline interpolation. The same references as in 4).</ol></td></tr>
 The main structure of the directories and files are:
 
 <pre>
-<code>
 FluxConserving
 ├── dist
 │   └── pyfluxconserving-0.0.1.tar.gz
@@ -302,10 +300,9 @@ FluxConserving
         └── build
 
 18 directories, 56 files
-</code>
 </pre>
 
-PyFluxConSPec.py is a python wrapper to the library in fortran called
+<br>PyFluxConSPec.py is a python wrapper to the library in fortran called
 pyfluxconserving.flib. The fortran directory can be compiled separately for
 each individual subroutine.
 

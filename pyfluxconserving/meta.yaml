@@ -1,5 +1,5 @@
 {% set name = "pyfluxconserving" %}
-{% set version = "0.0.2" %}
+{% set version = "0.0.5" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 9af23b401ac209cdc807ead496d560b0677c96d47e4b31b8aa0e9c9ac68f8abe
+  sha256: 28a0c3cc2d531fada378d67e737595349f1bf00033c9d99a2c174e3ca0c83a71
 
 build:
   number: 0
