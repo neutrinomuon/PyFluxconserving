@@ -17,7 +17,7 @@ J.G. - Jean Gomes
 <hr>
 
 <div align="center">
-<img src='tutorials/fluxconserving.png' width="60%">
+<img src='https://github.com/neutrinomuon/FluxConserving/blob/main/tutorials/fluxconserving.png?raw=true' width="60%">
 </div>
 
 <hr>
