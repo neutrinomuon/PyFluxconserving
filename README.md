@@ -11,7 +11,8 @@ J.G. - Jean Gomes
 
 <hr>
 
-<img src="https://skillicons.dev/icons?i=python,fortran,c,numpy&theme=light"><img src="https://img.shields.io/pypi/pyversions/pyfluxconserving"><img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/license.svg">
+<img src="https://skillicons.dev/icons?i=python,fortran,c,numpy&theme=light">
+<img src="https://img.shields.io/pypi/pyversions/pyfluxconserving"><img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/license.svg">
 
 <hr>
 
@@ -98,7 +99,7 @@ flux-conserved, some options can be chosen for the interpolation:
 
 <tr><td>Integer Number</td><td>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
 
-<tr><td>0)/td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
+<tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
 spline is a C1 differentiable function (that is, has a continuous first
 derivative) but, in general, will have a discontinuous second derivative at
 the knot points.<p>
