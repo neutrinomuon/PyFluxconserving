@@ -99,66 +99,43 @@ flux-conserved, some options can be chosen for the interpolation:
 
 <table border="1">
 
-<tr><td>Integer Number</td><td width='40%'>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
+<tr><td>Integer Number</td><td width='33%'>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
 
 <tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
 spline is a C1 differentiable function (that is, has a continuous first
 derivative) but, in general, will have a discontinuous second derivative at
 the knot points.
                                                                            
-- Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting
-Based on Local Procedures. <i>Journal of the ACM</i>, 17(4),
-589-602. Association for Computing Machinery. DOI:
-10.1145/321607.321609. Link: <a
-href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a>
+- Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures. <i>Journal of the ACM</i>, 17(4),
+589-602. Association for Computing Machinery. DOI: 10.1145/321607.321609. Link: <a href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a>
 
-- De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. ISBN:
-978-0-387-95366-3. Link: <a
-href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a>
+- De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. ISBN: 978-0-387-95366-3. Link: <a href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a>
 
-- Forsythe, G.E. (1979) <i>Computer Methods for Mathematical
-Computations</i>. Prentice-Hall, Inc. DOI: 10.1002/zamm.19790590235. Link: <a
-href="https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235</a>
+- Forsythe, G.E. (1979) <i>Computer Methods for Mathematical Computations</i>. Prentice-Hall, Inc. DOI: 10.1002/zamm.19790590235. Link: <a href="https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235</a>
 
-- Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1987). An Introduction to
-Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann
-Publishers. Link: <a
-href="https://www.osti.gov/biblio/5545263">https://www.osti.gov/biblio/5545263</a>
+- Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1987). An Introduction to Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann
+Publishers. Link: <a href="https://www.osti.gov/biblio/5545263">https://www.osti.gov/biblio/5545263</a>
 
-- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
-B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd
-ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
-href="http://numerical.recipes/">http://numerical.recipes/</a>
+- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery, B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd
+ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a href="http://numerical.recipes/">http://numerical.recipes/</a>
 
-- Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing
-(6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
-href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a>
+- Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a>
 
-- Burden, R. L., &amp; Faires, J. D. (2010). Numerical Analysis (9th
-ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a
-href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a>
+- Burden, R. L., &amp; Faires, J. D. (2010). Numerical Analysis (9th ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a>
 
 </td></tr>
 
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
 a table of pair values.<p>
 
-- Atkinson, K. E. (1991). <i>An introduction to numerical analysis</i> (2nd
-ed.). John Wiley & Sons. ISBN: 978-0-471-62489-9. Link: <a
-href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a>
+- Atkinson, K. E. (1991). <i>An introduction to numerical analysis</i> (2nd ed.). John Wiley & Sons. ISBN: 978-0-471-62489-9. Link: <a href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a>
 
-- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
-B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
-ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
-href="http://numerical.recipes/">http://numerical.recipes/</a>
+- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery, B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
+ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a href="http://numerical.recipes/">http://numerical.recipes/</a>
 
-- Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
-engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065. Link: <a
-href="https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064">https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064</a>
+- Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065. Link: <a href="https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064">https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064</a>
 
-- Burden, R. L., Faires, J. D. & A.M. Burden (2015). <i>Numerical analysis (10th
-ed.)</i> (9th ed.). Cengage Learning. ISBN: 978-1305253667. Link: <a
-href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663</a>
+- Burden, R. L., Faires, J. D. & A.M. Burden (2015). <i>Numerical analysis (10th ed.)</i> (9th ed.). Cengage Learning. ISBN: 978-1305253667. Link: <a href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663</a>
 
 </td></tr>
 
@@ -174,27 +151,17 @@ called SPLINE1DArr that takes an array of values x to interpolate from the
 arrays t and y. It has ten input arguments, six output arguments, and two
 optional arguments. The interpolation is linear.<p>
 
-- Forsythe, G.E. (1977) <em>Computer Methods For Mathematical
-Computations</em>. Ed. Prentice-Hall, Inc. <a
-href="https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235</a><
+- Forsythe, G.E. (1977) <em>Computer Methods For Mathematical Computations</em>. Ed. Prentice-Hall, Inc. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235</a><
 
-- De Boor, C. (1978). <em>A Practical Guide to
-Splines</em>. Springer-Verlag. ISBN: 978-0-387-95366-3. Link: <a
-href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a>
+- De Boor, C. (1978). <em>A Practical Guide to Splines</em>. Springer-Verlag. ISBN: 978-0-387-95366-3. Link: <a href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a>
 
-- Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). <em>An Introduction
-to Splines for Use in Computer Graphics and Geometric Modeling</em>. Morgan
-Kaufmann Publishers. ISBN: 978-1558604000. Link: <a
-href="https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006">https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006</a>
+- Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). <em>An Introductionto Splines for Use in Computer Graphics and Geometric Modeling</em>. Morgan
+Kaufmann Publishers. ISBN: 978-1558604000. Link: <a href="https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006">https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006</a>
 
-- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
-B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
-ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
-href="http://numerical.recipes/">http://numerical.recipes/</a>
+- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery, B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
+ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a href="http://numerical.recipes/">http://numerical.recipes/</a>
 
-- Cheney, W. and Kincaid, D. (2007). <em>Numerical Mathematics and
-Computing</em> (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
-href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a>
+- Cheney, W. and Kincaid, D. (2007). <em>Numerical Mathematics and Computing</em> (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a>
 
 </td></tr>
 
