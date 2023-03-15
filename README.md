@@ -95,14 +95,14 @@ python setup.py install
 Here, the method used is with the Cumulative function to produce a new
 flux-conserved, some options can be chosen for the interpolation:
 
-<table>
+<table border="1">
 
 <tr><td>Integer Number</td><td>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
 
 <tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
 spline is a C1 differentiable function (that is, has a continuous first
 derivative) but, in general, will have a discontinuous second derivative at
-the knot points.<p>
+the knot points.
                                                                            
 - Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting
 Based on Local Procedures. <i>Journal of the ACM</i>, 17(4),
