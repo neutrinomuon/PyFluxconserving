@@ -3,6 +3,8 @@
 Obs.: A Fortran legacy Interpolation routines also furnished <br>
 email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@astro.up.pt](mailto:jean@astro.up.pt)
 
+github repository: <a href="https://github.com/neutrinomuon/FluxConserving">FluxConserving</a>
+
 last stable version: 0.0.8
 
 © Copyright ®

@@ -1,12 +1,10 @@
 Metadata-Version: 2.1
 Name: pyfluxconserving
-Version: 0.0.7
+Version: 0.0.8
 Summary: FluxConserving is a set of Fortran 2003+ legacy routines with Python. There are some options for the flux-conserving algorithm. It also includes interpolation scripts.
 Home-page: https://github.com/neutrinomuon/Pyfluxconserving
 Author: Jean Gomes
 Author-email: antineutrinomuon@gmail.com
-License: UNKNOWN
-Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Fortran
 Classifier: Operating System :: OS Independent
@@ -18,6 +16,9 @@ License-File: LICENSE.txt
 Obs.: A Fortran legacy Interpolation routines also furnished <br>
 email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@astro.up.pt](mailto:jean@astro.up.pt)
 
+github repository: <a href="https://github.com/neutrinomuon/FluxConserving">FluxConserving</a>
+
+last stable version: 0.0.8
 
 © Copyright ®
 
@@ -25,9 +26,8 @@ J.G. - Jean Gomes
 
 <hr>
 
-[![My Skills](https://skillicons.dev/icons?i=python,fortran,c,numpy&theme=light)](https://skillicons.dev)<br>
-[![python3](https://img.shields.io/pypi/pyversions/pyfluxconserving)](https://img.shields.io/pypi/pyversions/pyfluxconserving)
-[![badgetlicense](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/license.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/license.svg)
+<img src="https://skillicons.dev/icons?i=python,fortran,c,numpy&theme=light">
+<img src="https://img.shields.io/pypi/pyversions/pyfluxconserving"><img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/license.svg">
 
 <hr>
 
@@ -88,10 +88,7 @@ pip install pyfluxconserving
 <br>or by using a generated conda repository <a
 href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
 
-[![badgetanaconda](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg)
-[![badgetreleasedate](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg)
-[![badgetplatforms](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg
-)](https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg)
+<img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg"><img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg"><img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg">
 
 <pre>
 conda install -c neutrinomuon pyfluxconserving
@@ -113,121 +110,109 @@ python setup.py install
 Here, the method used is with the Cumulative function to produce a new
 flux-conserved, some options can be chosen for the interpolation:
 
-<table>
+<table border="1">
 
-<tr><td><ol>Integer Number</ol></td><td><ol>Option: Interpolation Schemes</ol></td><td><ol>Brief Description</ol></td></tr>
+<tr><td>Integer Number</td><td width='40%'>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
 
-<tr><td><ol>0)</ol></td><td><ol>AkimaSpline</ol></td><td><ol>Akima Spline interpolation. The Akima
+<tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
 spline is a C1 differentiable function (that is, has a continuous first
 derivative) but, in general, will have a discontinuous second derivative at
-the knot points.</ol><p>
+the knot points.
                                                                            
-<ol>
-
-<li>Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting
+- Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting
 Based on Local Procedures. <i>Journal of the ACM</i>, 17(4),
 589-602. Association for Computing Machinery. DOI:
 10.1145/321607.321609. Link: <a
-href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a></li>
+href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a>
 
-<li>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. ISBN:
+- De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. ISBN:
 978-0-387-95366-3. Link: <a
-href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></li>
+href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a>
 
-<li>Forsythe, G.E. (1979) <i>Computer Methods for Mathematical
+- Forsythe, G.E. (1979) <i>Computer Methods for Mathematical
 Computations</i>. Prentice-Hall, Inc. DOI: 10.1002/zamm.19790590235. Link: <a
-href="https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235</a></li>
+href="https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/10.1002/zamm.19790590235</a>
 
-<li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1987). An Introduction to
+- Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1987). An Introduction to
 Splines for Use in Computer Graphics and Geometric Modeling. Morgan Kaufmann
 Publishers. Link: <a
-href="https://www.osti.gov/biblio/5545263">https://www.osti.gov/biblio/5545263</a></li>
+href="https://www.osti.gov/biblio/5545263">https://www.osti.gov/biblio/5545263</a>
 
-<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
+- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
 B. P. (2007). Numerical Recipes: The Art of Scientific Computing (3rd
 ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
-href="http://numerical.recipes/">http://numerical.recipes/</a></li>
+href="http://numerical.recipes/">http://numerical.recipes/</a>
 
-<li>Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing
+- Cheney, W. and Kincaid, D. (2008). Numerical Mathematics and Computing
 (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
-href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a></li>
+href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a>
 
-<li>Burden, R. L., &amp; Faires, J. D. (2010). Numerical Analysis (9th
+- Burden, R. L., &amp; Faires, J. D. (2010). Numerical Analysis (9th
 ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a
-href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a></li>
-
-</ol>
+href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a>
 
 </td></tr>
 
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
 a table of pair values.<p>
 
-<ol>
-
-<li>Atkinson, K. E. (1991). <i>An introduction to numerical analysis</i> (2nd
+- Atkinson, K. E. (1991). <i>An introduction to numerical analysis</i> (2nd
 ed.). John Wiley & Sons. ISBN: 978-0-471-62489-9. Link: <a
-href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a></li>
+href="https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899">https://www.wiley.com/en-us/An+Introduction+to+Numerical+Analysis%2C+2nd+Edition-p-9780471624899</a>
 
-<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
+- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
 B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
 ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
-href="http://numerical.recipes/">http://numerical.recipes/</a></li>
+href="http://numerical.recipes/">http://numerical.recipes/</a>
 
-<li>Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
+- Chapra, S. C., & Canale, R. P. (2010). <i>Numerical methods for
 engineers</i> (6th ed.). McGraw-Hill. ISBN: 978-0073401065. Link: <a
-href="https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064">https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064</a></li>
+href="https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064">https://www.amazon.com/Numerical-Methods-Engineers-Steven-Chapra/dp/0073401064</a>
 
-<li>Burden, R. L., Faires, J. D. & A.M. Burden (2015). <i>Numerical analysis (10th
+- Burden, R. L., Faires, J. D. & A.M. Burden (2015). <i>Numerical analysis (10th
 ed.)</i> (9th ed.). Cengage Learning. ISBN: 978-1305253667. Link: <a
-href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663</a></li>
-
-</ol>
-
+href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/1305253663</a>
 
 </td></tr>
 
-<tr><td><ol>2)</ol></td><td><ol>LINdexerpol</ol></td><td><ol>Based on a linear interpolation within
+<tr><td>2)</td><td>LINdexerpol</td><td>Based on a linear interpolation within
 a table of pair values using indexing. The references are the same as in
-1).</ol></td></tr>
+1).</td></tr>
 
-<tr><td><ol>3)</ol></td><td><ol>LINinterpol</ol></td><td><ol>Based on a linear interpolation within
-a table of pair values. The references are the same as in 1).</ol></td></tr>
+<tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
+a table of pair values. The references are the same as in 1).</td></tr>
 
-<tr><td><ol>4)</ol></td><td><ol>SPLINE1DArr</ol></td><td><ol>This is a Fortran 2003 subroutine
+<tr><td>4)</td><td>SPLINE1DArr</td><td>This is a Fortran 2003 subroutine
 called SPLINE1DArr that takes an array of values x to interpolate from the
 arrays t and y. It has ten input arguments, six output arguments, and two
-optional arguments. The interpolation is linear.</ol><p>
+optional arguments. The interpolation is linear.<p>
 
-<ol>
-
-<li>Forsythe, G.E. (1977) <em>Computer Methods For Mathematical
+- Forsythe, G.E. (1977) <em>Computer Methods For Mathematical
 Computations</em>. Ed. Prentice-Hall, Inc. <a
-href="https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235</a></li>
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235">https://onlinelibrary.wiley.com/doi/abs/10.1002/zamm.19790590235</a><
 
-<li>De Boor, C. (1978). <em>A Practical Guide to
+- De Boor, C. (1978). <em>A Practical Guide to
 Splines</em>. Springer-Verlag. ISBN: 978-0-387-95366-3. Link: <a
-href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></li>
+href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a>
 
-<li>Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). <em>An Introduction
+- Bartels, R.H., Beatty, J.C., and Barsky, B.A. (1998). <em>An Introduction
 to Splines for Use in Computer Graphics and Geometric Modeling</em>. Morgan
 Kaufmann Publishers. ISBN: 978-1558604000. Link: <a
-href="https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006">https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006</a></li>
+href="https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006">https://www.amazon.com/Introduction-Computer-Graphics-Geometric-Modeling/dp/1558604006</a>
 
-<li>Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
+- Press, W. H., Teukolsky, S. A., Vetterling, W. T., &amp; Flannery,
 B. P. (2007). <em>Numerical Recipes: The Art of Scientific Computing</em> (3rd
 ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a
-href="http://numerical.recipes/">http://numerical.recipes/</a></li>
+href="http://numerical.recipes/">http://numerical.recipes/</a>
 
-<li>Cheney, W. and Kincaid, D. (2007). <em>Numerical Mathematics and
+- Cheney, W. and Kincaid, D. (2007). <em>Numerical Mathematics and
 Computing</em> (6th ed.). Brooks/Cole. ISBN: 978-0495114758. Link: <a
-href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a></li>
+href="https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758">https://www.amazon.com/Numerical-Mathematics-Computing-Ward-Cheney/dp/0495114758</a>
 
-</ol>
 </td></tr>
 
-<tr><td><ol>5)</ol></td><td><ol>SPLINE3DFor</ol></td><td><ol>This function evaluates the cubic
-spline interpolation. The same references as in 4).</ol></td></tr>
+<tr><td>5)</td><td>SPLINE3DFor</td><td>This function evaluates the cubic
+spline interpolation. The same references as in 4).</td></tr>
 
 </table>
 
@@ -339,5 +324,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
