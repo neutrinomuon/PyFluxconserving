@@ -99,13 +99,11 @@ flux-conserved, some options can be chosen for the interpolation:
 
 <table border="1">
 
-<tr><td>Integer Number</td><td width='33%'>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
+<tr><td width='20%'>Integer Number</td><td width='33%'>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
 
-<tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
-spline is a C1 differentiable function (that is, has a continuous first
-derivative) but, in general, will have a discontinuous second derivative at
-the knot points.
-                                                                           
+<tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima spline is a C1 differentiable function (that is, has a continuous first
+derivative) but, in general, will have a discontinuous second derivative at the knot points.<p>
+
 - Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures. <i>Journal of the ACM</i>, 17(4),
 589-602. Association for Computing Machinery. DOI: 10.1145/321607.321609. Link: <a href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a>
 
