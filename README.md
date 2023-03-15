@@ -167,7 +167,7 @@ a table of pair values using indexing. The references are the same as in
 <tr><td>3)</td><td>LINinterpol</td><td>Based on a linear interpolation within
 a table of pair values. The references are the same as in 1).</td></tr>
 
-<tr><td>4)</td><td>SPLINE1DArr</td><td><ol>This is a Fortran 2003 subroutine
+<tr><td>4)</td><td>SPLINE1DArr</td><td>This is a Fortran 2003 subroutine
 called SPLINE1DArr that takes an array of values x to interpolate from the
 arrays t and y. It has ten input arguments, six output arguments, and two
 optional arguments. The interpolation is linear.<p>
