@@ -106,7 +106,7 @@ derivative) but, in general, will have a discontinuous second derivative at the 
 
 <ul>
 <il>Akima, H. (1970). A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures. <i>Journal of the ACM</i>, 17(4),
-589-602. Association for Computing Machinery. DOI: 10.1145/321607.321609. Link: <a href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a></il>
+589-602. Association for Computing Machinery. DOI: 10.1145/321607.321609. Link: <a href="https://dl.acm.org/doi/10.1145/321607.321609">https://dl.acm.org/doi/10.1145/321607.321609</a></il><p>
 
 <il>De Boor, C. (1978). A Practical Guide to Splines. Springer-Verlag. ISBN: 978-0-387-95366-3. Link: <a href="https://www.springer.com/gp/book/9780387953663">https://www.springer.com/gp/book/9780387953663</a></il>
 
