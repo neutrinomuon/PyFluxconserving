@@ -122,6 +122,8 @@ ed.). Cambridge University Press. ISBN: 978-0521880688. Link: <a href="http://nu
 
 <il>Burden, R. L., &amp; Faires, J. D. (2010). Numerical Analysis (9th ed.). Brooks/Cole. ISBN: 978-0538733519. Link: <a href="https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519">https://www.amazon.com/Numerical-Analysis-Richard-L-Burden/dp/0538733519</a></il>
 
+</ul>
+
 </td></tr>
 
 <tr><td>1)</td><td>Interpolado</td><td>Based on a linear interpolation within
