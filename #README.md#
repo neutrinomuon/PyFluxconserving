@@ -97,7 +97,7 @@ flux-conserved, some options can be chosen for the interpolation:
 
 <table border="1">
 
-<tr><td>Integer Number</td><td width='33%'>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
+<tr><td>Integer Number</td><td widh='30%'>Option: Interpolation Schemes</td><td>Brief Description</td></tr>
 
 <tr><td>0)</td><td>AkimaSpline</td><td>Akima Spline interpolation. The Akima
 spline is a C1 differentiable function (that is, has a continuous first
