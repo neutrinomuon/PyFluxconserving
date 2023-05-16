@@ -1,5 +1,5 @@
-### FluxConserving
-####  A Fortran legacy package to easily compute the flux-density conservation
+### pyfluxconserving
+####  Fully based on a Fortran legacy package to easily compute the flux-density conservation
 Obs.: A Fortran legacy Interpolation routines also furnished <br>
 email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@astro.up.pt](mailto:jean@astro.up.pt)
 
@@ -19,7 +19,7 @@ J.G. - Jean Gomes
 <hr>
 
 <div align="center">
-<img src='https://github.com/neutrinomuon/FluxConserving/blob/main/tutorials/fluxconserving.png?raw=true' width="60%">
+<img src='https://github.com/neutrinomuon/FluxConserving/blob/main/tutorials/pyfluxconserving.png?raw=true' width="60%">
 </div>
 
 <hr>
@@ -56,9 +56,13 @@ consider when binning astronomical spectra, and astronomers need to scale the
 intensity of each binned pixel to ensure that the total energy emitted by the
 object is conserved. SpectRes from A. Carnall is *NOT* part of the distribution,
 but used as a comparison: <a
-href='https://github.com/ACCarnall/SpectRes'>https://github.com/ACCarnall/SpectRes</a>.
+href='https://github.com/ACCarnall/SpectRes'>https://github.com/ACCarnall/SpectRes</a>. If you want to install for comparison then:
 
-Accompanying there are several routines for interpolations.
+<pre>
+pip install spectres
+</pre>
+
+However, it is not necessary for the usage of this package. Accompanying there are several routines for interpolations.
 
 <hr>
 
@@ -183,15 +187,15 @@ spline interpolation. The same references as in 4).</td></tr>
 The main structure of the directories and files are:
 
 <pre>
-FluxConserving
+pyfluxconserving
 ├── dist
 │   └── pyfluxconserving-0.0.1.tar.gz
 ├── README.md
 ├── LICENSE.txt
 ├── setup.py
 ├── tutorials
-│   ├── fluxconserving.png
-│   └── Flux-Conserving Example.ipynb
+│   ├── pyfluxconserving.png
+│   └── pyfluxconserving Example.ipynb
 ├── pyfluxconserving.egg-info
 │   ├── PKG-INFO
 │   ├── dependency_links.txt

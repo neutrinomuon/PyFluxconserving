@@ -30,9 +30,13 @@ from pyfluxconserving import flib as interp
 from pyfluxconserving import califa_cmap_alternative as califa_cmap
 from pyfluxconserving import fluxconserve
 
-from spectres  import spectral_resampling as sr
-from spectres import spectral_resampling_numba as srn
-
+try:
+    from spectres  import spectral_resampling as sr
+    from spectres import spectral_resampling_numba as srn
+except:
+    print("spectres is not installed ==> pip install spectres")
+    print("However, not necessary for the runs")
+    
 import scipy.interpolate as interpolate
 from scipy.interpolate import CubicSpline
 from scipy.interpolate import BSpline
@@ -226,12 +230,15 @@ author_fluxconspec in python
 
         y_new_,IsKeepOn = interp.fluxconspec(x_new, x, y, per_bins, slow_int, fill_val=fill_val, verbosity=verbosity)
 
-        auxil1time = time.time()
-        #print(x.size,x)
-        model_resampled = sr.spectres(x_new, x, y, fill=fill_val)
-        #model_resampled = y_new
-        auxil2time = time.time()
-        
+        try:
+            auxil1time = time.time()
+            #print(x.size,x)
+            model_resampled = sr.spectres(x_new, x, y, fill=fill_val)
+            #model_resampled = y_new
+            auxil2time = time.time()
+        except:
+            print("spectres is not installed - Comparison not made")
+            
         print("... Time fluxconspec: {}s and spectral_resampling: {}s - Ratio fluxconspec/sample_resampling {}".format(auxil1time-begin_time,auxil2time-auxil1time,(auxil1time-begin_time)/(auxil2time-auxil1time)))
         print()
         
@@ -506,17 +513,20 @@ author_fluxconspec in python
                 cs          = CubicSpline( x,y )
                 y_interp_scipy = cs(x_interp)
                 auxil4time = time.time()
+
+                try:
+                    # Spectres
+                    auxil5time = time.time()
+                    model_resampled = sr.spectres(x_interp, x, y, fill=fill_val)
+                    auxil6time = time.time()
                 
-                # Spectres
-                auxil5time = time.time()
-                model_resampled = sr.spectres(x_interp, x, y, fill=fill_val)
-                auxil6time = time.time()
-                
-                # Spectres Numba
-                auxil7time = time.time()
-                model_resampled = srn.spectres_numba(x_interp, x, y, fill=fill_val)
-                auxil8time = time.time()
-                
+                    # Spectres Numba
+                    auxil7time = time.time()
+                    model_resampled = srn.spectres_numba(x_interp, x, y, fill=fill_val)
+                    auxil8time = time.time()
+                except:
+                    print("spectres is not installed - Comparison not made")
+                    
                 # Numpy Interpolation
                 auxil9time = time.time()
                 numpy_interp = np.interp(x_interp, x, y)
@@ -587,7 +597,7 @@ def main():
     
     #x_new = [0.5,1.0,2.3,3.22222,4.66,5.2,6.0]
     
-    #i_object = FluxConSpec(x_new,x,y,slow_int=4)
+    #i_object = PyFluxConSpec(x_new,x,y,slow_int=4)
     #i_object.plot()
     #print( i_object.y_new )
 
