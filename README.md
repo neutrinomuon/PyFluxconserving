@@ -5,7 +5,7 @@ email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@as
 
 github repository: <a href="https://github.com/neutrinomuon/FluxConserving">FluxConserving</a>
 
-last stable version: 0.0.8
+last stable version: 0.0.9
 
 © Copyright ®
 
@@ -189,7 +189,7 @@ The main structure of the directories and files are:
 <pre>
 pyfluxconserving
 ├── dist
-│   └── pyfluxconserving-0.0.1.tar.gz
+│   └── pyfluxconserving-0.0.9.tar.gz
 ├── README.md
 ├── LICENSE.txt
 ├── setup.py
