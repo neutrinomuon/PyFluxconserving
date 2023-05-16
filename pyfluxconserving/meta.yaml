@@ -1,5 +1,5 @@
 {% set name = "pyfluxconserving" %}
-{% set version = "0.0.7" %}
+{% set version = "0.0.9" %}
 
 package:
   name: "{{ name|lower }}"
@@ -29,12 +29,12 @@ test:
     - pyfluxconserving
 
 about:
-  home: "https://github.com/neutrinomuon/FluxConserving"
+  home: "https://github.com/neutrinomuon/pyfluxconserving"
   license_file: 'LICENSE.txt'
-  license_url: "https://github.com/neutrinomuon/FluxConserving/LICENSE.txt"
+  license_url: "https://github.com/neutrinomuon/pyfluxconserving/LICENSE.txt"
   summary: "Flux-conserving legacy routines in Fortran and Python"
-  doc_url: "https://github.com/neutrinomuon/FluxConserving"
-  dev_url: "https://github.com/neutrinomuon/FluxConserving"
+  doc_url: "https://github.com/neutrinomuon/pyfluxconserving"
+  dev_url: "https://github.com/neutrinomuon/pyfluxconserving"
 
 extra:
   recipe-maintainers:

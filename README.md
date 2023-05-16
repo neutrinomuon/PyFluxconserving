@@ -3,7 +3,7 @@
 Obs.: A Fortran legacy Interpolation routines also furnished <br>
 email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@astro.up.pt](mailto:jean@astro.up.pt)
 
-github repository: <a href="https://github.com/neutrinomuon/FluxConserving">FluxConserving</a>
+github repository: <a href="https://github.com/neutrinomuon/pyfluxconserving">pyfluxconserving</a>
 
 last stable version: 0.0.9
 
@@ -27,7 +27,7 @@ J.G. - Jean Gomes
 #### <b>RESUME</b>
 
 Original Fortran 2003+ routines date back to 2003-2004. Read the <a
-href='https://github.com/neutrinomuon/FluxConserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
+href='https://github.com/neutrinomuon/pyfluxconserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
 file. When analyzing astronomical spectra, astronomers often bin the data to
 increase the signal-to-noise ratio and reduce the effects of noise in the
 data. Binning refers to the process of averaging the intensity of adjacent
@@ -90,7 +90,7 @@ conda install -c neutrinomuon pyfluxconserving
 You can also clone the repository and install by yourself in your machine:
 
 <pre>
-git clone https://github.com/neutrinomuon/FluxConserving
+git clone https://github.com/neutrinomuon/pyfluxconserving
 python setup.py install
 </pre>
 
