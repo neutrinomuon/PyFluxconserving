@@ -9,7 +9,7 @@ last stable version: {VERSION_NUMBER}
 
 © Copyright ®
 
-J.G. - Jean Gomes
+J.G. - Jean Gomes @ 2023
 
 <hr>
 
