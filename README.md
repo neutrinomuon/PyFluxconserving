@@ -5,7 +5,7 @@ email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@as
 
 github repository: <a href="https://github.com/neutrinomuon/pyfluxconserving">pyfluxconserving</a>
 
-last stable version: kfahbsfkbsjabfs 0.0.10
+last stable version: 0.0.10
 
 © Copyright ®
 
