@@ -16,12 +16,12 @@ build:
 requirements:
   host:
     - matplotlib
-    - numpy
+    - numpy>=1.21.5
     - pip
     - python
   run:
     - matplotlib
-    - numpy
+    - numpy>=1.21.5
     - python
 
 test:
