@@ -1,40 +1,60 @@
-- name: Commit and push changes to pyfluxconserving
-  run: |
-    TOKEN=${{ secrets.GITHUB_TOKEN }}
-    FILE_PATH="README.md"
-    BRANCH="main"
-    COMMIT_MESSAGE="Update README with new version"
-    
-    # Get the current commit SHA
-    COMMIT_SHA=$(curl -s -X GET \
-      -H "Authorization: Bearer $TOKEN" \
-      -H "Accept: application/vnd.github.v3+json" \
-      "https://api.github.com/repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA" | jq -r '.sha')
+name: Update README from pyfluxconserving
 
-    # Get the current file contents
-    FILE_CONTENT=$(curl -s -X GET \
-      -H "Authorization: Bearer $TOKEN" \
-      -H "Accept: application/vnd.github.v3+json" \
-      "https://api.github.com/repos/$GITHUB_REPOSITORY/contents/$FILE_PATH?ref=$BRANCH" | jq -r '.content')
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-    # Decode the file contents
-    FILE_CONTENT=$(echo "$FILE_CONTENT" | base64 -d)
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
 
-    # Update the file content with the new version
-    NEW_VERSION=$(cat version.txt)
-    UPDATED_CONTENT=$(echo "$FILE_CONTENT" | sed "s/last stable version: .*/last stable version: $NEW_VERSION/")
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    # Encode the updated content
-    UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
+      - name: Run update-readme script
+        run: python scripts/update_readme.py
 
-    # Update the file on GitHub
-    curl -s -X PUT \
-      -H "Authorization: Bearer $TOKEN" \
-      -H "Accept: application/vnd.github.v3+json" \
-      -d '{
-        "message": "'"$COMMIT_MESSAGE"'",
-        "content": "'"$UPDATED_CONTENT"'",
-        "branch": "'"$BRANCH"'",
-        "sha": "'"$COMMIT_SHA"'"
-      }' \
-      "https://api.github.com/repos/$GITHUB_REPOSITORY/contents/$FILE_PATH"
+      - name: Update README with new version
+        run: |
+          TOKEN=${{ secrets.GITHUB_TOKEN }}
+          FILE_PATH="README.md"
+          BRANCH="main"
+          COMMIT_MESSAGE="Update README with new version"
+          
+          # Get the current commit SHA
+          COMMIT_SHA=$(curl -s -X GET \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA" | jq -r '.sha')
+
+          # Get the current file contents
+          FILE_CONTENT=$(curl -s -X GET \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/contents/$FILE_PATH?ref=$BRANCH" | jq -r '.content')
+
+          # Decode the file contents
+          FILE_CONTENT=$(echo "$FILE_CONTENT" | base64 -d)
+
+          # Update the file content with the new version
+          NEW_VERSION=$(cat version.txt)
+          UPDATED_CONTENT=$(echo "$FILE_CONTENT" | sed "s/last stable version: .*/last stable version: $NEW_VERSION/")
+
+          # Encode the updated content
+          UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
+
+          # Update the file on GitHub
+          curl -s -X PUT \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d '{
+              "message": "'"$COMMIT_MESSAGE"'",
+              "content": "'"$UPDATED_CONTENT"'",
+              "branch": "'"$BRANCH"'",
+              "sha": "'"$COMMIT_SHA"'"
+            }' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/contents/$FILE_PATH"
+
