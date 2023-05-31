@@ -8,8 +8,8 @@ with open("version.txt", "r") as file:
 with open("README.md", "r") as file:
     readme_content = file.read()
 
-# Use regular expression to find and replace the version number in the README.md content
-updated_readme_content = re.sub(r"last stable version: \d+\.\d+\.\d+", f"last stable version: {version}", readme_content)
+# Use regular expression to find and replace the line containing the old version in the README.md content
+updated_readme_content = re.sub(r"last stable version: .+?\n", f"last stable version: {version}\n", readme_content)
 
 # Write the updated README.md content back to the file
 with open("README.md", "w") as file:
