@@ -19,8 +19,8 @@ jobs:
 
       - name: Update README with new version
         run: |
-          # TOKEN=${{ secrets.GITHUB_TOKEN }}
-          TOKEN=$GITHUB_TOKEN
+          TOKEN=${{ secrets.GITHUB_TOKEN }}
+          # TOKEN=$GITHUB_TOKEN
           FILE_PATH="README.md"
           BRANCH="main"
           COMMIT_MESSAGE="Update README with new version"
