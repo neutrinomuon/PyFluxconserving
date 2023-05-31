@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   update-readme:
@@ -13,5 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Update README
+      - name: Run update-readme script
         run: python scripts/update_readme.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -a -m "Update README with new version"
+          git push
