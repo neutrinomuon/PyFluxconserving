@@ -1,0 +1,24 @@
+name: Update README from pyfluxconserving
+
+on:
+  push:
+    paths:
+      - 'version.txt'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run update_readme.py
+        run: python scripts/update_readme.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git commit -am "Update README"
+          git push
