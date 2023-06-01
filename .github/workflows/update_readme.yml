@@ -51,6 +51,12 @@ jobs:
           # Encode the updated content
           UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
 
+          # Print debug information
+          echo "TOKEN: $TOKEN"
+          echo "COMMIT_SHA: $COMMIT_SHA"
+          echo "FILE_CONTENT: $FILE_CONTENT"
+          echo "UPDATED_CONTENT: $UPDATED_CONTENT"
+
           # Update the file on GitHub
           RESPONSE=$(curl -s -X PUT \
             -H "Authorization: Bearer $TOKEN" \
