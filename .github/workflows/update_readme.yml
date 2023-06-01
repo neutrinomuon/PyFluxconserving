@@ -61,7 +61,7 @@ jobs:
 
           # Encode the updated content
           # UPDATE_CONTENT_normal=$(echo -n "$UPDATED_CONTENT")
-          # UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
+          UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
 
           # Print debug information
           echo "TOKEN: $TOKEN"
