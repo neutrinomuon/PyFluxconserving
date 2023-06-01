@@ -21,7 +21,6 @@ jobs:
       #  run: python scripts/update_readme.py
       
       - name: Get Commit SHA
-        id: get-commit-sha
         run: |
           TOKEN=${{ secrets.GITHUB_TOKEN }}
           FILE_PATH="README.md"
@@ -33,7 +32,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/neutrinomuon/pyfluxconserving/commits?path=$FILE_PATH&sha=$BRANCH" | jq -r '.[0].sha')
 
-          echo "::set-output name=commit-sha::$COMMIT_SHA"
+          echo "$COMMIT_SHA"
           
       - name: Update README with new version
         run: |
