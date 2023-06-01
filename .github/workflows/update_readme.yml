@@ -59,17 +59,18 @@ jobs:
           echo "UPDATED_CONTENT: $UPDATED_CONTENT"
           echo "NEW_VERSION: $NEW_VERSION"
 
+           # Prepare the JSON data
+          JSON_DATA=$(jq -n --arg message "$COMMIT_MESSAGE" --arg content "$UPDATED_CONTENT" --arg branch "$BRANCH" --arg sha "$COMMIT_SHA" \
+            '{message: $message, content: $content, branch: $branch, sha: $sha}')
+
+          echo "JSON_DATA: $JSON_DATA"
+
           # Update the file on GitHub
           RESPONSE=$(curl -s -X PUT \
             -H "Authorization: Bearer $TOKEN" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            -d '{
-              "message": "'"$COMMIT_MESSAGE"'",
-              "content": "'"$UPDATED_CONTENT"'",
-              "branch": "'"$BRANCH"'",
-              "sha": "'"$COMMIT_SHA"'"
-            }' \
+            -d "$JSON_DATA" \
             "https://api.github.com/repos/neutrinomuon/pyfluxconserving/contents/$FILE_PATH")
 
           echo "$RESPONSE"
