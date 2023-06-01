@@ -49,8 +49,8 @@ jobs:
           UPDATED_CONTENT=$(echo "$FILE_CONTENT" | sed "s/last stable version: .*/last stable version: $NEW_VERSION/")
 
           # Encode the updated content
-          UPDATE_CONTENT_normal=$(echo -n "$UPDATED_CONTENT")
-          UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
+          #UPDATE_CONTENT_normal=$(echo -n "$UPDATED_CONTENT")
+          #UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
 
           # Print debug information
           echo "TOKEN: $TOKEN"
