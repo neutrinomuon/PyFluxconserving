@@ -20,7 +20,6 @@ jobs:
       - name: Update README with new version
         run: |
           TOKEN=${{ secrets.GITHUB_TOKEN }}
-          # TOKEN=$GITHUB_TOKEN
           FILE_PATH="README.md"
           BRANCH="main"
           COMMIT_MESSAGE="Update README with new version"
@@ -48,7 +47,7 @@ jobs:
           UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
 
           # Update the file on GitHub
-          curl -s -X PUT \
+          RESPONSE=$(curl -s -X PUT \
             -H "Authorization: Bearer $TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
             -d '{
@@ -57,5 +56,6 @@ jobs:
               "branch": "'"$BRANCH"'",
               "sha": "'"$COMMIT_SHA"'"
             }' \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/contents/$FILE_PATH"
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/contents/$FILE_PATH")
 
+          echo "$RESPONSE"
