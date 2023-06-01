@@ -104,7 +104,7 @@ jobs:
             "https://api.github.com/repos/neutrinomuon/pyfluxconserving/commits?path=$FILE_PATH" | jq -r '.[0].sha')
 
            # Prepare the JSON data
-          JSON_DATA=$(jq -n --arg message "$COMMIT_MESSAGE" --arg content "$UPDATED_CONTENT" --arg branch "$BRANCH" --arg sha "$VECTOR_COMMIT_SHA" \
+          JSON_DATA=$(jq -n --arg message "$COMMIT_MESSAGE" --arg content "$UPDATED_CONTENT" --arg branch "$BRANCH" --arg sha "b16e0bab0246cf0ac109549c886df1dabbd9f849" \
             '{message: $message, content: $content, branch: $branch, sha: $sha}')
 
           # echo "JSON_DATA: $JSON_DATA"
