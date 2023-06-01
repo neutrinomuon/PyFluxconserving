@@ -52,6 +52,11 @@ jobs:
           echo "COMMIT_SHA: $COMMIT_SHA"
           echo "CURRENT_COMMIT_SHA: $CURRENT_COMMIT_SHA"
           
+          if [[ -z "$CURRENT_COMMIT_SHA" ]]; then
+            echo "Failed to retrieve the current commit SHA for the file: $FILE_PATH"
+            exit 1
+          fi
+          
           # Decode the file contents
           FILE_CONTENT=$(echo "$FILE_CONTENT" | base64 -d)
 
