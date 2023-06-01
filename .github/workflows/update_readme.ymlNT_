@@ -71,7 +71,7 @@ jobs:
           echo "NEW_VERSION: $NEW_VERSION"
 
            # Prepare the JSON data
-          JSON_DATA=$(jq -n --arg message "$COMMIT_MESSAGE" --arg content "$UPDATED_CONTENT" --arg branch "$BRANCH" --arg sha "$COMMIT_SHA" \
+          JSON_DATA=$(jq -n --arg message "$COMMIT_MESSAGE" --arg content "$UPDATED_CONTENT" --arg branch "$BRANCH" --arg sha "$CURRENT_COMMIT_SHA" \
             '{message: $message, content: $content, branch: $branch, sha: $sha}')
 
           # echo "JSON_DATA: $JSON_DATA"
