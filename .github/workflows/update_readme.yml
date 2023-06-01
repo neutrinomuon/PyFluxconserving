@@ -56,7 +56,7 @@ jobs:
           echo "TOKEN: $TOKEN"
           echo "COMMIT_SHA: $COMMIT_SHA"
           echo "FILE_CONTENT: $FILE_CONTENT"
-          echo "UPDATED_CONTENT: $UPDATED_CONTENT_normal"
+          echo "UPDATED_CONTENT: $UPDATED_CONTENT"
           echo "NEW_VERSION: $NEW_VERSION"
 
           # Update the file on GitHub
