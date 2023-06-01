@@ -34,6 +34,17 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/neutrinomuon/pyfluxconserving/commits/$GITHUB_SHA" | jq -r '.sha')
 
+          # Get the current commit SHA of the file
+          CURRENT_COMMIT_SHA=$(curl -s -X GET \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/neutrinomuon/pyfluxconserving/commits?path=$FILE_PATH" | jq -r '.[0].sha')
+          
+          # Print COMMIT_SHAs
+          echo "COMMIT_SHA: $COMMIT_SHA"
+          echo "CURRENT_COMMIT_SHA: $CURRENT_COMMIT_SHA"
+          
           # Get the current file contents
           FILE_CONTENT=$(curl -s -X GET \
             -H "Authorization: Bearer $TOKEN" \
