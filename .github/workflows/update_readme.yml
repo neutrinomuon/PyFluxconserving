@@ -49,13 +49,14 @@ jobs:
           UPDATED_CONTENT=$(echo "$FILE_CONTENT" | sed "s/last stable version: .*/last stable version: $NEW_VERSION/")
 
           # Encode the updated content
+          UPDATE_CONTENT_normal=$(echo -n "$UPDATED_CONTENT")
           UPDATED_CONTENT=$(echo -n "$UPDATED_CONTENT" | base64)
 
           # Print debug information
           echo "TOKEN: $TOKEN"
           echo "COMMIT_SHA: $COMMIT_SHA"
           echo "FILE_CONTENT: $FILE_CONTENT"
-          echo "UPDATED_CONTENT: $UPDATED_CONTENT"
+          echo "UPDATED_CONTENT: $UPDATED_CONTENT_normal"
           echo "NEW_VERSION: $NEW_VERSION"
 
           # Update the file on GitHub
