@@ -20,11 +20,11 @@ email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@as
 
 github repository: <a href="https://github.com/neutrinomuon/pyfluxconserving">pyfluxconserving</a>
 
-last stable version: 0.0.9
+last stable version: 0.0.12
 
 © Copyright ®
 
-J.G. - Jean Gomes
+J.G. - Jean Gomes @ 2023
 
 <hr>
 
@@ -34,7 +34,7 @@ J.G. - Jean Gomes
 <hr>
 
 <div align="center">
-<img src='https://github.com/neutrinomuon/FluxConserving/blob/main/tutorials/pyfluxconserving.png?raw=true' width="60%">
+<img src='https://raw.githubusercontent.com/neutrinomuon/pyfluxconserving/main/tutorials/pyfluxconserving.png' width='60%'>
 </div>
 
 <hr>
@@ -204,12 +204,33 @@ The main structure of the directories and files are:
 <pre>
 pyfluxconserving
 ├── dist
-│   └── pyfluxconserving-0.0.9.tar.gz
+│   ├── pyfluxconserving-0.0.4.tar.gz
+│   ├── pyfluxconserving-0.0.7.tar.gz
+│   ├── pyfluxconserving-0.0.3.tar.gz
+│   ├── pyfluxconserving-0.0.6.tar.gz
+│   ├── pyfluxconserving-0.0.8.tar.gz
+│   ├── pyfluxconserving-0.0.9.tar.gz
+│   ├── pyfluxconserving-0.0.1.tar.gz
+│   ├── pyfluxconserving-0.0.2.tar.gz
+│   ├── pyfluxconserving-0.0.10.tar.gz
+│   ├── pyfluxconserving-0.0.11.tar.gz
+│   └── pyfluxconserving-0.0.5.tar.gz
 ├── README.md
+├── .#README.md
+├── showdown.min.js
+├── scripts
+│   └── update_readme.py
+├── index.html
 ├── LICENSE.txt
 ├── setup.py
+├── pyfluxconserving
+│   ├── calculate_sha256.py
+│   ├── meta.yaml
+│   └── README.txt
 ├── tutorials
 │   ├── pyfluxconserving.png
+│   ├── .ipynb_checkpoints
+│   │   └── pyfluxconserving Example-checkpoint.ipynb
 │   └── pyfluxconserving Example.ipynb
 ├── pyfluxconserving.egg-info
 │   ├── PKG-INFO
@@ -223,62 +244,98 @@ pyfluxconserving
 │   │   ├── califa_cmap_alternative.py
 │   │   ├── PyLinear__int.py
 │   │   ├── PyLINinterpol.py
-│   │   ├── PySPLINECubic.py
 │   │   ├── fluxconserve.py
 │   │   ├── __init__.py
 │   │   ├── PySPLINE1DArr.py
 │   │   ├── PySPLINE3DFor.py
 │   │   ├── fluxconserving.png
 │   │   ├── PyAkimaSpline.py
-│   │   ├── PySPLINE3DAlt.py
 │   │   ├── PyInterpolado.py
 │   │   └── PyLINdexerpol.py
 │   └── fortran
+│       ├── SPLINE3DFor.cpython-39-darwin.so
+│       ├── LINdexerpol.cpython-311-darwin.so
+│       ├── SPLINE3DFor.cpython-310-darwin.so
 │       ├── LINdexerpol.f90
+│       ├── LINinterpol.cpython-39-darwin.so
 │       ├── SPLINE3DFor.cpython-39-x86_64-linux-gnu.so
 │       ├── SPLINE1DFlt.cpython-39-x86_64-linux-gnu.so
 │       ├── SPLINE3DFor.compile
 │       ├── FluxConSpec.compile
+│       ├── FluxConSpec.cpython-39-darwin.so
 │       ├── SPLINE1DArr.compile
+│       ├── SPLINE1DFlt.cpython-39-darwin.so
+│       ├── AkimaSpline.cpython-310-darwin.so
 │       ├── Interpolado.cpython-39-x86_64-linux-gnu.so
 │       ├── Interpolado.cpython-38-x86_64-linux-gnu.so
 │       ├── SPLINE1DFlt.f90
+│       ├── FluxConSpec.cpython-39-x86_64-linux-gnu.so
+│       ├── SPLINE1DFlt.cpython-310-darwin.so
+│       ├── FluxConSpec.cpython-311-darwin.so
 │       ├── AkimaSpline.f90
 │       ├── SPLINE1DArr.f90
+│       ├── SPLINE1DFlt.cpython-311-darwin.so
+│       ├── FluxConSpec.cpython-38-x86_64-linux-gnu.so
+│       ├── AkimaSpline.cpython-39-darwin.so
 │       ├── SPLINE1DFlt.cpython-38-x86_64-linux-gnu.so
 │       ├── SPLINE3DFor.cpython-38-x86_64-linux-gnu.so
 │       ├── AkimaSpline.compile
 │       ├── DataTypes.f90
+│       ├── SPLINE1DArr.cpython-39-darwin.so
+│       ├── LINdexerpol.cpython-310-darwin.so
 │       ├── LINdexerpol.compile
 │       ├── SPLINE3DFor.f90
 │       ├── SPLINE1DFlt.compile
 │       ├── Interpolado.f90
+│       ├── LINinterpol.cpython-311-darwin.so
+│       ├── SPLINE1DArr.cpython-310-darwin.so
+│       ├── FluxConSpec.cpython-310-x86_64-linux-gnu.so
+│       ├── LINinterpol.cpython-310-darwin.so
 │       ├── SPLINE1DFlt.cpython-310-x86_64-linux-gnu.so
+│       ├── LINinterpol.compile
+│       ├── SPLINE1DArr.cpython-311-darwin.so
+│       ├── SPLINE3DFor.cpython-311-darwin.so
+│       ├── LINinterpol.compile~
+│       ├── FluxConSpec.cpython-310-darwin.so
 │       ├── FluxConSpec.f90
 │       ├── Interpolado.cpython-310-x86_64-linux-gnu.so
 │       ├── LINdexerpol.cpython-310-x86_64-linux-gnu.so
 │       ├── README.txt
 │       ├── Interpolado.compile
 │       ├── SPLINE3DFor.cpython-310-x86_64-linux-gnu.so
+│       ├── LINdexerpol.cpython-39-darwin.so
 │       ├── LINinterpol.f90
 │       ├── LINdexerpol.cpython-39-x86_64-linux-gnu.so
-│       └── LINdexerpol.cpython-38-x86_64-linux-gnu.so
+│       ├── LINdexerpol.cpython-38-x86_64-linux-gnu.so
+│       └── AkimaSpline.cpython-311-darwin.so
 ├── version.txt
 └── build
     ├── lib.linux-x86_64-3.9
     │   └── pyfluxconserving
+    ├── lib.macosx-11.1-arm64-cpython-39
+    │   └── pyfluxconserving
+    ├── temp.macosx-11.1-arm64-cpython-39
+    │   ├── __pycache__
+    │   ├── pyfluxconserving
+    │   ├── ccompiler_opt_cache_ext.py
+    │   ├── src
+    │   └── build
     ├── src.linux-x86_64-3.9
     │   ├── pyfluxconserving
     │   ├── build
     │   └── numpy
-    └── temp.linux-x86_64-3.9
+    ├── temp.linux-x86_64-3.9
+    │   ├── __pycache__
+    │   ├── pyfluxconserving
+    │   ├── ccompiler_opt_cache_ext.py
+    │   ├── src
+    │   └── build
+    └── src.macosx-11.1-arm64-3.9
         ├── pyfluxconserving
-        ├── ccompiler_opt_cache_ext.py
-        ├── src
-        ├── .libs
-        └── build
+        ├── build
+        └── numpy
 
-18 directories, 56 files
+32 directories, 99 files
 </pre>
 
 <br>PyFluxConSPec.py is a python wrapper to the library in fortran called
@@ -313,6 +370,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
 
 
