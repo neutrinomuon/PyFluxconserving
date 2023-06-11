@@ -1,4 +1,4 @@
-### pyfluxconserving
+### PyFluxconserving
 ####  Fully based on a Fortran legacy package to easily compute the flux-density conservation
 Obs.: A Fortran legacy Interpolation routines also furnished <br>
 email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@astro.up.pt](mailto:jean@astro.up.pt)
