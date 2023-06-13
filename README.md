@@ -3,9 +3,9 @@
 Obs.: A Fortran legacy Interpolation routines also furnished <br>
 email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@astro.up.pt](mailto:jean@astro.up.pt)
 
-github repository: <a href="https://github.com/neutrinomuon/pyfluxconserving">pyfluxconserving</a>
+github repository: <a href="https://github.com/neutrinomuon/PyFluxconserving">PyFluxconserving</a>
 
-last stable version: 0.0.12
+last stable version: 0.0.14
 
 © Copyright ®
 
@@ -14,12 +14,12 @@ J.G. - Jean Gomes @ 2023
 <hr>
 
 <img src="https://skillicons.dev/icons?i=python,fortran,c,numpy&theme=light"><br>
-<img src="https://img.shields.io/pypi/pyversions/pyfluxconserving"><img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/license.svg">
+<img src="https://img.shields.io/pypi/pyversions/PyFluxconserving"><img src="https://anaconda.org/neutrinomuon/PyFluxconserving/badges/license.svg">
 
 <hr>
 
 <div align="center">
-<img src='https://raw.githubusercontent.com/neutrinomuon/pyfluxconserving/main/tutorials/pyfluxconserving.png' width='60%'>
+<img src='https://raw.githubusercontent.com/neutrinomuon/PyFluxconserving/main/tutorials/PyFluxconserving.png' width='60%'>
 </div>
 
 <hr>
@@ -27,7 +27,7 @@ J.G. - Jean Gomes @ 2023
 #### <b>RESUME</b>
 
 Original Fortran 2003+ routines date back to 2003-2004. Read the <a
-href='https://github.com/neutrinomuon/pyfluxconserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
+href='https://github.com/neutrinomuon/PyFluxconserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
 file. When analyzing astronomical spectra, astronomers often bin the data to
 increase the signal-to-noise ratio and reduce the effects of noise in the
 data. Binning refers to the process of averaging the intensity of adjacent
@@ -69,20 +69,20 @@ However, it is not necessary for the usage of this package. Accompanying there a
 #### <b>INSTALLATION</b>
 
 You can easily install <a
-href=https://pypi.org/project/pyfluxconserving/>pyfluxconserving</a> by using pip -
+href=https://pypi.org/project/PyFluxconserving/>PyFluxconserving</a> by using pip -
 <a href='https://pypi.org/'>PyPI - The Python Package Index</a>:
 
 <pre>
-pip install pyfluxconserving
+pip install PyFluxconserving
 </pre>
 
 <br>or by using a generated conda repository <a
-href='https://anaconda.org/neutrinomuon/pyfluxconserving'>https://anaconda.org/neutrinomuon/pyfluxconserving</a>:
+href='https://anaconda.org/neutrinomuon/PyFluxconserving'>https://anaconda.org/neutrinomuon/PyFluxconserving</a>:
 
-<img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/version.svg"><img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/latest_release_date.svg"><img src="https://anaconda.org/neutrinomuon/pyfluxconserving/badges/platforms.svg">
+<img src="https://anaconda.org/neutrinomuon/PyFluxconserving/badges/version.svg"><img src="https://anaconda.org/neutrinomuon/PyFluxconserving/badges/latest_release_date.svg"><img src="https://anaconda.org/neutrinomuon/PyFluxconserving/badges/platforms.svg">
 
 <pre>
-conda install -c neutrinomuon pyfluxconserving
+conda install -c neutrinomuon PyFluxconserving
 </pre>
 
 <br>OBS.: Linux, OS-X and Windows pre-compilations available in conda.
@@ -90,7 +90,7 @@ conda install -c neutrinomuon pyfluxconserving
 You can also clone the repository and install by yourself in your machine:
 
 <pre>
-git clone https://github.com/neutrinomuon/pyfluxconserving
+git clone https://github.com/neutrinomuon/PyFluxconserving
 python setup.py install
 </pre>
 
@@ -187,19 +187,19 @@ spline interpolation. The same references as in 4).</td></tr>
 The main structure of the directories and files are:
 
 <pre>
-pyfluxconserving
+PyFluxconserving
 ├── dist
-│   ├── pyfluxconserving-0.0.4.tar.gz
-│   ├── pyfluxconserving-0.0.7.tar.gz
-│   ├── pyfluxconserving-0.0.3.tar.gz
-│   ├── pyfluxconserving-0.0.6.tar.gz
-│   ├── pyfluxconserving-0.0.8.tar.gz
-│   ├── pyfluxconserving-0.0.9.tar.gz
-│   ├── pyfluxconserving-0.0.1.tar.gz
-│   ├── pyfluxconserving-0.0.2.tar.gz
-│   ├── pyfluxconserving-0.0.10.tar.gz
-│   ├── pyfluxconserving-0.0.11.tar.gz
-│   └── pyfluxconserving-0.0.5.tar.gz
+│   ├── PyFluxconserving-0.0.4.tar.gz
+│   ├── PyFluxconserving-0.0.7.tar.gz
+│   ├── PyFluxconserving-0.0.3.tar.gz
+│   ├── PyFluxconserving-0.0.6.tar.gz
+│   ├── PyFluxconserving-0.0.8.tar.gz
+│   ├── PyFluxconserving-0.0.9.tar.gz
+│   ├── PyFluxconserving-0.0.1.tar.gz
+│   ├── PyFluxconserving-0.0.2.tar.gz
+│   ├── PyFluxconserving-0.0.10.tar.gz
+│   ├── PyFluxconserving-0.0.11.tar.gz
+│   └── PyFluxconserving-0.0.5.tar.gz
 ├── README.md
 ├── .#README.md
 ├── showdown.min.js
@@ -208,16 +208,16 @@ pyfluxconserving
 ├── index.html
 ├── LICENSE.txt
 ├── setup.py
-├── pyfluxconserving
+├── PyFluxconserving
 │   ├── calculate_sha256.py
 │   ├── meta.yaml
 │   └── README.txt
 ├── tutorials
-│   ├── pyfluxconserving.png
+│   ├── PyFluxconserving.png
 │   ├── .ipynb_checkpoints
-│   │   └── pyfluxconserving Example-checkpoint.ipynb
-│   └── pyfluxconserving Example.ipynb
-├── pyfluxconserving.egg-info
+│   │   └── PyFluxconserving Example-checkpoint.ipynb
+│   └── PyFluxconserving Example.ipynb
+├── PyFluxconserving.egg-info
 │   ├── PKG-INFO
 │   ├── dependency_links.txt
 │   ├── SOURCES.txt
@@ -296,27 +296,27 @@ pyfluxconserving
 ├── version.txt
 └── build
     ├── lib.linux-x86_64-3.9
-    │   └── pyfluxconserving
+    │   └── PyFluxconserving
     ├── lib.macosx-11.1-arm64-cpython-39
-    │   └── pyfluxconserving
+    │   └── PyFluxconserving
     ├── temp.macosx-11.1-arm64-cpython-39
     │   ├── __pycache__
-    │   ├── pyfluxconserving
+    │   ├── PyFluxconserving
     │   ├── ccompiler_opt_cache_ext.py
     │   ├── src
     │   └── build
     ├── src.linux-x86_64-3.9
-    │   ├── pyfluxconserving
+    │   ├── PyFluxconserving
     │   ├── build
     │   └── numpy
     ├── temp.linux-x86_64-3.9
     │   ├── __pycache__
-    │   ├── pyfluxconserving
+    │   ├── PyFluxconserving
     │   ├── ccompiler_opt_cache_ext.py
     │   ├── src
     │   └── build
     └── src.macosx-11.1-arm64-3.9
-        ├── pyfluxconserving
+        ├── PyFluxconserving
         ├── build
         └── numpy
 
@@ -324,7 +324,7 @@ pyfluxconserving
 </pre>
 
 <br>PyFluxConSPec.py is a python wrapper to the library in fortran called
-pyfluxconserving.flib. The fortran directory can be compiled separately for
+PyFluxconserving.flib. The fortran directory can be compiled separately for
 each individual subroutine.
 
 <hr>
