@@ -5,7 +5,7 @@ email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com), [jean@as
 
 github repository: <a href="https://github.com/neutrinomuon/PyFluxconserving">PyFluxconserving</a>
 
-last stable version: 0.0.14
+last stable version: 0.0.15
 
 © Copyright ®
 
