@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: PyFluxconserving
-Version: 0.0.14
+Version: 0.0.15
 Summary: FluxConserving is a set of Fortran 2003+ legacy routines with Python. There are some options for the flux-conserving algorithm. It also includes interpolation scripts.
 Home-page: https://github.com/neutrinomuon/PyFluxconserving
 Download-URL: https://github.com/neutrinomuon/PyFluxconserving
@@ -8,9 +8,7 @@ Author: Jean Gomes
 Author-email: antineutrinomuon@gmail.com
 Maintainer: Jean Gomes
 Maintainer-email: antineutrinomuon@gmail.com
-License: UNKNOWN
 Keywords: spectra,spectral analysis,spectral synthesis,interpolation,stars,galaxies
-Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Fortran
 Classifier: Operating System :: OS Independent
@@ -374,5 +372,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-

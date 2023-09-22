@@ -26,6 +26,7 @@ J.G. - Jean Gomes @ 2023
 
 #### <b>RESUME</b>
 
+<img src="https://raw.githubusercontent.com/neutrinomuon/PyFluxconserving/main/figures/PyFluxConserving.png" width=120>
 Original Fortran 2003+ routines date back to 2003-2004. Read the <a
 href='https://github.com/neutrinomuon/PyFluxconserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
 file. When analyzing astronomical spectra, astronomers often bin the data to

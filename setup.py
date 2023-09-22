@@ -17,10 +17,20 @@ ext1 = Extension(  name='PyFluxconserving.flib',
                              'src/fortran/SPLINE3DFor.f90',
                              'src/fortran/FluxConSpec.f90' ]
                  )
-    
+
+ext2 = Extension(name='pyfluxconserving.flib',
+                 sources=[ 'src/fortran/DataTypes.f90',
+                           'src/fortran/AkimaSpline.f90',
+                           'src/fortran/Interpolado.f90',
+                           'src/fortran/LINdexerpol.f90',
+                           'src/fortran/LINinterpol.f90',
+                           'src/fortran/SPLINE1DArr.f90',
+                           'src/fortran/SPLINE3DFor.f90',
+                           'src/fortran/FluxConSpec.f90'])
+
 setup( name='PyFluxconserving',
        version=version_description,
-       ext_modules=[ ext1 ],
+       ext_modules=[ ext1,ext2 ],
        extra_compile_args=['-O3'],
        description='FluxConserving is a set of Fortran 2003+ legacy routines with Python. There are some options for the flux-conserving algorithm. It also includes interpolation scripts.',
        long_description=long_description,      # Long description read from the the readme file
@@ -40,8 +50,10 @@ setup( name='PyFluxconserving',
            "Programming Language :: Fortran",
            "Operating System :: OS Independent",
                    ],
-       package_dir={"PyFluxconserving": "src/python"},
-       packages=['PyFluxconserving'],
+       #package_dir={"PyFluxconserving": "src/python"},
+       #packages=['PyFluxconserving'],
+       package_dir={"PyFluxconserving": "src/python", "pyfluxconserving": "src/python"},
+       packages=['PyFluxconserving', 'pyfluxconserving'],
        data_files=[('', ['version.txt','LICENSE.txt'])],
       )
     
