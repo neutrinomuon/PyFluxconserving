@@ -19,7 +19,7 @@ J.G. - Jean Gomes @ 2023
 <hr>
 
 <div align="center">
-<img src='https://raw.githubusercontent.com/neutrinomuon/PyFluxconserving/main/tutorials/PyFluxconserving_.png' width='60%'>
+<img src='https://raw.githubusercontent.com/neutrinomuon/PyFluxconserving/main/figures/PyFluxconserving_.png' width='60%'>
 </div>
 
 <hr>
