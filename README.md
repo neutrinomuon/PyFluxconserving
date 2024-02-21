@@ -271,6 +271,7 @@ workspace
 │       └── pyfluxconserving Example-checkpoint.ipynb
 ├── tree.out
 ├── LICENSE.txt
+├── README_setup.txt
 ├── showdown.min.js
 ├── requirements.txt
 ├── dist
@@ -283,7 +284,6 @@ workspace
 │   └── update_readme.py
 ├── .github
 │   └── workflows
-│       ├── main.yml~
 │       ├── main.yml
 │       └── pylint.yml
 ├── PyFluxconserving.egg-info
@@ -297,9 +297,9 @@ workspace
 │   ├── objects
 │   │   ├── info
 │   │   └── pack
-│   │       ├── pack-0a5c886f3f0b57952864859a706256bda781df04.rev
-│   │       ├── pack-0a5c886f3f0b57952864859a706256bda781df04.pack
-│   │       └── pack-0a5c886f3f0b57952864859a706256bda781df04.idx
+│   │       ├── pack-32b25450463390214c858c30fbc34fc9146923bd.pack
+│   │       ├── pack-32b25450463390214c858c30fbc34fc9146923bd.rev
+│   │       └── pack-32b25450463390214c858c30fbc34fc9146923bd.idx
 │   ├── info
 │   │   └── exclude
 │   ├── HEAD
@@ -355,7 +355,6 @@ workspace
 │   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
 │   ├── win-32
 │   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── PyFluxconserving-0.0.14.tar.gz
 │   ├── README.txt
 │   ├── linux-armv7l
 │   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
@@ -370,94 +369,64 @@ workspace
 │   └── osx-64
 │       └── pyfluxconserving-0.0.14-py39_0.tar.bz2
 └── build
-    ├── lib.linux-x86_64-cpython-39
-    │   ├── pyfluxconserving
-    │   │   ├── PyFluxConSpec.py
-    │   │   ├── PyInterpolado.py
-    │   │   ├── flib.cpython-39-x86_64-linux-gnu.so
-    │   │   ├── PyAkimaSpline.py
-    │   │   ├── PySPLINE3DFor.py
-    │   │   ├── PyLINdexerpol.py
-    │   │   ├── PyLINinterpol.py
-    │   │   ├── califa_cmap_alternative.py
-    │   │   ├── fluxconserve.py
-    │   │   ├── __init__.py
-    │   │   ├── PySPLINE1DArr.py
-    │   │   └── PyLinear__int.py
+    ├── lib.macosx-11.0-arm64-cpython-39
     │   └── PyFluxconserving
     │       ├── PyFluxConSpec.py
     │       ├── PyInterpolado.py
-    │       ├── flib.cpython-39-x86_64-linux-gnu.so
     │       ├── PyAkimaSpline.py
     │       ├── PySPLINE3DFor.py
     │       ├── PyLINdexerpol.py
+    │       ├── flib.cpython-39-darwin.so
     │       ├── PyLINinterpol.py
     │       ├── califa_cmap_alternative.py
     │       ├── fluxconserve.py
     │       ├── __init__.py
     │       ├── PySPLINE1DArr.py
     │       └── PyLinear__int.py
-    ├── src.linux-x86_64-3.9
-    │   ├── numpy
-    │   │   └── distutils
-    │   │       └── include
-    │   │           └── npy_cpu_dispatch_config.h
-    │   ├── pyfluxconserving
-    │   │   ├── flib-f2pywrappers2.f90
-    │   │   ├── flibmodule.c
-    │   │   └── flib-f2pywrappers.f
+    ├── temp.macosx-11.0-arm64-cpython-39
+    │   ├── src
+    │   │   └── fortran
+    │   │       ├── LINinterpol.o
+    │   │       ├── SPLINE1DArr.o
+    │   │       ├── FluxConSpec.o
+    │   │       ├── Interpolado.o
+    │   │       ├── AkimaSpline.o
+    │   │       ├── DataTypes.o
+    │   │       ├── LINdexerpol.o
+    │   │       └── SPLINE3DFor.o
+    │   ├── __pycache__
+    │   │   └── ccompiler_opt_cache_ext.cpython-39.pyc
+    │   ├── ccompiler_opt_cache_ext.py
     │   ├── PyFluxconserving
-    │   │   ├── flib-f2pywrappers2.f90
-    │   │   ├── flibmodule.c
-    │   │   └── flib-f2pywrappers.f
+    │   │   └── moddatatype.mod
     │   └── build
-    │       └── src.linux-x86_64-3.9
-    │           ├── pyfluxconserving
-    │           │   ├── fortranobject.c
-    │           │   └── fortranobject.h
-    │           └── PyFluxconserving
-    │               ├── fortranobject.c
-    │               └── fortranobject.h
-    └── temp.linux-x86_64-cpython-39
-        ├── src
-        │   └── fortran
-        │       ├── LINinterpol.o
-        │       ├── SPLINE1DArr.o
-        │       ├── FluxConSpec.o
-        │       ├── Interpolado.o
-        │       ├── AkimaSpline.o
-        │       ├── DataTypes.o
-        │       ├── LINdexerpol.o
-        │       └── SPLINE3DFor.o
-        ├── __pycache__
-        │   └── ccompiler_opt_cache_ext.cpython-39.pyc
-        ├── ccompiler_opt_cache_ext.py
-        ├── pyfluxconserving
-        │   └── moddatatype.mod
+    │       └── src.macosx-11.0-arm64-3.9
+    │           ├── PyFluxconserving
+    │           │   ├── flibmodule.o
+    │           │   ├── flibmodule.o.d
+    │           │   ├── flib-f2pywrappers.o
+    │           │   └── flib-f2pywrappers2.o
+    │           └── build
+    │               └── src.macosx-11.0-arm64-3.9
+    │                   └── PyFluxconserving
+    │                       ├── fortranobject.o.d
+    │                       └── fortranobject.o
+    └── src.macosx-11.0-arm64-3.9
+        ├── numpy
+        │   └── distutils
+        │       └── include
+        │           └── npy_cpu_dispatch_config.h
         ├── PyFluxconserving
-        │   └── moddatatype.mod
+        │   ├── flib-f2pywrappers2.f90
+        │   ├── flibmodule.c
+        │   └── flib-f2pywrappers.f
         └── build
-            └── src.linux-x86_64-3.9
-                ├── pyfluxconserving
-                │   ├── flibmodule.o
-                │   ├── flibmodule.o.d
-                │   ├── flib-f2pywrappers.o
-                │   └── flib-f2pywrappers2.o
-                ├── PyFluxconserving
-                │   ├── flibmodule.o
-                │   ├── flibmodule.o.d
-                │   ├── flib-f2pywrappers.o
-                │   └── flib-f2pywrappers2.o
-                └── build
-                    └── src.linux-x86_64-3.9
-                        ├── pyfluxconserving
-                        │   ├── fortranobject.o.d
-                        │   └── fortranobject.o
-                        └── PyFluxconserving
-                            ├── fortranobject.o.d
-                            └── fortranobject.o
+            └── src.macosx-11.0-arm64-3.9
+                └── PyFluxconserving
+                    ├── fortranobject.c
+                    └── fortranobject.h
 
-72 directories (0 symlink), 197 files (1 symlink)
+66 directories (0 symlink), 172 files (0 symlink)
 #################################################
 Generated: treehue_colored @2024 - © Jean Gomes -
 #################################################
