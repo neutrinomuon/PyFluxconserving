@@ -1,12 +1,13 @@
+'''Setup for PyFluxconserving'''
 from numpy.distutils.core import Extension
 from numpy.distutils.core import setup
 
-with open("README.md", "r") as fh:
+with open("README.md", "r",encoding="utf-8") as fh:
     long_description = fh.read()
 
-with open("version.txt", "r") as vh:
+with open("version.txt", "r",encoding="utf-8") as vh:
     version_description = vh.read()
-    
+
 ext1 = Extension(  name='PyFluxconserving.flib',
                    sources=[ 'src/fortran/DataTypes.f90',
                              'src/fortran/AkimaSpline.f90',
@@ -32,7 +33,8 @@ setup( name='PyFluxconserving',
        version=version_description,
        ext_modules=[ ext1,ext2 ],
        extra_compile_args=['-O3'],
-       description='FluxConserving is a set of Fortran 2003+ legacy routines with Python. There are some options for the flux-conserving algorithm. It also includes interpolation scripts.',
+       description='FluxConserving is a set of Fortran 2003+ legacy routines with Python. \
+There are some options for the flux-conserving algorithm. It also includes interpolation scripts.',
        long_description=long_description,      # Long description read from the the readme file
        long_description_content_type="text/markdown",
        author='Jean Gomes',
@@ -56,4 +58,3 @@ setup( name='PyFluxconserving',
        packages=['PyFluxconserving', 'pyfluxconserving'],
        data_files=[('', ['version.txt','LICENSE.txt'])],
       )
-    
