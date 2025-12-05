@@ -2,6 +2,7 @@
 ####  Fully based on a Fortran legacy package to easily compute the flux-density conservation
 Obs.: A Fortran legacy Interpolation routines also furnished in this package <br>
 email: [antineutrinomuon@gmail.com](mailto:antineutrinomuon@gmail.com)
+linkedin: <a href="https://www.linkedin.com/in/jean-michel-gomes/">https://www.linkedin.com/in/jean-michel-gomes/</a>
 
 github repository: <a href="https://github.com/neutrinomuon/PyFluxconserving">PyFluxconserving</a>
 
