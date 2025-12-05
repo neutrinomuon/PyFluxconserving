@@ -28,44 +28,54 @@ J.G. - Jean Gomes @ 2023
 
 #### <b>RESUME</b>
 
-<img src="https://raw.githubusercontent.com/neutrinomuon/PyFluxconserving/main/figures/PyFluxconserving.png" width=120>
-Original Fortran 2003+ routines date back to 2003-2004. Read the <a
-href='https://github.com/neutrinomuon/PyFluxconserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
-file. When analyzing astronomical spectra, astronomers often bin the data to
-increase the signal-to-noise ratio and reduce the effects of noise in the
-data. Binning refers to the process of averaging the intensity of adjacent
-spectral channels, or pixels, to produce a new, coarser set of data.
+<img
+src="https://raw.githubusercontent.com/neutrinomuon/PyFluxconserving/main/figures/PyFluxconserving.png"
+width=120>
 
-In the process of binning, it is important to ensure that the principle of
-flux density conservation is maintained. This means that the total energy
-emitted by the object, and hence its flux density, must remain constant after
+Original Fortran 2003+ legacy routines date back to 2003–2004. Please
+refer to the <a
+href='https://github.com/neutrinomuon/PyFluxconserving/blob/main/LICENSE.txt'>LICENSE.txt</a>
+file. These routines have been converted into Python libraries.
+
+When analysing astronomical spectra, astronomers often bin the data to
+increase the signal-to-noise ratio and mitigate the effects of
+noise. Binning refers to the process of averaging the intensity of
+adjacent spectral channels, or pixels, to produce a new, coarser
+dataset.
+
+During binning, it is crucial to maintain the principle of flux
+density conservation. This means that the total energy emitted by the
+object, and consequently its flux density, must remain constant after
 binning.
 
-To conserve flux density, the intensity of each binned pixel should be scaled
-by the number of pixels it represents. For example, if two adjacent pixels are
-binned together, the intensity of the resulting bin should be the sum of the
-intensities of the two original pixels, divided by two. This ensures that the
-total energy in the bin is conserved, and that the flux density of the object
-remains the same.
+To conserve flux density, the intensity of each binned pixel should be
+scaled according to the number of pixels it represents. For instance,
+if two adjacent pixels are binned together, the intensity of the
+resulting bin should equal the sum of the intensities of the two
+original pixels, divided by two. This ensures that the total energy in
+the bin is conserved and that the object's flux density remains
+unchanged.
 
-It's worth noting that binning can introduce errors in the spectral data,
-especially if the signal-to-noise ratio is low or if the binning is too
-coarse. In general, astronomers choose a binning size that balances the need
-for a high signal-to-noise ratio with the desire to maintain the spectral
-resolution and avoid introducing significant errors in the data.
+It is important to note that binning can introduce errors in spectral
+data, especially if the signal-to-noise ratio is low or if the binning
+is too coarse. Nevertheless, this procedure is often necessary, as the
+observed spectrum of an astronomical source is generally
+non-linear. Astronomers usually choose a binning size that balances
+the need for a high signal-to-noise ratio with the requirement to
+maintain spectral resolution and minimise significant errors in the
+data.
 
-In summary, the principle of flux density conservation is important to
-consider when binning astronomical spectra, and astronomers need to scale the
-intensity of each binned pixel to ensure that the total energy emitted by the
-object is conserved. SpectRes from A. Carnall is *NOT* part of the distribution,
-but used as a comparison: <a
-href='https://github.com/ACCarnall/SpectRes'>https://github.com/ACCarnall/SpectRes</a>. If you want to install for comparison then:
+In summary, flux density conservation is a key consideration when
+binning astronomical spectra. Astronomers must scale the intensity of
+each binned pixel to ensure that the total energy emitted by the
+object is preserved.
 
-<pre>
-pip install spectres
-</pre>
-
-However, it is not necessary for the usage of this package. Accompanying there are several routines for interpolations.
+Note: SpectRes by A. Carnall is not included in this distribution but
+is provided for comparison: <a
+href='https://github.com/ACCarnall/SpectRes'>https://github.com/ACCarnall/SpectRes
+</a>. To install it for comparison, please refer to the repository.
+However, it is not necessary for the usage of this
+package. Accompanying there are several routines for interpolations.
 
 <hr>
 
