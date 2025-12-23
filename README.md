@@ -416,9 +416,9 @@ workspace
 │   ├── index
 │   ├── objects
 │   │   ├── pack
-│   │   │   ├── pack-dc70ed827a49920db44e3eec2a5557cf92fd06fa.idx
-│   │   │   ├── pack-dc70ed827a49920db44e3eec2a5557cf92fd06fa.rev
-│   │   │   └── pack-dc70ed827a49920db44e3eec2a5557cf92fd06fa.pack
+│   │   │   ├── pack-8aca460a8f1e4092b8d16a9ba8bfa6404952619e.rev
+│   │   │   ├── pack-8aca460a8f1e4092b8d16a9ba8bfa6404952619e.pack
+│   │   │   └── pack-8aca460a8f1e4092b8d16a9ba8bfa6404952619e.idx
 │   │   └── info
 │   ├── shallow
 │   └── info
