@@ -66,3 +66,15 @@ jobs:
             build/
             dist/
             PyFluxconserving/*.so
+
+      # Commit the dirs
+      - name: Commit and push build/dist
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p build dist
+          cp -r build/* build/
+          cp -r dist/* dist/
+          git add build dist
+          git commit -m "Update build and dist via GitHub Actions" || echo "No changes to commit"
+          git push
