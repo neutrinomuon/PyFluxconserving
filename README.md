@@ -11,7 +11,7 @@ last stable version: 0.0.16
 
 © Copyright ®
 
-J.G. - Jean Gomes @ 2023
+J.G. - Jean Gomes @ 2025
 
 <hr>
 
@@ -104,7 +104,11 @@ You can also clone the repository and install by yourself in your machine:
 
 <pre>
 git clone https://github.com/neutrinomuon/PyFluxconserving
-python setup.py install
+pip install --user ninja (optional)
+pip install --user meson (optional)
+rm -rf build *.egg-info PyFluxconserving
+python setup.py build_ext --inplace
+pip install -e .
 </pre>
 
 <hr>
