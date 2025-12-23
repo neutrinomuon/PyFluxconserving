@@ -1,19 +1,19 @@
 name: Update README.md from repository
 
-on: 
+on:
   push:
     paths-ignore:
-        - '.github/workflows/update-readme.yml'
+      - '.github/workflows/update-readme.yml'
 
 jobs:
   update-readme:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 # Pin to Ubuntu 22.04 LTS
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Checkout TOKEN
+      - name: Set TOKEN environment
         run: echo "TOKEN=${{ secrets.TOKENACTION }}" >> $GITHUB_ENV
 
       - name: Set Branch and Repository Variables
@@ -21,12 +21,14 @@ jobs:
         run: |
           echo "BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
           echo "REPOSITORY=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
+          echo "LENGTH_LIMIT=100000" >> $GITHUB_ENV
 
-      - name: Update README.md for project
-        uses: neutrinomuon/UpdateREADME@v0.0.2
+      - name: Use UpdateREADME action from Marketplace
+        uses: neutrinomuon/UpdateREADME@v0.0.4  # <--- Use the published tag
         with:
           TOKEN: ${{ env.TOKEN }}
           BRANCH: ${{ env.BRANCH }}
           REPOSITORY: ${{ env.REPOSITORY }}
+          LENGTH_LIMIT: ${{ env.LENGTH_LIMIT }}
           FILE: 'README.md'
           COMMIT_MESSAGE: 'Update README with new version'
