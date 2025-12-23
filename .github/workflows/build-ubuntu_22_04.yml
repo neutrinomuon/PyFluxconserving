@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        python-version: [3.12]  # adjust as needed
+        python-version: [3.10, 3.11, 3.12]  # Python versions to test
 
     steps:
-      # Checkout code
+      # Checkout the repo
       - uses: actions/checkout@v4
 
       # Setup Python
@@ -23,28 +23,41 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # Update pip and install dependencies
+      # Install system dependencies and Python packages
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential
           python -m pip install --upgrade pip setuptools wheel numpy
 
+      # Optional: show versions for debugging
+      - name: Show versions
+        run: |
+          python --version
+          gfortran --version
+          python -m pip show numpy
+
       # Build Fortran extensions in-place
       - name: Build extensions in-place
         run: python setup.py build_ext --inplace
 
-      # Build sdist and wheel
-      - name: Build distributions
-        run: python setup.py sdist bdist_wheel
+      # Build sdist only once (on highest Python version)
+      - name: Build sdist
+        if: matrix.python-version == '3.12'
+        run: python setup.py sdist
+
+      # Build wheel for each Python version
+      - name: Build wheel
+        run: python setup.py bdist_wheel
 
       # List generated files
       - name: List dist
         run: ls -l dist
 
-      # Upload dist as artifact
+      # Upload all distributions as artifacts
       - name: Upload dist
         uses: actions/upload-artifact@v4
         with:
           name: python-dist
           path: dist/
+
