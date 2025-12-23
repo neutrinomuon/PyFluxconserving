@@ -36,12 +36,11 @@ jobs:
 
       - name: Build distributions
         run: |
-          # Create versioned directories
           mkdir -p dist/ubuntu-22.04-py3.11 build/ubuntu-22.04-py3.11
-          python setup.py sdist bdist_wheel
-          # Move outputs
-          mv dist/* dist/ubuntu-22.04-py3.11/
-          mv build/* build/ubuntu-22.04-py3.11/ || true
+          python setup.py sdist bdist_wheel --dist-dir temp_dist --bdist-dir temp_build
+          mv temp_dist/* dist/ubuntu-22.04-py3.11/
+          mv temp_build/* build/ubuntu-22.04-py3.11/ || true
+          rm -rf temp_dist temp_build
 
       - name: Commit & push generated files
         run: |
@@ -83,9 +82,10 @@ jobs:
       - name: Build distributions
         run: |
           mkdir -p dist/ubuntu-22.04-py3.12 build/ubuntu-22.04-py3.12
-          python setup.py sdist bdist_wheel
-          mv dist/* dist/ubuntu-22.04-py3.12/
-          mv build/* build/ubuntu-22.04-py3.12/ || true
+          python setup.py sdist bdist_wheel --dist-dir temp_dist --bdist-dir temp_build
+          mv temp_dist/* dist/ubuntu-22.04-py3.12/
+          mv temp_build/* build/ubuntu-22.04-py3.12/ || true
+          rm -rf temp_dist temp_build
 
       - name: Commit & push generated files
         run: |
