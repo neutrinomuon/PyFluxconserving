@@ -50,8 +50,8 @@ python module flib ! in
             real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp2dyold
             real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp3dyold
             real(kind=8) dimension(nx_value),intent(out),depend(nx_value) :: dy____dx
-            real(kind=8) dimension(nx_value,nold_vec),intent(out),depend(nold_vec,nx_value) :: dy_dxold
-            real(kind=8) dimension(nx_value,nold_vec),intent(out),depend(nold_vec,nx_value) :: dy_dyold
+            real(kind=8) dimension(nx_value,nold_vec),intent(out),depend(nx_value,nold_vec) :: dy_dxold
+            real(kind=8) dimension(nx_value,nold_vec),intent(out),depend(nx_value,nold_vec) :: dy_dyold
             integer(kind=4), optional :: is_deriv=0
             integer(kind=4), optional :: is_index=0
         end subroutine akimainterp

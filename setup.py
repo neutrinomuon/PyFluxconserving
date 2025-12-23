@@ -5,6 +5,10 @@ import sys
 import os
 import glob
 import shutil
+from pathlib import Path
+
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 # --- version handling from version.txt ----------------
 def read_version():
@@ -69,5 +73,8 @@ setup(
     #packages=find_packages(),  # busca pacotes em src/python
     #package_dir={"": "src/python"},              # root do pacote é src/python
     cmdclass={"build_ext": F2PyBuild},
+    package_data={"PyFluxconserving": ["flib*.so"]},  # include any flib .so
     #install_requires=["numpy", "scipy", "matplotlib"],  # dependências
+    long_description=long_description,
+    long_description_content_type="text/markdown",
 )

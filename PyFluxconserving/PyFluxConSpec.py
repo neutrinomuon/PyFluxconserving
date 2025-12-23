@@ -6,7 +6,7 @@ Revised interface on Sat Jan 30 12:07:21 2021
 @author: Jean Gomes
 
 RESUME : FluxConSpec subroutine is written in fortran 2003+ standard. Flux -conserving 
-                  interpolation script.
+         interpolation script.
 
 Version: v01 beta
 
@@ -30,10 +30,12 @@ from PyFluxconserving import flib as interp
 from PyFluxconserving import califa_cmap_alternative as califa_cmap
 from PyFluxconserving import fluxconserve
 
+print("Welcome to PyFluxConSpec")
 try:
     from spectres  import spectral_resampling as sr
     from spectres import spectral_resampling_numba as srn
 except:
+    print("Third-party packages")
     print("spectres is not installed ==> pip install spectres")
     print("However, not necessary for the runs")
     
@@ -257,11 +259,11 @@ author_fluxconspec in python
         #interpolation_names = [']
                                
         interpolation_names = [ 'Akima Interpolation       ', 
-                                                    'Linear    Interpolation    ', 
-                                                    'Linear  Table Indexing    ', 
-                                                    'Simple Interpolation      ', 
-                                                    'One Dimensional Spline ', 
-                                                    'SPLINE 3D Array             ', ]
+                                'Linear    Interpolation    ', 
+                                'Linear  Table Indexing    ', 
+                                'Simple Interpolation      ', 
+                                'One Dimensional Spline ', 
+                                'SPLINE 3D Array             ', ]
         N_slows = len(interpolation_names)
         
         # Compute Areas
@@ -459,16 +461,16 @@ author_fluxconspec in python
         sizepoints = np.zeros(i_)
                 
         interpolation_names = [ 'Akima Interpolation       ', 
-                                                    'Linear    Interpolation    ', 
-                                                    'Linear  Table Indexing    ', 
-                                                    'Simple Interpolation      ', 
-                                                    'One Dimensional Spline ', 
-                                                    'SPLINE 3D Array             ',
-                                                    'Akima Spline interpolation',
-                                                    'Cubic Spline using scipy',
-                                                    'Spectres',
-                                                    'Spectres Numba',
-                                                    'Numpy Interpolation',]
+                                'Linear    Interpolation    ', 
+                                'Linear  Table Indexing    ', 
+                                'Simple Interpolation      ', 
+                                'One Dimensional Spline ', 
+                                'SPLINE 3D Array             ',
+                                'Akima Spline interpolation',
+                                'Cubic Spline using scipy',
+                                'Spectres',
+                                'Spectres Numba',
+                                'Numpy Interpolation',]
         
         N_slows = len(interpolation_names)
         
