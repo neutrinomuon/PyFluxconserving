@@ -1,4 +1,4 @@
-name: Build Ubuntu 22.04 Package (Python 3.12)
+name: Build Ubuntu 22.04 Package
 
 on:
   push:
@@ -7,8 +7,12 @@ on:
     branches: [ main ]
 
 jobs:
-  build-ubuntu-3_12:
+  build-ubuntu:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        python-version: [3.11, 3.12]
+
     env:
       # Fortran flags needed on Python 3.12 / newer GCC
       FFLAGS: "-O2 -fallow-argument-mismatch"
@@ -17,14 +21,14 @@ jobs:
       # Checkout the repository
       - uses: actions/checkout@v4
 
-      # Setup Python 3.12
-      - name: Set up Python 3.12
+      # Setup Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: [3.11, 3.12]
+          python-version: ${{ matrix.python-version }}
 
       # Install system dependencies and Python packages
-      - name: Install system dependencies and Python packages
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
@@ -35,24 +39,30 @@ jobs:
           ninja --version
           meson --version
 
-
-      # Build Fortran extensions in-place
+      # Build Fortran extensions in-place (creates .so in PyFluxconserving/)
       - name: Build extensions in-place
         run: python setup.py build_ext --inplace
 
-      # Build sdist and wheel
+      # Build sdist and wheel (creates dist/)
       - name: Build distributions
         run: python setup.py sdist bdist_wheel
 
       # List generated files for verification
-      - name: List dist
-        run: ls -l dist
+      - name: List build and dist directories
+        run: |
+          echo "=== Build directory ==="
+          ls -l build || echo "No build directory"
+          echo "=== Dist directory ==="
+          ls -l dist || echo "No dist directory"
+          echo "=== PyFluxconserving directory ==="
+          ls -l PyFluxconserving || echo "No PyFluxconserving files"
 
-      # Upload all distributions as artifacts
-      - name: Upload dist
+      # Upload all artifacts: build/, dist/, compiled .so files
+      - name: Upload all build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: python-dist
-          path: dist/
-
-
+          name: python-build-${{ matrix.python-version }}
+          path: |
+            build/
+            dist/
+            PyFluxconserving/*.so
