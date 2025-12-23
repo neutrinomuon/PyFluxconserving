@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-ubuntu-3.12:
+  build-ubuntu-3-12:
     runs-on: ubuntu-22.04
     env:
       # Fortran flags needed on Python 3.12 / newer GCC
