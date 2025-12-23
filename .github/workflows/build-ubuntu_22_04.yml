@@ -11,50 +11,69 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        python-version: [3.11, 3.12]  # builds sequentially
+        python-version: [3.11, 3.12]
+
     env:
+      # Fortran flags needed on Python 3.12 / newer GCC
       FFLAGS: "-O2 -fallow-argument-mismatch"
 
     steps:
+      # Checkout the repository
       - uses: actions/checkout@v4
 
-      # Setup Python version from matrix
+      # Setup Python
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
-      # Install system dependencies
-      - name: Install system dependencies
+      # Install system dependencies and Python packages
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
           python -m pip install --upgrade pip setuptools wheel numpy meson
+          gfortran --version
+          python --version
+          python -m pip show numpy
+          ninja --version
+          meson --version
 
-      # Build extensions and distributions
-      - name: Build extensions and distributions
+      # Build Fortran extensions in-place
+      - name: Build extensions in-place
+        run: python setup.py build_ext --inplace
+
+      # Build sdist and wheel
+      - name: Build distributions
+        run: python setup.py sdist bdist_wheel
+
+      # Move build/dist into versioned folders
+      - name: Organize build and dist
         run: |
-          rm -rf build dist
-          python setup.py build_ext --inplace
-          python setup.py sdist bdist_wheel
-          mkdir -p build/ubuntu-22.04-py${{ matrix.python-version }}
-          mkdir -p dist/ubuntu-22.04-py${{ matrix.python-version }}
-          rsync -a build/ build/ubuntu-22.04-py${{ matrix.python-version }}/
-          rsync -a dist/ dist/ubuntu-22.04-py${{ matrix.python-version }}/
+          PYVER=$(python -c "import sys; print(f'py{sys.version_info.major}{sys.version_info.minor}')")
+          mkdir -p build/ubuntu-22.04-$PYVER
+          mkdir -p dist/ubuntu-22.04-$PYVER
+          mv build/* build/ubuntu-22.04-$PYVER/ || true
+          mv dist/* dist/ubuntu-22.04-$PYVER/ || true
 
-      # List generated files
-      - name: List generated files
-        run: |
-          ls -l build
-          ls -l dist
+      # Upload artifacts (optional, for CI viewing)
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-${{ matrix.python-version }}-dist
+          path: |
+            build/ubuntu-22.04-py${{ matrix.python-version }}
+            dist/ubuntu-22.04-py${{ matrix.python-version }}
 
-      # Only commit from one job after matrix completes
-      - name: Commit & push
-        if: matrix.python-version == '3.12'
+  commit-and-push:
+    runs-on: ubuntu-22.04
+    needs: build-ubuntu
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commit & push generated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add build dist
-          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12" || echo "No changes to commit"
-          git pull --rebase origin main || true
+          git diff --cached --quiet || git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12"
           git push origin main
