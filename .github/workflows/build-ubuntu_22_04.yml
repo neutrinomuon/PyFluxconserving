@@ -10,52 +10,44 @@ jobs:
   build-ubuntu:
     runs-on: ubuntu-22.04
     env:
-      # Fortran flags needed on Python 3.12 / newer GCC
       FFLAGS: "-O2 -fallow-argument-mismatch"
 
     steps:
-      # Checkout the repository
       - uses: actions/checkout@v4
 
-      # Install system dependencies
       - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
           ninja --version
 
-      # Build for multiple Python versions sequentially
-      - name: Build for Python 3.11 and 3.12
-        run: |
-          for PY in 3.11 3.12; do
-            echo "=== Building for Python $PY ==="
-            # Setup Python
-            python -m pip install --upgrade pip setuptools wheel numpy meson
-            python --version
-            python -m pip show numpy
-            meson --version
+      - name: Build for Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - run: |
+          python -m pip install --upgrade pip setuptools wheel numpy meson
+          python setup.py build_ext --inplace
+          python setup.py sdist bdist_wheel
+          mkdir -p build/ubuntu-22.04-py3.11
+          mkdir -p dist/ubuntu-22.04-py3.11
+          mv build/* build/ubuntu-22.04-py3.11/ || true
+          mv dist/* dist/ubuntu-22.04-py3.11/ || true
 
-            # Build Fortran extensions in-place
-            python setup.py build_ext --inplace
+      - name: Build for Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+      - run: |
+          python -m pip install --upgrade pip setuptools wheel numpy meson
+          python setup.py build_ext --inplace
+          python setup.py sdist bdist_wheel
+          mkdir -p build/ubuntu-22.04-py3.12
+          mkdir -p dist/ubuntu-22.04-py3.12
+          mv build/* build/ubuntu-22.04-py3.12/ || true
+          mv dist/* dist/ubuntu-22.04-py3.12/ || true
 
-            # Build sdist and wheel
-            python setup.py sdist bdist_wheel
-
-            # Move outputs to versioned directories
-            mkdir -p build/ubuntu-22.04-py$PY
-            mkdir -p dist/ubuntu-22.04-py$PY
-            mv build/* build/ubuntu-22.04-py$PY/ || true
-            mv dist/* dist/ubuntu-22.04-py$PY/ || true
-          done
-
-      # List generated files for verification
-      - name: List generated build/dist
-        run: |
-          ls -l build
-          ls -l dist
-
-      # Commit and push generated files
-      - name: Commit & push build/dist
+      - name: Commit & push generated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -64,7 +56,6 @@ jobs:
           git pull --rebase origin main || true
           git push origin main
 
-      # Upload artifacts
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
