@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-ubuntu-3-12:
+  build-ubuntu-3_12:
     runs-on: ubuntu-22.04
     env:
       # Fortran flags needed on Python 3.12 / newer GCC
@@ -27,11 +27,13 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y gfortran build-essential
+          sudo apt-get install -y gfortran build-essential ninja-build meson
           python -m pip install --upgrade pip setuptools wheel numpy
           gfortran --version
           python --version
           python -m pip show numpy
+          ninja --version
+          meson --version
 
       # Build Fortran extensions in-place
       - name: Build extensions in-place
@@ -51,4 +53,5 @@ jobs:
         with:
           name: python-dist
           path: dist/
+
 
