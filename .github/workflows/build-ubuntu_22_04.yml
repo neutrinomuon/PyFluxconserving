@@ -1,4 +1,4 @@
-name: Build Ubuntu 22.04 Package (Python 3.11 & 3.12)
+name: Build Ubuntu 22.04 Package
 
 on:
   push:
@@ -10,21 +10,20 @@ jobs:
   build-ubuntu:
     runs-on: ubuntu-22.04
     env:
-      # Fortran flags needed on Python 3.12 / newer GCC
       FFLAGS: "-O2 -fallow-argument-mismatch"
 
     steps:
       # Checkout the repository
       - uses: actions/checkout@v4
 
-      # Setup Python 3.11
-      - name: Set up Python 3.11
+      # Setup Python matrix
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: 3.11  # Will be switched manually in next step
 
       # Install system dependencies and Python packages
-      - name: Install system dependencies and Python packages
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
@@ -35,53 +34,45 @@ jobs:
           ninja --version
           meson --version
 
-      # Build Python 3.11
-      - name: Build Python 3.11
+      # Build sequentially for multiple Python versions
+      - name: Build for Python 3.11 and 3.12
         run: |
-          # Clean previous build/dist
-          rm -rf build dist
-          # Build extensions in-place
-          python setup.py build_ext --inplace
-          # Build sdist and wheel
-          python setup.py sdist bdist_wheel
-          # Copy build/dist into versioned folders
-          mkdir -p build/ubuntu-22.04-py3.11
-          mkdir -p dist/ubuntu-22.04-py3.11
-          cp -r build/* build/ubuntu-22.04-py3.11/
-          cp -r dist/* dist/ubuntu-22.04-py3.11/
+          for PY in 3.11 3.12; do
+            echo "=== Building for Python $PY ==="
 
-      # Setup Python 3.12
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.12
+            # Setup Python version
+            pyenv install -s $PY
+            pyenv local $PY
+            python -m pip install --upgrade pip setuptools wheel numpy meson
 
-      # Build Python 3.12
-      - name: Build Python 3.12
+            # Clean previous builds
+            rm -rf build dist
+
+            # Build extensions and distributions
+            python setup.py build_ext --inplace
+            python setup.py sdist bdist_wheel
+
+            # Copy to versioned folders
+            mkdir -p build/ubuntu-22.04-py$PY
+            mkdir -p dist/ubuntu-22.04-py$PY
+            rsync -a build/ build/ubuntu-22.04-py$PY/
+            rsync -a dist/ dist/ubuntu-22.04-py$PY/
+          done
+
+      # List files for verification
+      - name: List generated files
         run: |
-          # Clean previous build/dist
-          rm -rf build dist
-          # Build extensions in-place
-          python setup.py build_ext --inplace
-          # Build sdist and wheel
-          python setup.py sdist bdist_wheel
-          # Copy build/dist into versioned folders
-          mkdir -p build/ubuntu-22.04-py3.12
-          mkdir -p dist/ubuntu-22.04-py3.12
-          cp -r build/* build/ubuntu-22.04-py3.12/
-          cp -r dist/* dist/ubuntu-22.04-py3.12/
-
-      # List generated files for verification
-      - name: List all generated files
-        run: |
+          echo "=== Build folder ==="
           ls -l build
+          echo "=== Dist folder ==="
           ls -l dist
 
-      # Commit & push everything at the end
-      - name: Commit & push generated files
+      # Commit & push generated files
+      - name: Commit & push build/dist
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add build dist
           git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12" || echo "No changes to commit"
-          git push origin main --force
+          git pull --rebase origin main || true
+          git push origin main
