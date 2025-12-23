@@ -24,16 +24,17 @@ jobs:
           python-version: 3.12
 
       # Install system dependencies and Python packages
-      - name: Install dependencies
+      - name: Install system dependencies and Python packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y gfortran build-essential ninja-build meson
-          python -m pip install --upgrade pip setuptools wheel numpy
+          sudo apt-get install -y gfortran build-essential ninja-build
+          python -m pip install --upgrade pip setuptools wheel numpy meson
           gfortran --version
           python --version
           python -m pip show numpy
           ninja --version
           meson --version
+
 
       # Build Fortran extensions in-place
       - name: Build extensions in-place
