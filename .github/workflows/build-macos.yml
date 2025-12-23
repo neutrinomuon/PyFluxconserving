@@ -1,0 +1,60 @@
+name: Build macOS Package (Python 3.12)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-macos-3_12:
+    runs-on: macos-14   # macOS runner (arm64 by default)
+    env:
+      # Fortran flags needed on Python 3.12 / newer GCC
+      FFLAGS: "-O2 -fallow-argument-mismatch"
+
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v4
+
+      # Setup Python 3.12
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: [3.11, 3.12]
+
+      # Install system dependencies via Homebrew
+      - name: Install system dependencies and Python packages
+        run: |
+          # Install Homebrew if not already installed
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew update
+          brew install gfortran ninja meson
+          
+          python -m pip install --upgrade pip setuptools wheel numpy
+          
+          # Verify installations
+          gfortran --version
+          python --version
+          python -m pip show numpy
+          ninja --version
+          meson --version
+
+      # Build Fortran extensions in-place
+      - name: Build extensions in-place
+        run: python setup.py build_ext --inplace
+
+      # Build sdist and wheel
+      - name: Build distributions
+        run: python setup.py sdist bdist_wheel
+
+      # List generated files for verification
+      - name: List dist
+        run: ls -l dist
+
+      # Upload all distributions as artifacts
+      - name: Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-dist-macos
+          path: dist/
