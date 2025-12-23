@@ -1,4 +1,4 @@
-name: Build Ubuntu 22.04 Package
+name: Build Ubuntu 22.04 Package (Python 3.12)
 
 on:
   push:
@@ -7,21 +7,18 @@ on:
     branches: [ main ]
 
 jobs:
-  build-ubuntu:
+  build-ubuntu-3.12:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        python-version: [3.12]  # Python versions to test
 
     steps:
-      # Checkout the repo
+      # Checkout code
       - uses: actions/checkout@v4
 
-      # Setup Python
-      - name: Set up Python ${{ matrix.python-version }}
+      # Setup Python 3.12
+      - name: Set up Python 3.12
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.12
 
       # Install system dependencies and Python packages
       - name: Install dependencies
@@ -29,32 +26,27 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential
           python -m pip install --upgrade pip setuptools wheel numpy
-
-      # Optional: show versions for debugging
-      - name: Show versions
-        run: |
-          python --version
           gfortran --version
+          python --version
           python -m pip show numpy
+
+      # Set Fortran flags for Python 3.12 / newer GCC
+      - name: Set Fortran flags
+        run: export FFLAGS="-O2 -fallow-argument-mismatch"
 
       # Build Fortran extensions in-place
       - name: Build extensions in-place
         run: python setup.py build_ext --inplace
 
-      # Build sdist only once (on highest Python version)
-      - name: Build sdist
-        if: matrix.python-version == '3.12'
-        run: python setup.py sdist
-
-      # Build wheel for each Python version
-      - name: Build wheel
-        run: python setup.py bdist_wheel
+      # Build sdist and wheel
+      - name: Build distributions
+        run: python setup.py sdist bdist_wheel
 
       # List generated files
       - name: List dist
         run: ls -l dist
 
-      # Upload all distributions as artifacts
+      # Upload dist as artifact
       - name: Upload dist
         uses: actions/upload-artifact@v4
         with:
