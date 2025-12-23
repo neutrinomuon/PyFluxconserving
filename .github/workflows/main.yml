@@ -24,7 +24,7 @@ jobs:
           echo "LENGTH_LIMIT=100000" >> $GITHUB_ENV
 
       - name: Use UpdateREADME action from Marketplace
-        uses: neutrinomuon/UpdateREADME@v0.0.4  # <--- Use the published tag
+        uses: neutrinomuon/UpdateREADME@v0.04  # <--- Use the published tag
         with:
           TOKEN: ${{ env.TOKEN }}
           BRANCH: ${{ env.BRANCH }}
