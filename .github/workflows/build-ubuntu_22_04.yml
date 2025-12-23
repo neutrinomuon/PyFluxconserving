@@ -1,4 +1,4 @@
-name: Build Ubuntu 22.04 Package (Python 3.11 + 3.12)
+name: Build Ubuntu 22.04 Package (Python 3.11 & 3.12)
 
 on:
   push:
@@ -10,59 +10,78 @@ jobs:
   build-ubuntu:
     runs-on: ubuntu-22.04
     env:
+      # Fortran flags needed on Python 3.12 / newer GCC
       FFLAGS: "-O2 -fallow-argument-mismatch"
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # Checkout the repository
+      - uses: actions/checkout@v4
 
-      - name: Setup Python matrix
+      # Setup Python 3.11
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11  # initial, will override in loop
+          python-version: 3.11
 
-      - name: Install system dependencies
+      # Install system dependencies and Python packages
+      - name: Install system dependencies and Python packages
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
           python -m pip install --upgrade pip setuptools wheel numpy meson
+          gfortran --version
+          python --version
+          python -m pip show numpy
+          ninja --version
+          meson --version
 
-      - name: Build for multiple Python versions
+      # Build Python 3.11
+      - name: Build Python 3.11
         run: |
-          PY_VERSIONS=("3.11" "3.12")
-          for PY in "${PY_VERSIONS[@]}"; do
-            echo "Building for Python $PY"
+          # Clean previous build/dist
+          rm -rf build dist
+          # Build extensions in-place
+          python setup.py build_ext --inplace
+          # Build sdist and wheel
+          python setup.py sdist bdist_wheel
+          # Copy build/dist into versioned folders
+          mkdir -p build/ubuntu-22.04-py3.11
+          mkdir -p dist/ubuntu-22.04-py3.11
+          cp -r build/* build/ubuntu-22.04-py3.11/
+          cp -r dist/* dist/ubuntu-22.04-py3.11/
 
-            # Setup Python version
-            echo "Installing Python $PY"
-            python -m pip install --upgrade pip setuptools wheel numpy meson
+      # Setup Python 3.12
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
 
-            DIST_DIR="dist/ubuntu-22.04-py$PY"
-            BUILD_DIR="build/ubuntu-22.04-py$PY"
-            mkdir -p "$DIST_DIR" "$BUILD_DIR"
+      # Build Python 3.12
+      - name: Build Python 3.12
+        run: |
+          # Clean previous build/dist
+          rm -rf build dist
+          # Build extensions in-place
+          python setup.py build_ext --inplace
+          # Build sdist and wheel
+          python setup.py sdist bdist_wheel
+          # Copy build/dist into versioned folders
+          mkdir -p build/ubuntu-22.04-py3.12
+          mkdir -p dist/ubuntu-22.04-py3.12
+          cp -r build/* build/ubuntu-22.04-py3.12/
+          cp -r dist/* dist/ubuntu-22.04-py3.12/
 
-            # Build
-            python setup.py build_ext --inplace
-            python setup.py sdist bdist_wheel --dist-dir temp_dist --bdist-dir temp_build
+      # List generated files for verification
+      - name: List all generated files
+        run: |
+          ls -l build
+          ls -l dist
 
-            # Move files into versioned folders
-            mv temp_dist/* "$DIST_DIR/"
-            mv temp_build/* "$BUILD_DIR/" || true
-
-            # Clean temp dirs
-            rm -rf temp_dist temp_build
-          done
-
-      - name: List generated files
-        run: ls -l dist build
-
+      # Commit & push everything at the end
       - name: Commit & push generated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dist build
+          git add build dist
           git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12" || echo "No changes to commit"
-          git pull --rebase origin main || true
-          git push origin main
-
-
+          git push origin main --force
