@@ -1,0 +1,210 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module flib ! in 
+    interface  ! in :flib
+        module moddatatype ! in :flib:src/fortran/DataTypes.f90
+            integer(kind=4), parameter,optional :: ib=4
+            integer(kind=4), parameter,optional :: sp=4
+            integer(kind=4), parameter,optional :: rp=8
+            integer(kind=4), parameter,optional :: lb=8
+            integer(kind=4), parameter,optional :: qp=16
+            integer(kind=4), parameter,optional :: ch=300
+            integer(kind=4), parameter,optional :: st=4
+            integer(kind=4), parameter,optional :: ec=1200
+        end module moddatatype
+        subroutine abs__smooth(x,y,delta_x) ! in :flib:src/fortran/AkimaSpline.f90
+            use moddatatype
+            real(kind=8) intent(in) :: x
+            real(kind=8) intent(out) :: y
+            real(kind=8), optional,intent(in) :: delta_x=0.1
+        end subroutine abs__smooth
+        subroutine akima_setup(xold_vec,yold_vec,nold_vec,p0,p1,p2,p3,delta__x) ! in :flib:src/fortran/AkimaSpline.f90
+            use moddatatype
+            real(kind=8) dimension(nold_vec),intent(in) :: xold_vec
+            real(kind=8) dimension(nold_vec),intent(in),depend(nold_vec) :: yold_vec
+            integer(kind=4), optional,intent(in),check(shape(xold_vec, 0) == nold_vec),depend(xold_vec) :: nold_vec=shape(xold_vec, 0)
+            real(kind=8) dimension(-1 + nold_vec),intent(out),depend(nold_vec) :: p0
+            real(kind=8) dimension(-1 + nold_vec),intent(out),depend(nold_vec) :: p1
+            real(kind=8) dimension(-1 + nold_vec),intent(out),depend(nold_vec) :: p2
+            real(kind=8) dimension(-1 + nold_vec),intent(out),depend(nold_vec) :: p3
+            real(kind=8), optional,intent(in) :: delta__x=0.1
+        end subroutine akima_setup
+        subroutine akimainterp(xx_value,yy_value,nx_value,xold_vec,nold_vec,p0,p1,p2,p3,dp0dxold,dp1dxold,dp2dxold,dp3dxold,dp0dyold,dp1dyold,dp2dyold,dp3dyold,dy____dx,dy_dxold,dy_dyold,is_deriv,is_index) ! in :flib:src/fortran/AkimaSpline.f90
+            use moddatatype
+            real(kind=8) dimension(nx_value),intent(in) :: xx_value
+            real(kind=8) dimension(nx_value),intent(out),depend(nx_value) :: yy_value
+            integer(kind=4), optional,intent(hide),check(shape(xx_value, 0) == nx_value),depend(xx_value) :: nx_value=shape(xx_value, 0)
+            real(kind=8) dimension(nold_vec),intent(in) :: xold_vec
+            integer(kind=4), optional,intent(hide),check(shape(xold_vec, 0) == nold_vec),depend(xold_vec) :: nold_vec=shape(xold_vec, 0)
+            real(kind=8) dimension(-1 + nold_vec),intent(in),depend(nold_vec) :: p0
+            real(kind=8) dimension(-1 + nold_vec),intent(in),depend(nold_vec) :: p1
+            real(kind=8) dimension(-1 + nold_vec),intent(in),depend(nold_vec) :: p2
+            real(kind=8) dimension(-1 + nold_vec),intent(in),depend(nold_vec) :: p3
+            real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp0dxold
+            real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp1dxold
+            real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp2dxold
+            real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp3dxold
+            real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp0dyold
+            real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp1dyold
+            real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp2dyold
+            real(kind=8) dimension(-1 + nold_vec,nold_vec),intent(in),depend(nold_vec) :: dp3dyold
+            real(kind=8) dimension(nx_value),intent(out),depend(nx_value) :: dy____dx
+            real(kind=8) dimension(nx_value,nold_vec),intent(out),depend(nold_vec,nx_value) :: dy_dxold
+            real(kind=8) dimension(nx_value,nold_vec),intent(out),depend(nold_vec,nx_value) :: dy_dyold
+            integer(kind=4), optional :: is_deriv=0
+            integer(kind=4), optional :: is_index=0
+        end subroutine akimainterp
+        subroutine akimaspline(xx_value,yy_value,nxyvalue,xold_vec,yold_vec,nold_vec,delta__x,iskeepon,verbosity) ! in :flib:src/fortran/AkimaSpline.f90
+            use moddatatype
+            real(kind=8) dimension(nxyvalue),intent(in) :: xx_value
+            real(kind=8) dimension(nxyvalue),intent(out),depend(nxyvalue) :: yy_value
+            integer(kind=4), optional,intent(hide),check(shape(xx_value, 0) == nxyvalue),depend(xx_value) :: nxyvalue=shape(xx_value, 0)
+            real(kind=8) dimension(nold_vec),intent(in) :: xold_vec
+            real(kind=8) dimension(nold_vec),intent(in),depend(nold_vec) :: yold_vec
+            integer(kind=4), optional,intent(hide),check(shape(xold_vec, 0) == nold_vec),depend(xold_vec) :: nold_vec=shape(xold_vec, 0)
+            real(kind=8), optional,intent(in) :: delta__x=0.1
+            integer(kind=4) intent(out) :: iskeepon
+            integer(kind=4), optional :: verbosity=0
+        end subroutine akimaspline
+        subroutine author_akimaspline(a) ! in :flib:src/fortran/AkimaSpline.f90
+            use moddatatype
+            character*21 intent(out) :: a
+        end subroutine author_akimaspline
+        subroutine interpolado(xx_value,yy_value,nxyvalue,xold_vec,yold_vec,nold_vec,iskeepon,is_index,verbosity) ! in :flib:src/fortran/Interpolado.f90
+            use moddatatype
+            real(kind=8) dimension(nxyvalue),intent(in) :: xx_value
+            real(kind=8) dimension(nxyvalue),intent(out),depend(nxyvalue) :: yy_value
+            integer(kind=4), optional,intent(hide),check(shape(xx_value, 0) == nxyvalue),depend(xx_value) :: nxyvalue=shape(xx_value, 0)
+            real(kind=8) dimension(nold_vec),intent(in) :: xold_vec
+            real(kind=8) dimension(nold_vec),intent(in),depend(nold_vec) :: yold_vec
+            integer(kind=4), optional,intent(hide),check(shape(xold_vec, 0) == nold_vec),depend(xold_vec) :: nold_vec=shape(xold_vec, 0)
+            integer(kind=4) intent(out) :: iskeepon
+            integer(kind=4), optional :: is_index=0
+            integer(kind=4), optional :: verbosity=0
+        end subroutine interpolado
+        subroutine author_interpolado(a) ! in :flib:src/fortran/Interpolado.f90
+            use moddatatype
+            character*21 intent(out) :: a
+        end subroutine author_interpolado
+        subroutine lindexerpol(xx_value,yy_value,nxyvalue,xold_vec,yold_vec,nold_vec,iskeepon,verbosity) ! in :flib:src/fortran/LINdexerpol.f90
+            use moddatatype
+            real(kind=8) dimension(nxyvalue),intent(in) :: xx_value
+            real(kind=8) dimension(nxyvalue),intent(out),depend(nxyvalue) :: yy_value
+            integer(kind=4), optional,intent(hide),check(shape(xx_value, 0) == nxyvalue),depend(xx_value) :: nxyvalue=shape(xx_value, 0)
+            real(kind=8) dimension(nold_vec),intent(in) :: xold_vec
+            real(kind=8) dimension(nold_vec),intent(in),depend(nold_vec) :: yold_vec
+            integer(kind=4), optional,intent(hide),check(shape(xold_vec, 0) == nold_vec),depend(xold_vec) :: nold_vec=shape(xold_vec, 0)
+            integer(kind=4) intent(out) :: iskeepon
+            integer(kind=4), optional :: verbosity=0
+        end subroutine lindexerpol
+        subroutine author_lindexerpol(a) ! in :flib:src/fortran/LINdexerpol.f90
+            use moddatatype
+            character*21 intent(out) :: a
+        end subroutine author_lindexerpol
+        subroutine lininterpol(xx_value,yy_value,nxyvalue,xold_vec,yold_vec,nold_vec,ilastval,iskeepon,verbosity) ! in :flib:src/fortran/LINinterpol.f90
+            use moddatatype
+            real(kind=8) dimension(nxyvalue),intent(in) :: xx_value
+            real(kind=8) dimension(nxyvalue),intent(out),depend(nxyvalue) :: yy_value
+            integer(kind=4), optional,intent(hide),depend(xx_value) :: nxyvalue=shape(xx_value,0)
+            real(kind=8) dimension(nold_vec),intent(in) :: xold_vec
+            real(kind=8) dimension(nold_vec),intent(in),depend(nold_vec) :: yold_vec
+            integer(kind=4), optional,intent(hide),depend(xold_vec) :: nold_vec=shape(xold_vec,0)
+            integer(kind=4) intent(out,inout) :: ilastval
+            integer(kind=4) intent(out) :: iskeepon
+            integer(kind=4), optional :: verbosity=0
+        end subroutine lininterpol
+        subroutine author_linterpol(a) ! in :flib:src/fortran/LINinterpol.f90
+            use moddatatype
+            character*21 intent(out) :: a
+        end subroutine author_linterpol
+        subroutine spline1darr(x,o,m,t,y,n,e,iskeepon,is_index,verbosity) ! in :flib:src/fortran/SPLINE1DArr.f90
+            use moddatatype
+            real(kind=8) dimension(m),intent(in) :: x
+            real(kind=8) dimension(m),intent(out),depend(m) :: o
+            integer(kind=4), optional,intent(hide),check(shape(x, 0) == m),depend(x) :: m=shape(x, 0)
+            real(kind=8) dimension(n),intent(in) :: t
+            real(kind=8) dimension(n),intent(in),depend(n) :: y
+            integer(kind=4), optional,intent(hide),check(shape(t, 0) == n),depend(t) :: n=shape(t, 0)
+            real(kind=8), optional,intent(in) :: e=1e-08
+            integer(kind=4) intent(out) :: iskeepon
+            integer(kind=4), optional,intent(in) :: is_index
+            integer(kind=4), optional,intent(in) :: verbosity
+        end subroutine spline1darr
+        subroutine author_spline1darr(a) ! in :flib:src/fortran/SPLINE1DArr.f90
+            use moddatatype
+            character*21 intent(out) :: a
+        end subroutine author_spline1darr
+        subroutine spline3dcoe(x,y,b,c,d,n,iskeepon,verbosity) ! in :flib:src/fortran/SPLINE3DFor.f90
+            use moddatatype
+            real(kind=8) dimension(n),intent(in) :: x
+            real(kind=8) dimension(n),intent(in),depend(n) :: y
+            real(kind=8) dimension(n),intent(out),depend(n) :: b
+            real(kind=8) dimension(n),intent(out),depend(n) :: c
+            real(kind=8) dimension(n),intent(out),depend(n) :: d
+            integer(kind=4), optional,intent(hide),check(shape(x, 0) == n),depend(x) :: n=shape(x, 0)
+            integer(kind=4) intent(out) :: iskeepon
+            integer(kind=4), optional :: verbosity=0
+        end subroutine spline3dcoe
+        function i_spline3d(u,x,y,b,c,d,n) ! in :flib:src/fortran/SPLINE3DFor.f90
+            intent(out) i_spline3d
+            use moddatatype
+            real(kind=8) intent(in) :: u
+            real(kind=8) dimension(n),intent(in) :: x
+            real(kind=8) dimension(n),intent(in),depend(n) :: y
+            real(kind=8) dimension(n),intent(in),depend(n) :: b
+            real(kind=8) dimension(n),intent(in),depend(n) :: c
+            real(kind=8) dimension(n),intent(in),depend(n) :: d
+            integer(kind=4), optional,intent(hide),check(shape(x, 0) == n),depend(x) :: n=shape(x, 0)
+            real(kind=8) intent(out) :: i_spline3d
+        end function i_spline3d
+        function spline3dfor(u,x,y,n,iskeepon,verbosity) ! in :flib:src/fortran/SPLINE3DFor.f90
+            intent(out) spline3dfor
+            use moddatatype
+            real(kind=8) intent(in) :: u
+            real(kind=8) dimension(n),intent(in) :: x
+            real(kind=8) dimension(n),intent(in),depend(n) :: y
+            integer(kind=4), optional,intent(hide),check(shape(x, 0) == n),depend(x) :: n=shape(x, 0)
+            integer(kind=4) intent(out) :: iskeepon
+            integer(kind=4), optional :: verbosity=0
+            real(kind=8) intent(out) :: spline3dfor
+        end function spline3dfor
+        subroutine spline3darr(u,o,m,x,y,n,iskeepon,verbosity) ! in :flib:src/fortran/SPLINE3DFor.f90
+            use moddatatype
+            real(kind=8) dimension(m),intent(in) :: u
+            real(kind=8) dimension(m),intent(out),depend(m) :: o
+            integer(kind=4), optional,intent(hide),check(shape(u, 0) == m),depend(u) :: m=shape(u, 0)
+            real(kind=8) dimension(n),intent(in) :: x
+            real(kind=8) dimension(n),intent(in),depend(n) :: y
+            integer(kind=4), optional,intent(hide),check(shape(x, 0) == n),depend(x) :: n=shape(x, 0)
+            integer(kind=4) intent(out) :: iskeepon
+            integer(kind=4), optional :: verbosity=0
+        end subroutine spline3darr
+        subroutine author_spline3dfor(a) ! in :flib:src/fortran/SPLINE3DFor.f90
+            use moddatatype
+            character*21 intent(out) :: a
+        end subroutine author_spline3dfor
+        subroutine fluxconspec(orlambda,orfluxes,nrlambda,o_lambda,o_fluxes,n_lambda,per_bins,slow_int,iskeepon,fill_val,verbosity) ! in :flib:src/fortran/FluxConSpec.f90
+            use moddatatype
+            real(kind=8) dimension(nrlambda),intent(in) :: orlambda
+            real(kind=8) dimension(nrlambda),intent(out),depend(nrlambda) :: orfluxes
+            integer(kind=4), optional,intent(hide),check(shape(orlambda, 0) == nrlambda),depend(orlambda) :: nrlambda=shape(orlambda, 0)
+            real(kind=8) dimension(n_lambda),intent(in) :: o_lambda
+            real(kind=8) dimension(n_lambda),intent(in),depend(n_lambda) :: o_fluxes
+            integer(kind=4), optional,intent(hide),check(shape(o_lambda, 0) == n_lambda),depend(o_lambda) :: n_lambda=shape(o_lambda, 0)
+            integer(kind=4) intent(in) :: per_bins
+            integer(kind=4) intent(in) :: slow_int
+            integer(kind=4) intent(out) :: iskeepon
+            real(kind=8), optional :: fill_val=0.0
+            integer(kind=4), optional,intent(in) :: verbosity
+        end subroutine fluxconspec
+        subroutine author_fluxconspec(a) ! in :flib:src/fortran/FluxConSpec.f90
+            use moddatatype
+            character*21 intent(out) :: a
+        end subroutine author_fluxconspec
+    end interface 
+end python module flib
+
+! This file was auto-generated with f2py (version:2.2.5).
+! See:
+! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e
