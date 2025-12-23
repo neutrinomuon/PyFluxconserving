@@ -1,4 +1,4 @@
-name: Build Ubuntu 22.04 Package
+name: Build Ubuntu Packages
 
 on:
   push:
@@ -7,27 +7,18 @@ on:
     branches: [ main ]
 
 jobs:
-  build-ubuntu:
+  build-ubuntu-3_11:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        python-version: [3.11, 3.12]
-
     env:
-      # Fortran flags needed on Python 3.12 / newer GCC
       FFLAGS: "-O2 -fallow-argument-mismatch"
-
     steps:
-      # Checkout the repository
       - uses: actions/checkout@v4
 
-      # Setup Python
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.11
 
-      # Install system dependencies and Python packages
       - name: Install dependencies
         run: |
           sudo apt-get update
@@ -39,41 +30,69 @@ jobs:
           ninja --version
           meson --version
 
-      # Build Fortran extensions in-place (creates .so in PyFluxconserving/)
       - name: Build extensions in-place
-        run: python setup.py build_ext --inplace
-
-      # Build sdist and wheel (creates dist/)
-      - name: Build distributions
-        run: python setup.py sdist bdist_wheel
-
-      # List generated files for verification
-      - name: List build and dist directories
         run: |
-          echo "=== Build directory ==="
-          ls -l build || echo "No build directory"
-          echo "=== Dist directory ==="
-          ls -l dist || echo "No dist directory"
-          echo "=== PyFluxconserving directory ==="
-          ls -l PyFluxconserving || echo "No PyFluxconserving files"
+          python setup.py build_ext --inplace
 
-      # Upload all artifacts: build/, dist/, compiled .so files
-      - name: Upload all build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: python-build-${{ matrix.python-version }}
-          path: |
-            build/
-            dist/
-            PyFluxconserving/*.so
+      - name: Build distributions
+        run: |
+          # Create versioned directories
+          mkdir -p dist/ubuntu-22.04-py3.11 build/ubuntu-22.04-py3.11
+          python setup.py sdist bdist_wheel
+          # Move outputs
+          mv dist/* dist/ubuntu-22.04-py3.11/
+          mv build/* build/ubuntu-22.04-py3.11/ || true
 
-      # Commit the dirs
-      - name: Commit and push build/dist
+      - name: Commit & push generated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase
-          git add build dist
-          git commit -m "Update build and dist via GitHub Actions" || echo "No changes to commit"
-          git push
+          git add dist/ubuntu-22.04-py3.11 build/ubuntu-22.04-py3.11
+          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11"
+          git pull --rebase origin main || true
+          git push origin main
+
+  build-ubuntu-3_12:
+    needs: build-ubuntu-3_11
+    runs-on: ubuntu-22.04
+    env:
+      FFLAGS: "-O2 -fallow-argument-mismatch"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gfortran build-essential ninja-build
+          python -m pip install --upgrade pip setuptools wheel numpy meson
+          gfortran --version
+          python --version
+          python -m pip show numpy
+          ninja --version
+          meson --version
+
+      - name: Build extensions in-place
+        run: |
+          python setup.py build_ext --inplace
+
+      - name: Build distributions
+        run: |
+          mkdir -p dist/ubuntu-22.04-py3.12 build/ubuntu-22.04-py3.12
+          python setup.py sdist bdist_wheel
+          mv dist/* dist/ubuntu-22.04-py3.12/
+          mv build/* build/ubuntu-22.04-py3.12/ || true
+
+      - name: Commit & push generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/ubuntu-22.04-py3.12 build/ubuntu-22.04-py3.12
+          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.12"
+          git pull --rebase origin main || true
+          git push origin main
 
