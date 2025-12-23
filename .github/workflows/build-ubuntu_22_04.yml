@@ -1,4 +1,4 @@
-name: Build Ubuntu 22.04 Package
+name: Build Ubuntu 22.04 Package (Python 3.11 & 3.12)
 
 on:
   push:
@@ -9,10 +9,6 @@ on:
 jobs:
   build-ubuntu:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        python-version: [3.11, 3.12]
-
     env:
       # Fortran flags needed on Python 3.12 / newer GCC
       FFLAGS: "-O2 -fallow-argument-mismatch"
@@ -21,59 +17,58 @@ jobs:
       # Checkout the repository
       - uses: actions/checkout@v4
 
-      # Setup Python
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      # Install system dependencies and Python packages
-      - name: Install dependencies
+      # Install system dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
-          python -m pip install --upgrade pip setuptools wheel numpy meson
-          gfortran --version
-          python --version
-          python -m pip show numpy
           ninja --version
-          meson --version
 
-      # Build Fortran extensions in-place
-      - name: Build extensions in-place
-        run: python setup.py build_ext --inplace
-
-      # Build sdist and wheel
-      - name: Build distributions
-        run: python setup.py sdist bdist_wheel
-
-      # Move build/dist into versioned folders
-      - name: Organize build and dist
+      # Build for multiple Python versions sequentially
+      - name: Build for Python 3.11 and 3.12
         run: |
-          PYVER=$(python -c "import sys; print(f'py{sys.version_info.major}{sys.version_info.minor}')")
-          mkdir -p build/ubuntu-22.04-$PYVER
-          mkdir -p dist/ubuntu-22.04-$PYVER
-          mv build/* build/ubuntu-22.04-$PYVER/ || true
-          mv dist/* dist/ubuntu-22.04-$PYVER/ || true
+          for PY in 3.11 3.12; do
+            echo "=== Building for Python $PY ==="
+            # Setup Python
+            python -m pip install --upgrade pip setuptools wheel numpy meson
+            python --version
+            python -m pip show numpy
+            meson --version
 
-      # Upload artifacts (optional, for CI viewing)
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: python-${{ matrix.python-version }}-dist
-          path: |
-            build/ubuntu-22.04-py${{ matrix.python-version }}
-            dist/ubuntu-22.04-py${{ matrix.python-version }}
+            # Build Fortran extensions in-place
+            python setup.py build_ext --inplace
 
-  commit-and-push:
-    runs-on: ubuntu-22.04
-    needs: build-ubuntu
-    steps:
-      - uses: actions/checkout@v4
-      - name: Commit & push generated files
+            # Build sdist and wheel
+            python setup.py sdist bdist_wheel
+
+            # Move outputs to versioned directories
+            mkdir -p build/ubuntu-22.04-py$PY
+            mkdir -p dist/ubuntu-22.04-py$PY
+            mv build/* build/ubuntu-22.04-py$PY/ || true
+            mv dist/* dist/ubuntu-22.04-py$PY/ || true
+          done
+
+      # List generated files for verification
+      - name: List generated build/dist
+        run: |
+          ls -l build
+          ls -l dist
+
+      # Commit and push generated files
+      - name: Commit & push build/dist
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add build dist
-          git diff --cached --quiet || git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12"
+          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12" || echo "No changes to commit"
+          git pull --rebase origin main || true
           git push origin main
+
+      # Upload artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-dist
+          path: |
+            build/ubuntu-22.04-*
+            dist/ubuntu-22.04-*
