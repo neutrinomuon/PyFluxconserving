@@ -7,7 +7,7 @@ linkedin: <a href="https://www.linkedin.com/in/jean-michel-gomes/">https://www.l
 
 github repository: <a href="https://github.com/neutrinomuon/PyFluxconserving">PyFluxconserving</a>
 
-last stable version: 0.0.16
+last stable version: 0.1.17
 
 © Copyright ®
 
@@ -342,8 +342,8 @@ workspace
 │       └── PyFluxconserving
 │           └── moddatatype.mod
 ├── dist
-│   ├── pyfluxconserving-0.1.16-py3-none-any.whl
-│   └── pyfluxconserving-0.1.16.tar.gz
+│   ├── pyfluxconserving-0.1.17-py3-none-any.whl
+│   └── pyfluxconserving-0.1.17.tar.gz
 ├── requirements.txt
 ├── requirements.py
 ├── README.md
@@ -368,11 +368,6 @@ workspace
 │   ├── PyInterpolado.py
 │   ├── PySPLINE1DArr.py
 │   ├── PyLinear__int.py
-│   ├── __pycache__
-│   │   ├── PyFluxConSpec.cpython-312.pyc
-│   │   ├── califa_cmap_alternative.cpython-312.pyc
-│   │   ├── __init__.cpython-312.pyc
-│   │   └── fluxconserve.cpython-312.pyc
 │   ├── flib.pyf
 │   ├── flib.cpython-312-x86_64-linux-gnu.so
 │   ├── PyLINdexerpol.py
@@ -420,9 +415,9 @@ workspace
 │   ├── index
 │   ├── objects
 │   │   ├── pack
-│   │   │   ├── pack-46f3154c766289426b0cda7512267f9284038e5e.rev
-│   │   │   ├── pack-46f3154c766289426b0cda7512267f9284038e5e.idx
-│   │   │   └── pack-46f3154c766289426b0cda7512267f9284038e5e.pack
+│   │   │   ├── pack-4664237058464b5d1bf8510a734796e1849e099b.rev
+│   │   │   ├── pack-4664237058464b5d1bf8510a734796e1849e099b.pack
+│   │   │   └── pack-4664237058464b5d1bf8510a734796e1849e099b.idx
 │   │   └── info
 │   ├── shallow
 │   └── info
@@ -436,7 +431,7 @@ workspace
     ├── top_level.txt
     └── SOURCES.txt
 
-53 directories (0 symlink), 179 files (0 symlink)
+52 directories (0 symlink), 175 files (0 symlink)
 #################################################
 Generated: treehue_colored @2025 - © Jean Gomes -
 #################################################
