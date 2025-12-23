@@ -7,7 +7,7 @@ linkedin: <a href="https://www.linkedin.com/in/jean-michel-gomes/">https://www.l
 
 github repository: <a href="https://github.com/neutrinomuon/PyFluxconserving">PyFluxconserving</a>
 
-last stable version: 0.0.15
+last stable version: 0.0.16
 
 © Copyright ®
 
@@ -199,248 +199,242 @@ spline interpolation. The same references as in 4).</td></tr>
 <pre>
 #################################################
 workspace
-├── README.md
-├── figures
-│   ├── PyFluxconserving.png
-│   └── PyFluxconserving_.png
+├── version.txt
+├── .github
+│   └── workflows
+│       ├── main.yml
+│       └── pylint.yml
 ├── src
 │   ├── fortran
-│   │   ├── LINinterpol.f90
-│   │   ├── LINdexerpol.cpython-311-darwin.so
-│   │   ├── FluxConSpec.cpython-310-x86_64-linux-gnu.so
-│   │   ├── SPLINE3DFor.cpython-39-darwin.so
-│   │   ├── LINdexerpol.cpython-38-x86_64-linux-gnu.so
-│   │   ├── AkimaSpline.cpython-311-darwin.so
-│   │   ├── SPLINE3DFor.compile
-│   │   ├── SPLINE1DArr.cpython-39-darwin.so
-│   │   ├── SPLINE1DFlt.cpython-39-darwin.so
-│   │   ├── FluxConSpec.compile
-│   │   ├── FluxConSpec.cpython-39-darwin.so
-│   │   ├── AkimaSpline.cpython-39-darwin.so
-│   │   ├── SPLINE3DFor.cpython-310-darwin.so
-│   │   ├── SPLINE1DFlt.cpython-38-x86_64-linux-gnu.so
-│   │   ├── SPLINE1DArr.compile
-│   │   ├── SPLINE1DFlt.cpython-39-x86_64-linux-gnu.so
-│   │   ├── SPLINE3DFor.cpython-310-x86_64-linux-gnu.so
-│   │   ├── FluxConSpec.cpython-39-x86_64-linux-gnu.so
-│   │   ├── Interpolado.cpython-310-x86_64-linux-gnu.so
-│   │   ├── Interpolado.cpython-38-x86_64-linux-gnu.so
 │   │   ├── Interpolado.compile
-│   │   ├── SPLINE3DFor.cpython-39-x86_64-linux-gnu.so
-│   │   ├── SPLINE1DFlt.f90
-│   │   ├── FluxConSpec.cpython-311-darwin.so
-│   │   ├── FluxConSpec.cpython-38-x86_64-linux-gnu.so
-│   │   ├── SPLINE3DFor.cpython-311-darwin.so
-│   │   ├── SPLINE3DFor.cpython-38-x86_64-linux-gnu.so
-│   │   ├── LINinterpol.cpython-311-darwin.so
-│   │   ├── AkimaSpline.cpython-310-darwin.so
-│   │   ├── LINinterpol.cpython-310-darwin.so
-│   │   ├── LINdexerpol.cpython-39-darwin.so
-│   │   ├── SPLINE1DFlt.cpython-311-darwin.so
-│   │   ├── LINdexerpol.cpython-39-x86_64-linux-gnu.so
-│   │   ├── README.txt
+│   │   ├── SPLINE3DFor.cpython-310-x86_64-linux-gnu.so
+│   │   ├── LINdexerpol.cpython-311-darwin.so
+│   │   ├── SPLINE3DFor.cpython-310-darwin.so
 │   │   ├── LINinterpol.compile
-│   │   ├── LINinterpol.cpython-39-darwin.so
-│   │   ├── AkimaSpline.f90
-│   │   ├── SPLINE3DFor.f90
-│   │   ├── LINinterpol.cpython-310-x86_64-linux-gnu.so
-│   │   ├── LINdexerpol.compile
+│   │   ├── AkimaSpline.cpython-311-darwin.so
 │   │   ├── Interpolado.f90
-│   │   ├── SPLINE1DFlt.compile
-│   │   ├── LINdexerpol.f90
-│   │   ├── SPLINE1DArr.cpython-311-darwin.so
-│   │   ├── AkimaSpline.compile
-│   │   ├── FluxConSpec.cpython-310-darwin.so
-│   │   ├── SPLINE1DFlt.cpython-310-x86_64-linux-gnu.so
-│   │   ├── LINinterpol.cpython-311-x86_64-linux-gnu.so
-│   │   ├── SPLINE1DArr.cpython-310-darwin.so
-│   │   ├── LINdexerpol.cpython-310-darwin.so
-│   │   ├── DataTypes.f90
-│   │   ├── SPLINE1DFlt.cpython-310-darwin.so
+│   │   ├── FluxConSpec.cpython-311-darwin.so
+│   │   ├── Interpolado.cpython-310-x86_64-linux-gnu.so
 │   │   ├── SPLINE1DArr.f90
+│   │   ├── SPLINE1DFlt.f90
 │   │   ├── Interpolado.cpython-39-x86_64-linux-gnu.so
+│   │   ├── FluxConSpec.cpython-310-x86_64-linux-gnu.so
+│   │   ├── SPLINE1DArr.cpython-39-darwin.so
+│   │   ├── SPLINE1DFlt.cpython-310-x86_64-linux-gnu.so
+│   │   ├── AkimaSpline.cpython-312-x86_64-linux-gnu.so
+│   │   ├── SPLINE1DArr.cpython-310-darwin.so
+│   │   ├── LINdexerpol.cpython-310-x86_64-linux-gnu.so
+│   │   ├── AkimaSpline.cpython-310-darwin.so
+│   │   ├── Interpolado.cpython-38-x86_64-linux-gnu.so
+│   │   ├── SPLINE3DFor.f90
+│   │   ├── LINinterpol.cpython-311-x86_64-linux-gnu.so
+│   │   ├── SPLINE3DFor.cpython-39-darwin.so
+│   │   ├── SPLINE1DFlt.compile
 │   │   ├── FluxConSpec.f90
-│   │   └── LINdexerpol.cpython-310-x86_64-linux-gnu.so
+│   │   ├── FluxConSpec.cpython-39-x86_64-linux-gnu.so
+│   │   ├── FluxConSpec.cpython-310-darwin.so
+│   │   ├── SPLINE3DFor.cpython-311-darwin.so
+│   │   ├── LINinterpol.f90
+│   │   ├── SPLINE1DFlt.cpython-39-x86_64-linux-gnu.so
+│   │   ├── AkimaSpline.compile
+│   │   ├── SPLINE3DFor.compile
+│   │   ├── AkimaSpline.cpython-39-darwin.so
+│   │   ├── LINinterpol.cpython-310-darwin.so
+│   │   ├── FluxConSpec.cpython-39-darwin.so
+│   │   ├── LINinterpol.cpython-310-x86_64-linux-gnu.so
+│   │   ├── LINdexerpol.f90
+│   │   ├── SPLINE1DFlt.cpython-311-darwin.so
+│   │   ├── SPLINE1DFlt.cpython-39-darwin.so
+│   │   ├── README.txt
+│   │   ├── SPLINE3DFor.cpython-38-x86_64-linux-gnu.so
+│   │   ├── FluxConSpec.compile
+│   │   ├── DataTypes.f90
+│   │   ├── LINdexerpol.compile
+│   │   ├── Interpolado.cpython-312-x86_64-linux-gnu.so
+│   │   ├── LINdexerpol.cpython-38-x86_64-linux-gnu.so
+│   │   ├── SPLINE1DArr.compile
+│   │   ├── LINdexerpol.cpython-310-darwin.so
+│   │   ├── SPLINE1DFlt.cpython-38-x86_64-linux-gnu.so
+│   │   ├── LINinterpol.cpython-311-darwin.so
+│   │   ├── AkimaSpline.cpython-38-x86_64-linux-gnu.so
+│   │   ├── FluxConSpec.cpython-38-x86_64-linux-gnu.so
+│   │   ├── SPLINE3DFor.cpython-39-x86_64-linux-gnu.so
+│   │   ├── SPLINE1DArr.cpython-311-darwin.so
+│   │   ├── AkimaSpline.f90
+│   │   ├── SPLINE1DFlt.cpython-310-darwin.so
+│   │   ├── LINdexerpol.cpython-39-darwin.so
+│   │   ├── LINinterpol.cpython-39-darwin.so
+│   │   └── LINdexerpol.cpython-39-x86_64-linux-gnu.so
 │   └── python
-│       ├── PyFluxConSpec.py
-│       ├── PyInterpolado.py
-│       ├── PyAkimaSpline.py
-│       ├── PySPLINE3DFor.py
-│       ├── PyLINdexerpol.py
-│       ├── PyLINinterpol.py
-│       ├── califa_cmap_alternative.py
-│       ├── fluxconserve.py
 │       ├── __init__.py
-│       ├── fluxconserving.png
+│       ├── PyAkimaSpline.py
+│       ├── fluxconserve.py
+│       ├── PyInterpolado.py
 │       ├── PySPLINE1DArr.py
-│       └── PyLinear__int.py
+│       ├── PyLinear__int.py
+│       ├── PyLINdexerpol.py
+│       ├── califa_cmap_alternative.py
+│       ├── PySPLINE3DFor.py
+│       ├── fluxconserving.png
+│       ├── PyFluxConSpec.py
+│       └── PyLINinterpol.py
+├── scripts
+│   └── update_readme.py
+├── build
+│   ├── lib.macosx-11.0-arm64-cpython-39
+│   │   └── PyFluxconserving
+│   │       ├── __init__.py
+│   │       ├── PyAkimaSpline.py
+│   │       ├── fluxconserve.py
+│   │       ├── PyInterpolado.py
+│   │       ├── PySPLINE1DArr.py
+│   │       ├── PyLinear__int.py
+│   │       ├── PyLINdexerpol.py
+│   │       ├── flib.cpython-39-darwin.so
+│   │       ├── califa_cmap_alternative.py
+│   │       ├── PySPLINE3DFor.py
+│   │       ├── PyFluxConSpec.py
+│   │       └── PyLINinterpol.py
+│   ├── src.macosx-11.0-arm64-3.9
+│   │   ├── build
+│   │   │   └── src.macosx-11.0-arm64-3.9
+│   │   │       └── PyFluxconserving
+│   │   │           ├── fortranobject.c
+│   │   │           └── fortranobject.h
+│   │   ├── numpy
+│   │   │   └── distutils
+│   │   │       └── include
+│   │   │           └── npy_cpu_dispatch_config.h
+│   │   └── PyFluxconserving
+│   │       ├── flib-f2pywrappers.f
+│   │       ├── flibmodule.c
+│   │       └── flib-f2pywrappers2.f90
+│   └── temp.macosx-11.0-arm64-cpython-39
+│       ├── src
+│       │   └── fortran
+│       │       ├── LINdexerpol.o
+│       │       ├── DataTypes.o
+│       │       ├── LINinterpol.o
+│       │       ├── FluxConSpec.o
+│       │       ├── AkimaSpline.o
+│       │       ├── SPLINE1DArr.o
+│       │       ├── Interpolado.o
+│       │       └── SPLINE3DFor.o
+│       ├── build
+│       │   └── src.macosx-11.0-arm64-3.9
+│       │       ├── build
+│       │       │   └── src.macosx-11.0-arm64-3.9
+│       │       │       └── PyFluxconserving
+│       │       │           ├── fortranobject.o
+│       │       │           └── fortranobject.o.d
+│       │       └── PyFluxconserving
+│       │           ├── flib-f2pywrappers2.o
+│       │           ├── flibmodule.o
+│       │           ├── flibmodule.o.d
+│       │           └── flib-f2pywrappers.o
+│       ├── __pycache__
+│       │   └── ccompiler_opt_cache_ext.cpython-39.pyc
+│       ├── ccompiler_opt_cache_ext.py
+│       └── PyFluxconserving
+│           └── moddatatype.mod
+├── dist
+│   ├── pyfluxconserving-0.1.16-py3-none-any.whl
+│   └── pyfluxconserving-0.1.16.tar.gz
+├── requirements.txt
+├── requirements.py
+├── README.md
+├── setup.py
 ├── tutorials
 │   ├── PyFluxconserving Example.ipynb
 │   ├── .virtual_documents
 │   │   └── PyFluxconserving Example.ipynb
 │   └── .ipynb_checkpoints
-│       ├── PyFluxconserving Example-checkpoint.ipynb
-│       └── pyfluxconserving Example-checkpoint.ipynb
-├── tree.out
-├── LICENSE.txt
-├── README_setup.txt
+│       ├── pyfluxconserving Example-checkpoint.ipynb
+│       └── PyFluxconserving Example-checkpoint.ipynb
+├── figures
+│   ├── PyFluxconserving_.png
+│   └── PyFluxconserving.png
 ├── showdown.min.js
-├── requirements.txt
-├── dist
-│   └── PyFluxconserving-0.0.15.tar.gz
 ├── index.html
-├── version.txt
-├── pyfluxconserving
-│   └── meta.yaml
-├── scripts
-│   └── update_readme.py
-├── .github
-│   └── workflows
-│       ├── main.yml
-│       └── pylint.yml
-├── PyFluxconserving.egg-info
-│   ├── top_level.txt
-│   ├── dependency_links.txt
-│   ├── requires.txt
-│   ├── PKG-INFO
-│   └── SOURCES.txt
-├── setup.py
+├── LICENSE.txt
+├── PyFluxconserving
+│   ├── __init__.py
+│   ├── PyAkimaSpline.py
+│   ├── fluxconserve.py
+│   ├── PyInterpolado.py
+│   ├── PySPLINE1DArr.py
+│   ├── PyLinear__int.py
+│   ├── __pycache__
+│   │   ├── PyFluxConSpec.cpython-312.pyc
+│   │   ├── califa_cmap_alternative.cpython-312.pyc
+│   │   ├── __init__.cpython-312.pyc
+│   │   └── fluxconserve.cpython-312.pyc
+│   ├── flib.pyf
+│   ├── flib.cpython-312-x86_64-linux-gnu.so
+│   ├── PyLINdexerpol.py
+│   ├── califa_cmap_alternative.py
+│   ├── PySPLINE3DFor.py
+│   ├── PyFluxConSpec.py
+│   └── PyLINinterpol.py
+├── README_setup.txt
 ├── .git
-│   ├── objects
-│   │   ├── info
-│   │   └── pack
-│   │       ├── pack-32b25450463390214c858c30fbc34fc9146923bd.pack
-│   │       ├── pack-32b25450463390214c858c30fbc34fc9146923bd.rev
-│   │       └── pack-32b25450463390214c858c30fbc34fc9146923bd.idx
-│   ├── info
-│   │   └── exclude
-│   ├── HEAD
-│   ├── FETCH_HEAD
-│   ├── refs
-│   │   ├── heads
-│   │   │   └── main
-│   │   ├── remotes
-│   │   │   └── origin
-│   │   │       └── main
-│   │   └── tags
-│   ├── shallow
-│   ├── branches
-│   ├── index
 │   ├── logs
 │   │   ├── HEAD
 │   │   └── refs
-│   │       ├── heads
-│   │       │   └── main
-│   │       └── remotes
-│   │           └── origin
-│   │               └── main
+│   │       ├── remotes
+│   │       │   └── origin
+│   │       │       └── main
+│   │       └── heads
+│   │           └── main
+│   ├── config
+│   ├── HEAD
+│   ├── refs
+│   │   ├── remotes
+│   │   │   └── origin
+│   │   │       └── main
+│   │   ├── heads
+│   │   │   └── main
+│   │   └── tags
+│   ├── config.worktree
+│   ├── FETCH_HEAD
 │   ├── description
 │   ├── hooks
-│   │   ├── pre-rebase.sample
-│   │   ├── pre-commit.sample
 │   │   ├── sendemail-validate.sample
 │   │   ├── pre-receive.sample
-│   │   ├── update.sample
-│   │   ├── commit-msg.sample
-│   │   ├── prepare-commit-msg.sample
 │   │   ├── fsmonitor-watchman.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── commit-msg.sample
 │   │   ├── applypatch-msg.sample
 │   │   ├── pre-push.sample
-│   │   ├── pre-merge-commit.sample
-│   │   ├── post-update.sample
-│   │   ├── pre-applypatch.sample
-│   │   └── push-to-checkout.sample
-│   └── config
-├── PyFluxconserving
-│   ├── linux-aarch64
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── linux-armv6l
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── linux-s390x
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── meta.yaml
-│   ├── win-arm64
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── linux-32
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── linux-64
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── win-32
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── README.txt
-│   ├── linux-armv7l
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── linux-ppc64
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── linux-ppc64le
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── win-64
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   ├── osx-arm64
-│   │   └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-│   └── osx-64
-│       └── pyfluxconserving-0.0.14-py39_0.tar.bz2
-└── build
-    ├── lib.macosx-11.0-arm64-cpython-39
-    │   └── PyFluxconserving
-    │       ├── PyFluxConSpec.py
-    │       ├── PyInterpolado.py
-    │       ├── PyAkimaSpline.py
-    │       ├── PySPLINE3DFor.py
-    │       ├── PyLINdexerpol.py
-    │       ├── flib.cpython-39-darwin.so
-    │       ├── PyLINinterpol.py
-    │       ├── califa_cmap_alternative.py
-    │       ├── fluxconserve.py
-    │       ├── __init__.py
-    │       ├── PySPLINE1DArr.py
-    │       └── PyLinear__int.py
-    ├── temp.macosx-11.0-arm64-cpython-39
-    │   ├── src
-    │   │   └── fortran
-    │   │       ├── LINinterpol.o
-    │   │       ├── SPLINE1DArr.o
-    │   │       ├── FluxConSpec.o
-    │   │       ├── Interpolado.o
-    │   │       ├── AkimaSpline.o
-    │   │       ├── DataTypes.o
-    │   │       ├── LINdexerpol.o
-    │   │       └── SPLINE3DFor.o
-    │   ├── __pycache__
-    │   │   └── ccompiler_opt_cache_ext.cpython-39.pyc
-    │   ├── ccompiler_opt_cache_ext.py
-    │   ├── PyFluxconserving
-    │   │   └── moddatatype.mod
-    │   └── build
-    │       └── src.macosx-11.0-arm64-3.9
-    │           ├── PyFluxconserving
-    │           │   ├── flibmodule.o
-    │           │   ├── flibmodule.o.d
-    │           │   ├── flib-f2pywrappers.o
-    │           │   └── flib-f2pywrappers2.o
-    │           └── build
-    │               └── src.macosx-11.0-arm64-3.9
-    │                   └── PyFluxconserving
-    │                       ├── fortranobject.o.d
-    │                       └── fortranobject.o
-    └── src.macosx-11.0-arm64-3.9
-        ├── numpy
-        │   └── distutils
-        │       └── include
-        │           └── npy_cpu_dispatch_config.h
-        ├── PyFluxconserving
-        │   ├── flib-f2pywrappers2.f90
-        │   ├── flibmodule.c
-        │   └── flib-f2pywrappers.f
-        └── build
-            └── src.macosx-11.0-arm64-3.9
-                └── PyFluxconserving
-                    ├── fortranobject.c
-                    └── fortranobject.h
+│   │   └── update.sample
+│   ├── index
+│   ├── objects
+│   │   ├── pack
+│   │   │   ├── pack-4471b79b00651d7db60f92a9cb46e520b00e07a5.pack
+│   │   │   ├── pack-4471b79b00651d7db60f92a9cb46e520b00e07a5.idx
+│   │   │   └── pack-4471b79b00651d7db60f92a9cb46e520b00e07a5.rev
+│   │   └── info
+│   ├── shallow
+│   └── info
+│       └── exclude
+├── pyfluxconserving
+│   └── meta.yaml
+├── tree.out
+└── PyFluxconserving.egg-info
+    ├── PKG-INFO
+    ├── dependency_links.txt
+    ├── top_level.txt
+    └── SOURCES.txt
 
-66 directories (0 symlink), 172 files (0 symlink)
+53 directories (0 symlink), 179 files (0 symlink)
 #################################################
-Generated: treehue_colored @2024 - © Jean Gomes -
+Generated: treehue_colored @2025 - © Jean Gomes -
 #################################################
 </pre>
 
