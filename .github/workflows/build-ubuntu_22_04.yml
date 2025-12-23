@@ -9,9 +9,12 @@ on:
 jobs:
   build-ubuntu-3.12:
     runs-on: ubuntu-22.04
+    env:
+      # Fortran flags needed on Python 3.12 / newer GCC
+      FFLAGS: "-O2 -fallow-argument-mismatch"
 
     steps:
-      # Checkout code
+      # Checkout the repository
       - uses: actions/checkout@v4
 
       # Setup Python 3.12
@@ -30,10 +33,6 @@ jobs:
           python --version
           python -m pip show numpy
 
-      # Set Fortran flags for Python 3.12 / newer GCC
-      - name: Set Fortran flags
-        run: export FFLAGS="-O2 -fallow-argument-mismatch"
-
       # Build Fortran extensions in-place
       - name: Build extensions in-place
         run: python setup.py build_ext --inplace
@@ -42,13 +41,14 @@ jobs:
       - name: Build distributions
         run: python setup.py sdist bdist_wheel
 
-      # List generated files
+      # List generated files for verification
       - name: List dist
         run: ls -l dist
 
-      # Upload dist as artifact
+      # Upload all distributions as artifacts
       - name: Upload dist
         uses: actions/upload-artifact@v4
         with:
           name: python-dist
           path: dist/
+
