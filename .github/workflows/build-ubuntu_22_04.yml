@@ -14,7 +14,7 @@ jobs:
       # Checkout code
       - uses: actions/checkout@v4
 
-      # Setup Python 3.12
+      # Setup Python 3.12 to test
       - name: Set up Python 3.12
         uses: actions/setup-python@v4
         with:
