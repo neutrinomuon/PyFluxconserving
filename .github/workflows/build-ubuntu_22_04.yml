@@ -1,4 +1,4 @@
-name: Build Ubuntu Packages
+name: Build Ubuntu 22.04 Package (Python 3.11 + 3.12)
 
 on:
   push:
@@ -7,92 +7,62 @@ on:
     branches: [ main ]
 
 jobs:
-  build-ubuntu-3_11:
+  build-ubuntu:
     runs-on: ubuntu-22.04
     env:
       FFLAGS: "-O2 -fallow-argument-mismatch"
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Set up Python 3.11
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python matrix
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: 3.11  # initial, will override in loop
 
-      - name: Install dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
           python -m pip install --upgrade pip setuptools wheel numpy meson
-          gfortran --version
-          python --version
-          python -m pip show numpy
-          ninja --version
-          meson --version
 
-      - name: Build extensions in-place
+      - name: Build for multiple Python versions
         run: |
-          python setup.py build_ext --inplace
+          PY_VERSIONS=("3.11" "3.12")
+          for PY in "${PY_VERSIONS[@]}"; do
+            echo "Building for Python $PY"
 
-      - name: Build distributions
-        run: |
-          mkdir -p dist/ubuntu-22.04-py3.11 build/ubuntu-22.04-py3.11
-          python setup.py sdist bdist_wheel --dist-dir temp_dist --bdist-dir temp_build
-          mv temp_dist/* dist/ubuntu-22.04-py3.11/
-          mv temp_build/* build/ubuntu-22.04-py3.11/ || true
-          rm -rf temp_dist temp_build
+            # Setup Python version
+            echo "Installing Python $PY"
+            python -m pip install --upgrade pip setuptools wheel numpy meson
+
+            DIST_DIR="dist/ubuntu-22.04-py$PY"
+            BUILD_DIR="build/ubuntu-22.04-py$PY"
+            mkdir -p "$DIST_DIR" "$BUILD_DIR"
+
+            # Build
+            python setup.py build_ext --inplace
+            python setup.py sdist bdist_wheel --dist-dir temp_dist --bdist-dir temp_build
+
+            # Move files into versioned folders
+            mv temp_dist/* "$DIST_DIR/"
+            mv temp_build/* "$BUILD_DIR/" || true
+
+            # Clean temp dirs
+            rm -rf temp_dist temp_build
+          done
+
+      - name: List generated files
+        run: ls -l dist build
 
       - name: Commit & push generated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dist/ubuntu-22.04-py3.11 build/ubuntu-22.04-py3.11
-          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11"
+          git add dist build
+          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12" || echo "No changes to commit"
           git pull --rebase origin main || true
           git push origin main
 
-  build-ubuntu-3_12:
-    needs: build-ubuntu-3_11
-    runs-on: ubuntu-22.04
-    env:
-      FFLAGS: "-O2 -fallow-argument-mismatch"
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.12
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gfortran build-essential ninja-build
-          python -m pip install --upgrade pip setuptools wheel numpy meson
-          gfortran --version
-          python --version
-          python -m pip show numpy
-          ninja --version
-          meson --version
-
-      - name: Build extensions in-place
-        run: |
-          python setup.py build_ext --inplace
-
-      - name: Build distributions
-        run: |
-          mkdir -p dist/ubuntu-22.04-py3.12 build/ubuntu-22.04-py3.12
-          python setup.py sdist bdist_wheel --dist-dir temp_dist --bdist-dir temp_build
-          mv temp_dist/* dist/ubuntu-22.04-py3.12/
-          mv temp_build/* build/ubuntu-22.04-py3.12/ || true
-          rm -rf temp_dist temp_build
-
-      - name: Commit & push generated files
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dist/ubuntu-22.04-py3.12 build/ubuntu-22.04-py3.12
-          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.12"
-          git pull --rebase origin main || true
-          git push origin main
 
