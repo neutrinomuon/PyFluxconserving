@@ -1,0 +1,50 @@
+name: Build Ubuntu 22.04 Package
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-ubuntu:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, 3.10, 3.11, 3.12]  # adjust as needed
+
+    steps:
+      # Checkout code
+      - uses: actions/checkout@v3
+
+      # Setup Python
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Update pip and install dependencies
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gfortran build-essential
+          python -m pip install --upgrade pip setuptools wheel numpy
+
+      # Build Fortran extensions in-place
+      - name: Build extensions in-place
+        run: python setup.py build_ext --inplace
+
+      # Build sdist and wheel
+      - name: Build distributions
+        run: python setup.py sdist bdist_wheel
+
+      # List generated files
+      - name: List dist
+        run: ls -l dist
+
+      # Upload dist as artifact
+      - name: Upload dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: python-dist
+          path: dist/
