@@ -3,6 +3,9 @@ name: Build Ubuntu 22.04 Package (Python 3.11 & 3.12)
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - "build/**"
+      - "dist/**"
   pull_request:
     branches: [ main ]
 
@@ -13,53 +16,47 @@ jobs:
       FFLAGS: "-O2 -fallow-argument-mismatch"
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # REQUIRED for safe pulls
+
+      - name: Sync with remote
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull origin main --no-rebase
 
       - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
-          ninja --version
 
       - name: Build for Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
-      - run: |
+
+      - name: Build artifacts (py3.11)
+        run: |
           python -m pip install --upgrade pip setuptools wheel numpy meson
-          python setup.py build_ext --inplace
-          python setup.py sdist bdist_wheel
-          mkdir -p build/ubuntu-22.04-py3.11
-          mkdir -p dist/ubuntu-22.04-py3.11
-          mv build/* build/ubuntu-22.04-py3.11/ || true
-          mv dist/* dist/ubuntu-22.04-py3.11/ || true
+          python setup.py build_ext --inplace --build-base build/ubuntu-22.04-py3.11
+          python setup.py sdist bdist_wheel --dist-dir dist/ubuntu-22.04-py3.11
 
       - name: Build for Python 3.12
         uses: actions/setup-python@v4
         with:
           python-version: 3.12
-      - run: |
-          python -m pip install --upgrade pip setuptools wheel numpy meson
-          python setup.py build_ext --inplace
-          python setup.py sdist bdist_wheel
-          mkdir -p build/ubuntu-22.04-py3.12
-          mkdir -p dist/ubuntu-22.04-py3.12
-          mv build/* build/ubuntu-22.04-py3.12/ || true
-          mv dist/* dist/ubuntu-22.04-py3.12/ || true
 
-      - name: Commit & push generated files
+      - name: Build artifacts (py3.12)
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add build dist
-          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12" || echo "No changes to commit"
-          git pull --rebase origin main || true
-          git push origin main
+          python -m pip install --upgrade pip setuptools wheel numpy meson
+          python setup.py build_ext --inplace --build-base build/ubuntu-22.04-py3.12
+          python setup.py sdist bdist_wheel --dist-dir dist/ubuntu-22.04-py3.12
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: all-dist
-          path: |
-            build/ubuntu-22.04-*
-            dist/ubuntu-22.04-*
+      - name: Commit generated files
+        run: |
+          git add build dist
+          git status
+          git commit -m "CI: add Ubuntu 22.04 builds for Python 3.11 & 3.12" || echo "Nothing to commit"
+          git push origin main
