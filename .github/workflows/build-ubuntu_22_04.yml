@@ -3,75 +3,85 @@ name: Build Ubuntu 22.04 Package (Python 3.11 & 3.12)
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-      - "build/**"
-      - "dist/**"
   pull_request:
     branches: [ main ]
 
 jobs:
   build-ubuntu:
     runs-on: ubuntu-22.04
-
     env:
       FFLAGS: "-O2 -fallow-argument-mismatch"
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # required for safe git pull
-
-      - name: Sync with remote main
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull origin main --no-rebase
+      - uses: actions/checkout@v4
 
       - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran build-essential ninja-build
-          gfortran --version
+          ninja --version
 
-      # -------------------------
-      # Python 3.11 build
-      # -------------------------
-      - name: Set up Python 3.11
+      - name: Build for Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
-
-      - name: Build artifacts (Python 3.11)
-        run: |
+      - run: |
           python -m pip install --upgrade pip setuptools wheel numpy meson
-          python setup.py build --build-base build/ubuntu-22.04-py3.11
-          python setup.py build_ext --inplace
-          python setup.py sdist
+          mkdir -p build/ubuntu-22.04-py3.11
+          
+          # --- Compila Fortran com f2py ---
+          f2py -c src/fortran/*.f90 -m flib -h PyFluxconserving/flib.pyf
+          f2py -c PyFluxconserving/flib.pyf src/fortran/*.f90 -m PyFluxconserving/flib
+          
+          # --- Copia arquivos Python ---
+          mkdir -p PyFluxconserving
+          cp src/python/*.py PyFluxconserving/
+          
+          # --- Gera sdist + wheel ---
+          python setup.py sdist --dist-dir dist/ubuntu-22.04-py3.11
           python setup.py bdist_wheel --dist-dir dist/ubuntu-22.04-py3.11
+          
+          # --- Move build artifacts ---
+          mkdir -p build/ubuntu-22.04-py3.11
+          mv build/* build/ubuntu-22.04-py3.11/ || true
 
-      # -------------------------
-      # Python 3.12 build
-      # -------------------------
-      - name: Set up Python 3.12
+      - name: Build for Python 3.12
         uses: actions/setup-python@v4
         with:
           python-version: 3.12
-
-      - name: Build artifacts (Python 3.12)
-        run: |
+      - run: |
           python -m pip install --upgrade pip setuptools wheel numpy meson
-          python setup.py build --build-base build/ubuntu-22.04-py3.12
-          python setup.py build_ext --inplace
-          python setup.py sdist
+          mkdir -p build/ubuntu-22.04-py3.12
+          
+          # --- Compila Fortran com f2py ---
+          f2py -c src/fortran/*.f90 -m flib -h PyFluxconserving/flib.pyf
+          f2py -c PyFluxconserving/flib.pyf src/fortran/*.f90 -m PyFluxconserving/flib
+          
+          # --- Copia arquivos Python ---
+          mkdir -p PyFluxconserving
+          cp src/python/*.py PyFluxconserving/
+          
+          # --- Gera sdist + wheel ---
+          python setup.py sdist --dist-dir dist/ubuntu-22.04-py3.12
           python setup.py bdist_wheel --dist-dir dist/ubuntu-22.04-py3.12
+          
+          # --- Move build artifacts ---
+          mkdir -p build/ubuntu-22.04-py3.12
+          mv build/* build/ubuntu-22.04-py3.12/ || true
 
-      # -------------------------
-      # Commit generated files
-      # -------------------------
-      - name: Commit build and dist artifacts
+      - name: Commit & push generated files
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add build dist
-          git status
-          git commit -m "CI: add Ubuntu 22.04 builds for Python 3.11 & 3.12" || echo "Nothing to commit"
-          git push origin main
+          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12" || echo "No changes to commit"
+          git pull --rebase origin main || true
+          git push origin main || true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-dist
+          path: |
+            build/ubuntu-22.04-*
+            dist/ubuntu-22.04-*
