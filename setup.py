@@ -1,86 +1,113 @@
-from numpy.distutils.core import setup, Extension
-from setuptools.command.build_ext import build_ext
-import subprocess
-import sys
-import os
-import glob
-import shutil
-from pathlib import Path
+name: Build Ubuntu 22.04 Package (Python 3.11 & 3.12)
 
-# --- Metadata ---
-this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text(encoding="utf-8")
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-PACKAGE_NAME = "PyFluxconserving"
-MODULE_NAME = "flib"
+jobs:
+  build-ubuntu:
+    runs-on: ubuntu-22.04
+    env:
+      FFLAGS: "-O2 -fallow-argument-mismatch"
 
-# --- Version from version.txt ---
-def read_version():
-    version_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), "version.txt")
-    with open(version_file, "r", encoding="utf-8") as f:
-        return f.read().strip()
+    steps:
+      - uses: actions/checkout@v4
 
-# --- Fortran sources ---
-fortran_sources = [
-    'src/fortran/DataTypes.f90',
-    'src/fortran/AkimaSpline.f90',
-    'src/fortran/Interpolado.f90',
-    'src/fortran/LINdexerpol.f90',
-    'src/fortran/LINinterpol.f90',
-    'src/fortran/SPLINE1DArr.f90',
-    'src/fortran/SPLINE3DFor.f90',
-    'src/fortran/FluxConSpec.f90',
-]
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gfortran build-essential ninja-build
+          ninja --version
 
-# --- Define the F2Py Extension ---
-ext_modules = [
-    Extension(
-        name=f"{PACKAGE_NAME}.{MODULE_NAME}",
-        sources=fortran_sources,
-    )
-]
+      - name: Build for Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - run: |
+          python -m pip install --upgrade pip setuptools wheel numpy meson
+          # --- Compila os arquivos Fortran com f2py ---
+          mkdir -p build/ubuntu-22.04-py3.11
+          f2py -c src/fortran/DataTypes.f90 \
+                src/fortran/AkimaSpline.f90 \
+                src/fortran/Interpolado.f90 \
+                src/fortran/LINdexerpol.f90 \
+                src/fortran/LINinterpol.f90 \
+                src/fortran/SPLINE1DArr.f90 \
+                src/fortran/SPLINE3DFor.f90 \
+                src/fortran/FluxConSpec.f90 \
+                -m flib -h PyFluxconserving/flib.pyf
+          f2py -c PyFluxconserving/flib.pyf \
+                src/fortran/DataTypes.f90 \
+                src/fortran/AkimaSpline.f90 \
+                src/fortran/Interpolado.f90 \
+                src/fortran/LINdexerpol.f90 \
+                src/fortran/LINinterpol.f90 \
+                src/fortran/SPLINE1DArr.f90 \
+                src/fortran/SPLINE3DFor.f90 \
+                src/fortran/FluxConSpec.f90 \
+                -m PyFluxconserving/flib
+          # --- Copia arquivos Python ---
+          mkdir -p PyFluxconserving
+          cp src/python/*.py PyFluxconserving/
+          # --- Gera sdist + wheel no diretório correto ---
+          python setup.py sdist --dist-dir dist/ubuntu-22.04-py3.11
+          python setup.py bdist_wheel --dist-dir dist/ubuntu-22.04-py3.11
+          # --- Move build artifacts ---
+          mkdir -p build/ubuntu-22.04-py3.11
+          mv build/* build/ubuntu-22.04-py3.11/ || true
 
-# --- Optional custom build_ext for copying .py files ---
-class F2PyBuild(build_ext):
-    def run(self):
-        # Ensure __init__.py exists
-        pkg_dir = os.path.join(os.getcwd(), PACKAGE_NAME)
-        os.makedirs(pkg_dir, exist_ok=True)
-        init_file = os.path.join(pkg_dir, "__init__.py")
-        if not os.path.exists(init_file):
-            open(init_file, "a").close()
+      - name: Build for Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+      - run: |
+          python -m pip install --upgrade pip setuptools wheel numpy meson
+          # --- Compila os arquivos Fortran com f2py ---
+          mkdir -p build/ubuntu-22.04-py3.12
+          f2py -c src/fortran/DataTypes.f90 \
+                src/fortran/AkimaSpline.f90 \
+                src/fortran/Interpolado.f90 \
+                src/fortran/LINdexerpol.f90 \
+                src/fortran/LINinterpol.f90 \
+                src/fortran/SPLINE1DArr.f90 \
+                src/fortran/SPLINE3DFor.f90 \
+                src/fortran/FluxConSpec.f90 \
+                -m flib -h PyFluxconserving/flib.pyf
+          f2py -c PyFluxconserving/flib.pyf \
+                src/fortran/DataTypes.f90 \
+                src/fortran/AkimaSpline.f90 \
+                src/fortran/Interpolado.f90 \
+                src/fortran/LINdexerpol.f90 \
+                src/fortran/LINinterpol.f90 \
+                src/fortran/SPLINE1DArr.f90 \
+                src/fortran/SPLINE3DFor.f90 \
+                src/fortran/FluxConSpec.f90 \
+                -m PyFluxconserving/flib
+          # --- Copia arquivos Python ---
+          mkdir -p PyFluxconserving
+          cp src/python/*.py PyFluxconserving/
+          # --- Gera sdist + wheel no diretório correto ---
+          python setup.py sdist --dist-dir dist/ubuntu-22.04-py3.12
+          python setup.py bdist_wheel --dist-dir dist/ubuntu-22.04-py3.12
+          # --- Move build artifacts ---
+          mkdir -p build/ubuntu-22.04-py3.12
+          mv build/* build/ubuntu-22.04-py3.12/ || true
 
-        # --- Generate .pyf interface using f2py ---
-        cmd = [sys.executable, "-m", "numpy.f2py", "-m", MODULE_NAME, "-h",
-               os.path.join(pkg_dir, f"{MODULE_NAME}.pyf")] + fortran_sources
-        subprocess.check_call(cmd)
+      - name: Commit & push generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add build dist
+          git commit -m "Add build and dist for Ubuntu 22.04 Python 3.11 & 3.12" || echo "No changes to commit"
+          git pull --rebase origin main || true
+          git push origin main || true
 
-        # --- Compile Fortran to .so ---
-        cmd = [sys.executable, "-m", "numpy.f2py", "-c",
-               os.path.join(pkg_dir, f"{MODULE_NAME}.pyf")] + fortran_sources
-        subprocess.check_call(cmd)
-
-        super().run()
-
-        # --- Move compiled .so to package if needed ---
-        for so_file in glob.glob(f"{MODULE_NAME}*.so"):
-            shutil.move(so_file, os.path.join(pkg_dir, so_file))
-
-        # --- Copy additional Python sources into the package ---
-        py_src_dir = os.path.join(os.getcwd(), "src", "python")
-        if os.path.isdir(py_src_dir):
-            for py_file in glob.glob(os.path.join(py_src_dir, "*.py")):
-                shutil.copy(py_file, pkg_dir)
-
-# --- Setup ---
-setup(
-    name=PACKAGE_NAME,
-    version=read_version(),
-    packages=[PACKAGE_NAME],
-    cmdclass={"build_ext": F2PyBuild},
-    ext_modules=ext_modules,              # Important: register extension
-    has_ext_modules=lambda: True,         # Force wheel to be non-pure
-    package_data={PACKAGE_NAME: ["flib*.so"]},  # Include .so files
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-)
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-dist
+          path: |
+            build/ubuntu-22.04-*
+            dist/ubuntu-22.04-*
